@@ -1,0 +1,102 @@
+
+.main-service-title{
+    position: relative;
+    text-align: center;
+    font-family: regular;
+    
+   
+    
+}
+.main-service p{
+    width: 50%;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media all and (max-width: 850px){
+    .main-service p{
+        width: 100%;
+    }
+}
+.main-service-title::after{
+    position: absolute;
+    width: 50px;
+    border-radius: 5px;
+    height: 5px;
+    content: "";
+    color: #2e8ece; 
+    border: solid;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.service-card{
+    border-radius: 5%;
+    border: thick;
+}
+.service-card-title{
+    position: relative;
+    padding: 10px 0;
+    font-family: regular;
+}
+
+.service-card-title h6::after{
+    position: absolute;
+    content: "";
+    border: solid #2e8ece thin;
+    width: 50px;
+    height: 1px;
+
+    border-radius: 5px;
+    bottom: 0%;
+    left: 0;
+    
+}
+.service-card-icon span{
+    font-size: 50px;
+    color: #2e8ece;
+    font-weight: 100;
+}
+
+.service-card-icon span{
+    transition: all ease-in-out .3s ;
+}
+
+
+.service-card:hover .service-card-icon span{
+    /* transition: ease-in-out .3s; */
+    color: #222;
+
+}
+
+.service-counter{
+    width: 100%;
+    background-image: url("../../images/glenn-carstens-peters-P1qyEf1g0HU-unsplash.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: regular;
+}
+
+.service-counter-inner{
+    /* padding: 5%; */
+    margin: auto;
+}
+
+.counter-element-icon span{
+    font-size: 50px;
+}
+
+.call-back-header h4{
+    font-family: regular;
+}
+
+.call-back-image{
+    height: 100%;
+    background-image: url("../../images/man-image-1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}

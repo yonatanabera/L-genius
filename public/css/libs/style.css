@@ -1,0 +1,281 @@
+
+@font-face{
+    font-family: 'digital';
+    src: url('../../fonts/libs/ProcrastinatingPixie-WyVOO.ttf');
+}
+
+@font-face{
+    font-family: 'harry';
+    src: url('../../fonts/libs/SpiderWebBlockNormal-RpgW.ttf');
+}
+@font-face{
+    font-family: 'marvel';
+    src: url('../../fonts/libs/MarvelRegular-Dj83.ttf');
+}
+@font-face{
+    font-family: 'regular';
+    src: url('../../fonts/libs/PrequeldemoRegular-BWWdw.ttf');
+}
+.body{
+    overflow: hidden;
+}
+
+
+.s-navbar{
+    min-height: 80px;
+    opacity: .8;
+    background-color: #1b1b1b;
+    overflow: hidden;
+    
+   
+}
+
+
+.s-jumbotron{
+ 
+  background-image: url('../../images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg');
+  background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;  
+   text-transform: uppercase;
+   font-family: digital;
+}
+.jumbotext{
+    background: rgba(0, 0, 0, .5);
+    overflow: hidden;
+}
+
+.breadcrumb-item{
+    font-size: large;
+    color: #2098D1;
+
+}
+.navbar-dark .nav-item .nav-link{
+    padding-left: 50px;
+    /* border: solid ; */
+    color: rgb(255, 255, 255);   
+}
+.nav-active{
+    background-color: #2098D1; 
+}
+.hvr-sweep-to-right:hover{
+    background: #ffffff;
+
+}
+.navbar-dark .nav-item .nav-link:hover{
+    color: white;
+}
+.navbar-dark .logo{
+    font-family: harry;
+    color: white;
+    /* border: solid; */
+    /* background-color: white; */
+}
+
+
+
+
+
+/* body part */
+@font-face{
+    font-family: 'bebas';
+    src: url(../font/BebasNeue-Regular.ttf);
+}
+
+
+.post-description{
+    /* color: #ffc31e; */
+    font-family:bebas;
+    /* font-weight: bold; */
+}
+.post-description .post-date{
+    color: #2098D1;
+}
+.post-description .post-title:hover h4:hover{
+    color: #2098D1;
+}
+
+.card-body .learn-more{
+    float: left;
+}
+.card-body .share{
+    float: right;
+}
+.card-body .share span{
+    padding-left: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer section */
+
+/* Section Footer */
+   
+.card-border-none{
+    border: none;
+}
+
+.about-image img{
+    width: 100%;
+    
+}
+.about-body{
+    color: rgba(0, 0, 0, 0.87);
+}
+
+
+.about-header{
+    font-family: regular;
+}
+
+.about-header span{
+    border-bottom: solid #2098D1;
+}
+.about-footer button{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: small;
+    border-radius: 10%;
+    transition: ease-in-out .3s;
+
+}
+
+.statement-title, .statement-header{
+    text-align: center;
+    font-family: regular;
+    
+}
+
+.statement-body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.statement-header span{
+    font-size: xx-large;
+    color: #2e8ece; 
+    border: solid thin ;
+    padding: 30px;
+    border-radius: 100%;
+    transition: ease-in-out .3s;
+}
+.statement-header span:hover{
+    color: white;
+    background-color: #2e8ece;
+}
+
+
+
+.contact-title h5, .contact-email-header h5{
+    font-family: regular;
+}
+.contact-title p ,.contact-email-header p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-title p span , .contact-email-header p span{
+    padding-bottom: 10px;
+    border-bottom: solid #2e8ece;
+
+}
+.contact-body .contact-icon{
+    color: #2e8ece;
+    font-size: larger;
+
+}
+
+.contact-body h6{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+
+}
+.contact-email-body .btn{
+    margin-top: 20px;
+    border-radius: 30px;
+    padding: 5px 30px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 30px;
+    text-transform: uppercase;
+    border: 0;
+    color: #fff;
+}
+
+.map-section iframe{
+    width: 100%;
+}
+
+/* .footer-map iframe{
+    float: right;
+} */
+
+
+@media all and (max-width: 1250px){
+    .footer-map iframe{
+        width: 100%;
+        height: none;
+    }
+}
+
+.footer-section, .copyright-section{
+    color: #bbb;
+    background-color: #111;
+}
+.footer-body p{
+    font-size: small;
+    
+
+}
+.footer-title h6{
+    font-family: regular;
+    text-transform: uppercase;
+    font-size: smaller;
+}
+.footer-title span{
+    border-bottom: solid thin #2e8ece;
+    padding-bottom: 10px ;
+}
+
+.footer-contact-icon .fa{
+    border: solid thin;
+    border-radius: 100%;
+    padding: 10px;
+    max-width: 40px;
+    max-height: 40px;
+   
+}
+
+.footer-section a{
+   color: #bbb;
+   transition: all ease-in-out .3s;
+  
+}
+.footer-section .footer-contact-icon a:hover{
+    color: #2e8ece;
+    text-decoration: none;
+}
+.fa-facebook:hover {
+    background-color: #3b5998;
+    color: white;
+    cursor: pointer;
+    
+}
+.fa-twitter:hover {
+    background-color: #00a0d1;
+    color: white;
+    cursor: pointer;
+}
+.fa-google-plus:hover {
+    background-color: #db4a39;
+    color: white;
+    cursor: pointer;
+}
