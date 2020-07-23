@@ -23,12 +23,12 @@ Auth::routes();
 $page='';
 Route::get('shop', function(){
     $page='shop';
-    return view('Client.shop', compact('page'));
+    return view('client.shop', compact('page'));
 })->name('shop');
 
 Route::get('/', function(){
     $page='home';
-    return view('Client.home', compact('page'));
+    return view('client.home', compact('page'));
 })->name('home');
 
 Route::get('blog', function(){
