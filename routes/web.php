@@ -36,6 +36,11 @@ Route::get('blog', function(){
     return view('client.blog', compact('page'));
 })->name('blog');
 
+Route::get('blog-readmore', function(){
+    $page='blog';
+    return view('client.blog_readmore', compact('page'));
+})->name('blog.readmore');
+
 Route::get('about', function(){
     $page='about';
     return view('client.about', compact('page'));
@@ -46,7 +51,7 @@ Route::get('contact', function(){
     return view('client.contact', compact('page'));
 })->name('contact');
 
-Route::get('readmore', function(){
+Route::get('servicereadmore', function(){
     $page='service';
     return view('client.services_readmore', compact('page'));
 })->name('service.readmore');
@@ -55,4 +60,6 @@ Route::get('service', function(){
     $page='service';
     return view('client.services', compact('page'));
 })->name('service');
+
+
 

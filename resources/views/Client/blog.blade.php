@@ -28,7 +28,7 @@
                             <img class="card-img-top" src="{{asset('images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg')}}" alt="Card image cap">
                             <div class="card-body text-justify">
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cupiditate minima facilis rerum repellat? Ullam, eaque? Sint amet cumque maxime est ex deleniti accusamus aliquid voluptates, culpa commodi? Architecto, deserunt! Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-outline-info learn-more hvr-icon-bounce">Leaern more</a>
+                            <a href="{{route('blog.readmore')}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
                             <div class="share">
                                 <span class="text-capitalize border-info border-right">share </span>
                                 <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
@@ -60,7 +60,7 @@
                         <img class="card-img-top" src="{{asset('images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg')}}" alt="Card image cap">
                         <div class="card-body text-justify">
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cupiditate minima facilis rerum repellat? Ullam, eaque? Sint amet cumque maxime est ex deleniti accusamus aliquid voluptates, culpa commodi? Architecto, deserunt! Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-info learn-more hvr-icon-bounce">Leaern more</a>
+                        <a href="{{route('blog.readmore')}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
                         <div class="share">
                             <span class="text-capitalize border-info border-right">share </span>
                             <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
@@ -92,7 +92,7 @@
                     <img class="card-img-top" src="{{asset('images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg')}}" alt="Card image cap">
                     <div class="card-body text-justify">
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cupiditate minima facilis rerum repellat? Ullam, eaque? Sint amet cumque maxime est ex deleniti accusamus aliquid voluptates, culpa commodi? Architecto, deserunt! Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-info learn-more hvr-icon-bounce">Leaern more</a>
+                        <a href="{{route('blog.readmore')}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
                         <div class="share">
                             <span class="text-capitalize border-info border-right">share </span>
                             <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
