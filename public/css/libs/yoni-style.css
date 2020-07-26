@@ -1533,6 +1533,42 @@
 }
 
 
+/* Services readmore carousel */
+
+.services-related-grid .carousel-wrap {
+    position: relative;
+}
+    .carousel-wrap .owl-theme .custom-nav {
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    right: 2%;
+    
+}
+.services-related-grid .carousel-wrap .owl-theme .custom-nav .owl-prev,
+.services-related-grid .carousel-wrap .owl-theme .custom-nav .owl-next {
+    position: absolute;
+    height: 100px;
+    color: inherit;
+    background: none;
+    border: none;
+    z-index: 100;
+    outline: none;
+}
+.services-related-grid .carousel-wrap .owl-theme .custom-nav .owl-prev i,
+.services-related-grid .carousel-wrap .owl-theme .custom-nav .owl-next i {
+    font-size: 2.5rem;
+    color: #2e8ece;
+}
+.services-related-grid .carousel-wrap .owl-theme .custom-nav .owl-prev {
+    left: 0;
+}
+.services-related-grid .carousel-wrap .owl-theme .custom-nav .owl-next {
+    right: 0;
+}
+
+/* Services readmore carousel end */
+
 /* Readmore sidebar end */
 
 

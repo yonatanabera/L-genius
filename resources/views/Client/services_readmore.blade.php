@@ -100,377 +100,389 @@
                                   </div>
 
                                   <div class="services-related">
-                                      <h3 class="services-related-title">YOU MAY LIKE</h3>
-                                      <div class="services-related-grid">
-                                        <div class="owl-carousel">
-                                            
-                                            
+                                    <h3 class="services-related-title">YOU MAY LIKE</h3>
+                                    <div class="services-related-grid">
+                                        <div class="carousel-wrap">
+                                          <div id="owl-service" class="owl-carousel carousel-theme">
+                                              
+                                              
 
-                                            <div class="shop-item-display-flex shop-item ">
-                                                <div class="card text-left" >
-                                                    <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="{{asset('images/book1.jpg')}}" alt="Card image cap">
-                                                        <div class="overlay">
-                                                            
-                                                        </div>
-                                                        <a href="{{route('service.readmore')}}" class=" btn-quick-view ">Read more</a>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="card-body services-card-body">
-                                                        <div class="upper-body">
-                                                            <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
-                                                            <div class="course-middle">
-                                                                <div class="course-author">
-                                                                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
-                    
-                    
-                                                                    <div class="author-contain">
-                                                                        <a href="">Dr.Werotaw</a>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="course-students">
-                                                                    <i class="fa fa-group"></i> 275
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="shop-star-course">
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                
-                                                            </div>
-                                                            <p class="course-price pull-right">$35.00</p>
-                                                        </div>
+                                              <div class="shop-item-display-flex shop-item item">
+                                                  <div class="card text-left" >
+                                                      <div class="cardimg text-center">
+                                                      <img class="card-img-top " src="{{asset('images/book1.jpg')}}" alt="Card image cap">
+                                                          <div class="overlay">
+                                                              
+                                                          </div>
+                                                          <a href="services_readmore.html" class=" btn-quick-view ">Read more</a>
+                                                      </div>
                                                       
-                    
-                                                    </div>
-                                                  </div>
-                                            </div>
-
-                                            <div class="shop-item-display-flex shop-item ">
-                                                <div class="card text-left" >
-                                                    <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="{{asset('images/book2.jpg')}}" alt="Card image cap">
-                                                        <div class="overlay">
-                                                            
-                                                        </div>
-                                                        <a href="{{route('service.readmore')}}" class=" btn-quick-view ">Read more</a>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="card-body services-card-body">
-                                                        <div class="upper-body">
-                                                            <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
-                                                            <div class="course-middle">
-                                                                <div class="course-author">
-                                                                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
-                    
-                    
-                                                                    <div class="author-contain">
-                                                                        <a href="">Dr.Werotaw</a>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="course-students">
-                                                                    <i class="fa fa-group"></i> 275
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="shop-star-course">
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                
-                                                            </div>
-                                                            <p class="course-price pull-right">$35.00</p>
-                                                        </div>
                                                       
-                    
-                                                    </div>
-                                                  </div>
-                                            </div>
-
-                                            <div class="shop-item-display-flex shop-item ">
-                                                <div class="card text-left" >
-                                                    <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="{{asset('images/book3.jpg')}}" alt="Card image cap">
-                                                        <div class="overlay">
-                                                            
-                                                        </div>
-                                                        <a href="{{route('service.readmore')}}" class=" btn-quick-view ">Read more</a>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="card-body services-card-body">
-                                                        <div class="upper-body">
-                                                            <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
-                                                            <div class="course-middle">
-                                                                <div class="course-author">
-                                                                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
-                    
-                    
-                                                                    <div class="author-contain">
-                                                                        <a href="">Dr.Werotaw</a>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="course-students">
-                                                                    <i class="fa fa-group"></i> 275
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="shop-star-course">
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                
-                                                            </div>
-                                                            <p class="course-price pull-right">$35.00</p>
-                                                        </div>
+                                                      <div class="card-body services-card-body">
+                                                          <div class="upper-body">
+                                                              <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
+                                                              <div class="course-middle">
+                                                                  <div class="course-author">
+                                                                      <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                      
+                      
+                                                                      <div class="author-contain">
+                                                                          <a href="">Dr.Werotaw</a>
+                                                                      </div>
+                                                                  </div>
+                                                              
+                                                                  <div class="course-students">
+                                                                      <i class="fa fa-group"></i> 275
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div class="shop-star-course">
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  
+                                                              </div>
+                                                              <p class="course-price pull-right">$35.00</p>
+                                                          </div>
                                                       
-                    
-                                                    </div>
+                      
+                                                      </div>
                                                   </div>
-                                            </div>
+                                              </div>
 
-                                            <div class="shop-item-display-flex shop-item ">
-                                                <div class="card text-left" >
-                                                    <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="{{asset('images/book4.jpg')}}" alt="Card image cap">
-                                                        <div class="overlay">
-                                                            
-                                                        </div>
-                                                        <a href="{{route('service.readmore')}}" class=" btn-quick-view ">Read more</a>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="card-body services-card-body">
-                                                        <div class="upper-body">
-                                                            <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
-                                                            <div class="course-middle">
-                                                                <div class="course-author">
-                                                                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
-                    
-                    
-                                                                    <div class="author-contain">
-                                                                        <a href="">Dr.Werotaw</a>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="course-students">
-                                                                    <i class="fa fa-group"></i> 275
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="shop-star-course">
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                
-                                                            </div>
-                                                            <p class="course-price pull-right">$35.00</p>
-                                                        </div>
+                                              <div class="shop-item-display-flex shop-item item">
+                                                  <div class="card text-left" >
+                                                      <div class="cardimg text-center">
+                                                          <img class="card-img-top " src="{{asset('images/book2.jpg')}}" alt="Card image cap">
+                                                          <div class="overlay">
+                                                              
+                                                          </div>
+                                                          <a href="services_readmore.html" class=" btn-quick-view ">Read more</a>
+                                                      </div>
                                                       
-                    
-                                                    </div>
-                                                  </div>
-                                            </div>
-
-                                            <div class="shop-item-display-flex shop-item ">
-                                                <div class="card text-left" >
-                                                    <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="{{asset('images/book5.jpg')}}" alt="Card image cap">
-                                                        <div class="overlay">
-                                                            
-                                                        </div>
-                                                        <a href="{{route('service.readmore')}}" class=" btn-quick-view ">Read more</a>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="card-body services-card-body">
-                                                        <div class="upper-body">
-                                                            <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
-                                                            <div class="course-middle">
-                                                                <div class="course-author">
-                                                                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
-                    
-                    
-                                                                    <div class="author-contain">
-                                                                        <a href="">Dr.Werotaw</a>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="course-students">
-                                                                    <i class="fa fa-group"></i> 275
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="shop-star-course">
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                
-                                                            </div>
-                                                            <p class="course-price pull-right">$35.00</p>
-                                                        </div>
                                                       
-                    
-                                                    </div>
-                                                  </div>
-                                            </div>
-
-                                            <div class="shop-item-display-flex shop-item ">
-                                                <div class="card text-left" >
-                                                    <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="{{asset('images/audio1.jpg')}}" alt="Card image cap">
-                                                        <div class="overlay">
-                                                            
-                                                        </div>
-                                                        <a href="{{route('service.readmore')}}" class=" btn-quick-view ">Read more</a>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="card-body services-card-body">
-                                                        <div class="upper-body">
-                                                            <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
-                                                            <div class="course-middle">
-                                                                <div class="course-author">
-                                                                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
-                    
-                    
-                                                                    <div class="author-contain">
-                                                                        <a href="">Dr.Werotaw</a>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="course-students">
-                                                                    <i class="fa fa-group"></i> 275
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="shop-star-course">
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                
-                                                            </div>
-                                                            <p class="course-price pull-right">$35.00</p>
-                                                        </div>
+                                                      <div class="card-body services-card-body">
+                                                          <div class="upper-body">
+                                                              <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
+                                                              <div class="course-middle">
+                                                                  <div class="course-author">
+                                                                      <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                      
+                      
+                                                                      <div class="author-contain">
+                                                                          <a href="">Dr.Werotaw</a>
+                                                                      </div>
+                                                                  </div>
+                                                              
+                                                                  <div class="course-students">
+                                                                      <i class="fa fa-group"></i> 275
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div class="shop-star-course">
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  
+                                                              </div>
+                                                              <p class="course-price pull-right">$35.00</p>
+                                                          </div>
                                                       
-                    
-                                                    </div>
+                      
+                                                      </div>
                                                   </div>
-                                            </div>
+                                              </div>
 
-                                            <div class="shop-item-display-flex shop-item ">
-                                                <div class="card text-left" >
-                                                    <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="{{asset('images/audio2.jpg')}}" alt="Card image cap">
-                                                        <div class="overlay">
-                                                            
-                                                        </div>
-                                                        <a href="{{route('service.readmore')}}" class=" btn-quick-view ">Read more</a>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="card-body services-card-body">
-                                                        <div class="upper-body">
-                                                            <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
-                                                            <div class="course-middle">
-                                                                <div class="course-author">
-                                                                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
-                    
-                    
-                                                                    <div class="author-contain">
-                                                                        <a href="">Dr.Werotaw</a>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="course-students">
-                                                                    <i class="fa fa-group"></i> 275
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="shop-star-course">
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                
-                                                            </div>
-                                                            <p class="course-price pull-right">$35.00</p>
-                                                        </div>
+                                              <div class="shop-item-display-flex shop-item item">
+                                                  <div class="card text-left" >
+                                                      <div class="cardimg text-center">
+                                                          <img class="card-img-top " src="{{asset('images/book3.jpg')}}" alt="Card image cap">
+                                                          <div class="overlay">
+                                                              
+                                                          </div>
+                                                          <a href="services_readmore.html" class=" btn-quick-view ">Read more</a>
+                                                      </div>
                                                       
-                    
-                                                    </div>
-                                                  </div>
-                                            </div>
-
-                                            <div class="shop-item-display-flex shop-item ">
-                                                <div class="card text-left" >
-                                                    <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="{{asset('images/audio3.jpg')}}" alt="Card image cap">
-                                                        <div class="overlay">
-                                                            
-                                                        </div>
-                                                        <a href="{{route('service.readmore')}}" class=" btn-quick-view ">Read more</a>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="card-body services-card-body">
-                                                        <div class="upper-body">
-                                                            <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
-                                                            <div class="course-middle">
-                                                                <div class="course-author">
-                                                                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
-                    
-                    
-                                                                    <div class="author-contain">
-                                                                        <a href="">Dr.Werotaw</a>
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <div class="course-students">
-                                                                    <i class="fa fa-group"></i> 275
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="shop-star-course">
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                <a href="" ><i class="fa fa-star-o"></i></a>
-                                                                
-                                                            </div>
-                                                            <p class="course-price pull-right">$35.00</p>
-                                                        </div>
                                                       
-                    
-                                                    </div>
+                                                      <div class="card-body services-card-body">
+                                                          <div class="upper-body">
+                                                              <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
+                                                              <div class="course-middle">
+                                                                  <div class="course-author">
+                                                                      <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                      
+                      
+                                                                      <div class="author-contain">
+                                                                          <a href="">Dr.Werotaw</a>
+                                                                      </div>
+                                                                  </div>
+                                                              
+                                                                  <div class="course-students">
+                                                                      <i class="fa fa-group"></i> 275
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div class="shop-star-course">
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  
+                                                              </div>
+                                                              <p class="course-price pull-right">$35.00</p>
+                                                          </div>
+                                                      
+                      
+                                                      </div>
                                                   </div>
-                                            </div>
+                                              </div>
 
+                                              <div class="shop-item-display-flex shop-item item">
+                                                  <div class="card text-left" >
+                                                      <div class="cardimg text-center">
+                                                      <img class="card-img-top " src="{{asset('images/book4.jpg')}}" alt="Card image cap">
+                                                          <div class="overlay">
+                                                              
+                                                          </div>
+                                                          <a href="services_readmore.html" class=" btn-quick-view ">Read more</a>
+                                                      </div>
+                                                      
+                                                      
+                                                      <div class="card-body services-card-body">
+                                                          <div class="upper-body">
+                                                              <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
+                                                              <div class="course-middle">
+                                                                  <div class="course-author">
+                                                                      <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                      
+                      
+                                                                      <div class="author-contain">
+                                                                          <a href="">Dr.Werotaw</a>
+                                                                      </div>
+                                                                  </div>
+                                                              
+                                                                  <div class="course-students">
+                                                                      <i class="fa fa-group"></i> 275
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div class="shop-star-course">
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  
+                                                              </div>
+                                                              <p class="course-price pull-right">$35.00</p>
+                                                          </div>
+                                                      
+                      
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="shop-item-display-flex shop-item item">
+                                                  <div class="card text-left" >
+                                                      <div class="cardimg text-center">
+                                                          <img class="card-img-top " src="{{asset('images/book5.jpg')}}" alt="Card image cap">
+                                                          <div class="overlay">
+                                                              
+                                                          </div>
+                                                          <a href="services_readmore.html" class=" btn-quick-view ">Read more</a>
+                                                      </div>
+                                                      
+                                                      
+                                                      <div class="card-body services-card-body">
+                                                          <div class="upper-body">
+                                                              <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
+                                                              <div class="course-middle">
+                                                                  <div class="course-author">
+                                                                      <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                      
+                      
+                                                                      <div class="author-contain">
+                                                                          <a href="">Dr.Werotaw</a>
+                                                                      </div>
+                                                                  </div>
+                                                              
+                                                                  <div class="course-students">
+                                                                      <i class="fa fa-group"></i> 275
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div class="shop-star-course">
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  
+                                                              </div>
+                                                              <p class="course-price pull-right">$35.00</p>
+                                                          </div>
+                                                      
+                      
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="shop-item-display-flex shop-item item">
+                                                  <div class="card text-left" >
+                                                      <div class="cardimg text-center">
+                                                          <img class="card-img-top " src="{{asset('images/audio1.jpg')}}" alt="Card image cap">
+                                                          <div class="overlay">
+                                                              
+                                                          </div>
+                                                          <a href="services_readmore.html" class=" btn-quick-view ">Read more</a>
+                                                      </div>
+                                                      
+                                                      
+                                                      <div class="card-body services-card-body">
+                                                          <div class="upper-body">
+                                                              <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
+                                                              <div class="course-middle">
+                                                                  <div class="course-author">
+                                                                      <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                      
+                      
+                                                                      <div class="author-contain">
+                                                                          <a href="">Dr.Werotaw</a>
+                                                                      </div>
+                                                                  </div>
+                                                              
+                                                                  <div class="course-students">
+                                                                      <i class="fa fa-group"></i> 275
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div class="shop-star-course">
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  
+                                                              </div>
+                                                              <p class="course-price pull-right">$35.00</p>
+                                                          </div>
+                                                      
+                      
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="shop-item-display-flex shop-item item">
+                                                  <div class="card text-left" >
+                                                      <div class="cardimg text-center">
+                                                          <img class="card-img-top " src="{{asset('images/audio2.jpg')}}" alt="Card image cap">
+                                                          <div class="overlay">
+                                                              
+                                                          </div>
+                                                          <a href="services_readmore.html" class=" btn-quick-view ">Read more</a>
+                                                      </div>
+                                                      
+                                                      
+                                                      <div class="card-body services-card-body">
+                                                          <div class="upper-body">
+                                                              <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
+                                                              <div class="course-middle">
+                                                                  <div class="course-author">
+                                                                      <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                      
+                      
+                                                                      <div class="author-contain">
+                                                                          <a href="">Dr.Werotaw</a>
+                                                                      </div>
+                                                                  </div>
+                                                              
+                                                                  <div class="course-students">
+                                                                      <i class="fa fa-group"></i> 275
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div class="shop-star-course">
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  
+                                                              </div>
+                                                              <p class="course-price pull-right">$35.00</p>
+                                                          </div>
+                                                      
+                      
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="shop-item-display-flex shop-item item">
+                                                  <div class="card text-left" >
+                                                      <div class="cardimg text-center">
+                                                          <img class="card-img-top " src="{{asset('images/audio3.jpg')}}" alt="Card image cap">
+                                                          <div class="overlay">
+                                                              
+                                                          </div>
+                                                          <a href="services_readmore.html" class=" btn-quick-view ">Read more</a>
+                                                      </div>
+                                                      
+                                                      
+                                                      <div class="card-body services-card-body">
+                                                          <div class="upper-body">
+                                                              <h2 class="course-title"><a href="">Introduction LearnPress - LMS plugin</a></h2>
+                                                              <div class="course-middle">
+                                                                  <div class="course-author">
+                                                                      <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                      
+                      
+                                                                      <div class="author-contain">
+                                                                          <a href="">Dr.Werotaw</a>
+                                                                      </div>
+                                                                  </div>
+                                                              
+                                                                  <div class="course-students">
+                                                                      <i class="fa fa-group"></i> 275
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div class="shop-star-course">
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  <a href="" ><i class="fa fa-star-o"></i></a>
+                                                                  
+                                                              </div>
+                                                              <p class="course-price pull-right">$35.00</p>
+                                                          </div>
+                                                      
+                      
+                                                      </div>
+                                                  </div>
+                                              </div>
 
 
                                           </div>
-                                      </div>
-                                  </div>
+
+                                          <div class="owl-theme">
+                                              <div class="owl-controls">
+                                                  <div class="custom-nav owl-nav"></div>
+                                              </div>
+                                          </div>
+                                          
+                                         
+                                        </div>
+
+
+                                      
+                                    </div>
+                                </div>
                             </div>
                         </div>
                    </div>
@@ -578,22 +590,34 @@
 
 @section('scripts')
 
-    <script>
-        $(document).ready(function(){
-            $(".owl-carousel").owlCarousel();
-        });
-
-        $('.owl-carousel').owlCarousel({
-            margin:10,
-            loop:true,
-            autoWidth:true,
-            items:3,
-            center: true,
-            autoplay: true,
-            autoplayHoverPause: true,
-            nav: true,
-        
-        })
-    </script>
+<script>
+    $('.carousel-wrap .owl-carousel').owlCarousel({
+        // stagePadding: -50,
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots:true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        center:true,
+        autoWidth: true,
+        navText: [
+            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+        ],
+        navContainer: '.carousel-wrap .custom-nav',
+        responsive:{
+            0:{
+                items: 1
+            },
+            600:{
+                items: 2
+            },
+            1000:{
+                items: 3
+            }
+        }
+    });
+</script>
 
 @endsection
