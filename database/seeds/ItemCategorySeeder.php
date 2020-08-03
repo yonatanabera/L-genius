@@ -12,5 +12,13 @@ class ItemCategorySeeder extends Seeder
     public function run()
     {
         //
+        DB::table('item_categories')->insert([
+            'name'=>'Book',
+            
+        ]);
+
+        DB::table('item_categories')->insert([
+            'name'=>'Audio',
+        ]);
     }
 }
