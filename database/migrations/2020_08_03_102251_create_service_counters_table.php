@@ -15,6 +15,10 @@ class CreateServiceCountersTable extends Migration
     {
         Schema::create('service_counters', function (Blueprint $table) {
             $table->id();
+            $table->integer('satisfied_clients');
+            $table->integer('ongoing_projects');
+            $table->integer('completed_projects');
+            $table->integer('graduated_entrepreneurs');
             $table->timestamps();
         });
     }

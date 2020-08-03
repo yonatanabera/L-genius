@@ -15,6 +15,14 @@ class CreateWhyCoachingsTable extends Migration
     {
         Schema::create('why_coachings', function (Blueprint $table) {
             $table->id();
+            $table->string('title1');
+            $table->text('description1');
+            $table->string('title2');
+            $table->text('description2');
+            $table->string('title3');
+            $table->text('description3');
+            $table->string('title4');
+            $table->text('description4');
             $table->timestamps();
         });
     }
