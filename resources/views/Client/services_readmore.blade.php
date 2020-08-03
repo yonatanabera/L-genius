@@ -14,7 +14,7 @@
             <div class="container service-sidebar">
                <div class="row">
                    <div class="col-lg-9 col-12">
-                        <h1 class="readmore-title">{{$service->title}}</h1>
+                        <h1 class="readmore-title text-uppercase">{{$service->title}}</h1>
                         <div class="readmore-meta">
                             <div class="readmore-author">
                                 <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="" class="readmore-author-photo">

@@ -32,7 +32,7 @@
                 <ul class="navbar-nav ml-auto text-white ">
                                         
                     <li class="nav-item mx-1 {{$page=='home' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
-                        <a class="nav-link text-uppercase px-4 " href="{{route('home')}}">home</a>
+                        <a class="nav-link text-uppercase px-4 " href="{{route('home.index')}}">home</a>
                     </li>
                     <li class="nav-item mx-1 {{$page=='about' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                         <a class="nav-link text-uppercase px-4 " href="{{route('about.index')}}">about</a>
@@ -41,13 +41,13 @@
                         <a class="nav-link text-uppercase px-4" href="{{route('service.index')}}">services</a>
                     </li>
                     <li class="nav-item mx-1 {{$page=='shop' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
-                        <a class="nav-link text-uppercase px-4" href="{{route('shop')}}">shop</a>
+                        <a class="nav-link text-uppercase px-4" href="{{route('shop.index')}}">shop</a>
                     </li>
                     <li class="nav-item  mx-3 {{$page=='blog' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                         <a class="nav-link text-uppercase px-4" href="{{route('blog.index')}}">blog</a>
                     </li>
                     <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
-                        <a class="nav-link text-uppercase px-4" href="{{route('contact')}}" >contact</a>
+                        <a class="nav-link text-uppercase px-4" href="{{route('contact.index')}}" >contact</a>
                     </li>
 
                 </ul>
@@ -429,7 +429,7 @@
                             </div>
                             <div class="col ">
         
-                                <p class="text-secondary">+251 987654321</p>
+                                <p class="text-secondary">{{$contact->phone}}</p>
                             </div>
                         </div>
                         <div class="row my-3">
@@ -438,7 +438,7 @@
                             </div> 
                             <div class="col ">
             
-                                <p class="text-secondary">Genius@consult.com</p>
+                                <p class="text-secondary">{{$contact->email}}</p>
                             </div>
                         </div>
                         <div class="row my-3">
@@ -446,7 +446,7 @@
                                 <span class="fa fa-map-marker "></span>
                             </div>
                             <div class="col ">
-                                <p class="text-secondary">PO Box 12345 Bole Medhanialem , Addis Ababa , Ethiopia</p>
+                                <p class="text-secondary">{{$contact->address}}</p>
                             </div>
                         </div>
                         
@@ -460,14 +460,14 @@
                 <div class="footer-body">
                     <div class="row">
                         <div class="col text-secondary">
-                            <p>  <a class="text-secondary clearfix  " href="abouts.html" class="text-secondary">About</a> </p>
-                            <p>  <a class="text-secondary clearfix  " href="contact.html">Contact</a> </p>
-                            <p>  <a class="text-secondary clearfix  " href="blog.html">Blog</a></p>
-                            <p>  <a class="text-secondary clearfix  " href="shop.html">Shop</a></p>
+                            <p>  <a class="text-secondary clearfix  " href="{{route('about.index')}}" class="text-secondary">About</a> </p>
+                            <p>  <a class="text-secondary clearfix  " href="{{route('contact.index')}}">Contact</a> </p>
+                            <p>  <a class="text-secondary clearfix  " href="{{route('blog.index')}}">Blog</a></p>
+                            <p>  <a class="text-secondary clearfix  " href="{{route('shop.index')}}">Shop</a></p>
                         </div>
                         <div class="col">
-                            <p>  <a class="text-secondary clearfix  " href="Home.html">Home</a> </p>
-                            <p>  <a class="text-secondary clearfix  " href="services.html">Service</a> </p>
+                            <p>  <a class="text-secondary clearfix  " href="{{route('home.index')}}">Home</a> </p>
+                            <p>  <a class="text-secondary clearfix  " href="{{route('service.index')}}">Service</a> </p>
                             <p>  <a class="text-secondary clearfix  " href="#">Privacy policy</a> </p>
                         </div>
                     </div>

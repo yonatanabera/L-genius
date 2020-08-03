@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Model\YourThought;
+use App\Model\ContactInformation;
+use App\Http\Requests\YourThoughtRequest;
 use Illuminate\Http\Request;
 
 class YourThoughtController extends Controller
@@ -15,6 +17,9 @@ class YourThoughtController extends Controller
     public function index()
     {
         //
+        $page='contact';
+        $contact=ContactInformation::find(1);
+        return view('client.contact', compact('page', 'contact'));
     }
 
     /**
@@ -33,9 +38,13 @@ class YourThoughtController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(YourThoughtRequest $request)
     {
         //
+        
+        YourThought::create($request->all());
+
+        return redirect(route('contact.index'));
     }
 
     /**
@@ -47,6 +56,7 @@ class YourThoughtController extends Controller
     public function show(YourThought $yourThought)
     {
         //
+        $contact=ContactInformation::find(1);
     }
 
     /**

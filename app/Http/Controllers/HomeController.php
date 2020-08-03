@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\ContactInformation;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $page='home';
+        $contact=ContactInformation::find(1);
+        return view('client.home', compact('page' ,'contact'));
     }
 }

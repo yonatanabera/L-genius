@@ -22,7 +22,7 @@
                                 <div class="row mb-5">
                                     <div class="col-1 pr-5 post-date border-right"> <h1 class="">{{$blog->created_at->isoFormat('DD')}}</h1> <h6 class="ml-2 text-uppercase"> {{$blog->created_at->FormatLocalized('%b')}}</h6></div>
                                     <div class=" col-8 post-title">
-                                        <h4>{{$blog->title}}</h4>
+                                        <h4 class="text-uppercase">{{$blog->title}}</h4>
                                         <p>By <a href="#">Dr. Werotaw Bezabeh</a> <span> / in </span><a href="#"> {{$blog->category->name}}</a> <span> / </span> <a href="#">{{count($blog->comment)}} Comment</a></p>
                                     </div>
                                 </div>

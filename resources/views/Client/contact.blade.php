@@ -3,6 +3,7 @@
 
 @section('content')
 
+    
 
 
 
@@ -22,7 +23,7 @@
                             </div>
                             <div class="col ">
                                 <h6>Phone</h6>
-                                <p class="text-secondary">+251 987654321</p>
+                                <p class="text-secondary">{{$contact->phone}}</p>
                             </div>
                         </div>
                         <div class="row my-3">
@@ -31,7 +32,7 @@
                             </div> 
                             <div class="col ">
                                 <h6>Email</h6>
-                                <p class="text-secondary">Genius@consult.com</p>
+                                <p class="text-secondary">{{$contact->email}}</p>
                             </div>
                         </div>
                         <div class="row my-3">
@@ -40,7 +41,7 @@
                             </div>
                             <div class="col ">
                                 <h6>Adress</h6>
-                                <p class="text-secondary">PO Box 12345 Bole Medhanialem , Addis Ababa , Ethiopia</p>
+                                 <p class="text-secondary">{{$contact->address}}</p>
                             </div>
                         </div>
                         
@@ -52,37 +53,46 @@
                     <div class="contact-email-header mb-5">
                         <h5>Let us know your thoughts about Us</h5>
                         <p class="text-secondary"> <span> Your</span> email address will not be published.</p>
+                        <ul>
+                            @if (count($errors->all())>0)
 
+                                @foreach ($errors->all() as $error)
+                                    <li class="text-danger text-capitalize">{{$error}}</li>
+                                @endforeach
+                            
+                            @endif
+                        </ul>
+                        
                     
                     </div>
                     <div class="contact-email-body">
-                        <form action="">
+                        {!! Form::open(['action'=>'YourThoughtController@store', 'method'=>'post']) !!}
                             <div class="row">
                                 <div class="col-lg">
                                     <div class="form-group my-3 ">
-                                        <input type="text" id="name" class="form-control" placeholder="Name">
-
+                                        
+                                        {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Name']) !!}
                                     </div>
                                     <div class="form-group my-3">
-                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-
+                                        
+                                        {!! Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Email']) !!}
                                     </div>
                                     <div class="form-group my-3">
-                                        <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject">
-
+                                        
+                                        {!! Form::text('subject', null, ['class'=>'form-control', 'placeholder'=>'Subject']) !!}
                                     </div>
                                     
                                 </div>
                                 <div class="col-lg">
                                     <div class="form-group my-3">
-                                        <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+                                        {!! Form::textarea('message', '', ['class'=>'form-control', 'rows'=>5, 'cols'=>30]) !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input type="submit" class=" btn btn-primary" value="SEND A MESSAGE">
                             </div>
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

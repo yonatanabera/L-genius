@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\CallbackRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\RequestCallback;
 
 class CallbackRequestController extends Controller
 {
@@ -33,9 +34,12 @@ class CallbackRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestCallback $request)
     {
         //
+        CallbackRequest::create($request->all());
+        return redirect(route('service.index'));
+
     }
 
     /**

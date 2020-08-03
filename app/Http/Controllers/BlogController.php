@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Blog;
 use App\Model\BlogCategory;
+use App\Model\ContactInformation;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -20,9 +21,9 @@ class BlogController extends Controller
         $blogs=Blog::paginate(3);
         $blogCategories=BlogCategory::all();
 
+        $contact=ContactInformation::find(1);
         
-        
-        return view('client.blog', compact('page', 'blogs', 'blogCategories'));
+        return view('client.blog', compact('page', 'blogs', 'blogCategories', 'contact'));
     }
 
     /**
@@ -57,7 +58,8 @@ class BlogController extends Controller
         //
         $page='blog';
         $blog=Blog::findOrFail($blog->id);
-        return view('client.blog_readmore', compact('page', 'blog'));
+        $contact=ContactInformation::find(1);
+        return view('client.blog_readmore', compact('page', 'blog', 'contact'));
     }
 
     /**

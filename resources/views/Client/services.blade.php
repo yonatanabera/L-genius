@@ -125,48 +125,57 @@
                             <div class="call-back-header">
                                 <h4>Request a call Back</h2>
                                 <p class="text-secondary">If you are intested in any of our services, leave us your information down below ,and we'll get to you. </p>
+                                <ul>
+                                    @if (count($errors->all())>0)
+        
+                                        @foreach ($errors->all() as $error)
+                                            <li class="text-danger text-capitalize">{{$error}}</li>
+                                        @endforeach
+                                    
+                                    @endif
+                                </ul>
                             </div>
                             <div class="call-back-form">
-                                <form action="">
+                                {!! Form::open(['method'=>'post', 'action'=>'CallbackRequestController@index']) !!}
                                     <div class="form-group">
-                                        <label for="name">Your Name:</label>
-                                        <input type="text" class="form-control">
+                                        
+                                        {!! Form::label('name', 'Your Name:') !!}
+                                        {!! Form::text('name', null, ['class'=>'form-control']) !!}
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Your Email:</label>
-                                        <input type="email" class="form-control">
                                         
+                                        {!! Form::label('email', 'Your Email:') !!}
+                                        {!! Form::text('email', null, ['class'=>'form-control']) !!}
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Your Phone Number:</label>
-                                        <input type="text" class="form-control">
                                         
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Topic To Discuss:</label>
-                                        <select name="topics" id="" class="form-control">
-                                            <option value="" class="">Share Market Trading</option>
-                                            <option value="" class="">Entrepreneurship</option>
-                                            <option value="" class="">Marketing</option>
-                                            <option value="">Business consult</option>
 
-                                            
-                                    
-                                        </select>
+                                        {!! Form::label('phone', 'Your Phone Number:') !!}
+                                        {!! Form::text('phone', null, ['class'=>'form-control']) !!}
                                         
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Any Other Topic:</label>
-                                        <input type="text" class="form-control">
+                               
+
+                                        {!! Form::label('topic', 'Topic to Discuss:') !!}
+                                        {!! Form::select('topic', $category, null, ['class'=>'form-control']) !!}
+                                        
+                                       
+                                    </div>
+                                    <div class="form-group">
+                                        
+
+                                        {!! Form::label('description', 'Any Other Topic:') !!}
+                                        {!! Form::text('description', null, ['class'=>'form-control']) !!}
                                         
                                     </div>
                                     <div class="form-group py-3">
-                                        <input type="submit" value="SEND REQUEST" class="btn btn-primary">
-
+                                        {{-- <input type="submit" value="SEND REQUEST" class="btn btn-primary"> --}}
+                                        {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}
                                     </div>
 
-                                </form>
+                                {!! Form::close() !!}
                             </div>
                         </div>
                         <div class="col-lg-6 mb-0 pb-0">

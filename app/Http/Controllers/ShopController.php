@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Shop;
+use App\Model\ContactInformation;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -15,6 +16,9 @@ class ShopController extends Controller
     public function index()
     {
         //
+        $page='shop';
+        $contact=ContactInformation::find(1);
+        return view('client.shop', compact('page', 'contact'));
     }
 
     /**
@@ -47,6 +51,10 @@ class ShopController extends Controller
     public function show(Shop $shop)
     {
         //
+        $page='shop';
+        $readmore=Shop::findOrFail($shop->id);
+        $contact=ContactInformation::find(1);
+        return view('client.shop_readmore', compact('page', 'contact', 'readmore'));
     }
 
     /**

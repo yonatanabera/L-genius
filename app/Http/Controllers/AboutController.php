@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\About;
 use App\Model\CompanyDetail;
+use App\Model\ContactInformation;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -21,7 +22,8 @@ class AboutController extends Controller
         $page='About';
         $company_details=CompanyDetail::find(1);
         $about=About::find(1);
-        return view('client.about', compact('page', 'about', 'company_details'));
+        $contact=ContactInformation::find(1);
+        return view('client.about', compact('page', 'about', 'company_details', 'contact'));
     }
 
     /**
@@ -54,6 +56,7 @@ class AboutController extends Controller
     public function show(About $about)
     {
         //
+        $contact=ContactInformation::find(1);
     }
 
     /**

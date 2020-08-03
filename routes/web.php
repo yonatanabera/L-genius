@@ -28,22 +28,29 @@ Route::resource('service', 'ServiceController' );
 
 Route::resource('blog', 'BlogController');
 
+Route::resource('home', 'HomeController');
+
+Route::resource('shop', 'ShopController');
+
+Route::resource('contact', 'YourThoughtController');
+
+Route::resource('callback', 'CallbackRequestController');
 
 $page='';
-Route::get('shop', function(){
-    $page='shop';
-    return view('client.shop', compact('page'));
-})->name('shop');
+// Route::get('shop', function(){
+//     $page='shop';
+//     return view('client.shop', compact('page'));
+// })->name('shop');
 
 Route::get('shop-readmore', function(){
     $page='shop';
     return view('client.shop_readmore', compact('page'));
 })->name('shop.readmore');
 
-Route::get('/', function(){
-    $page='home';
-    return view('client.home', compact('page'));
-})->name('home');
+// Route::get('/', function(){
+//     $page='home';
+//     return view('client.home', compact('page'));
+// })->name('home');
 
 // Route::get('blog', function(){
 //     $page='blog';
@@ -60,10 +67,10 @@ Route::get('/', function(){
 //     return view('client.about', compact('page'));
 // })->name('about');
 
-Route::get('contact', function(){
-    $page='contact';
-    return view('client.contact', compact('page'));
-})->name('contact');
+// Route::get('contact', function(){
+//     $page='contact';
+//     return view('client.contact', compact('page'));
+// })->name('contact');
 
 // Route::get('servicereadmore', function(){
 //     $page='service';
