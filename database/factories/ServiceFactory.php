@@ -8,5 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Service::class, function (Faker $faker) {
     return [
         //
+        'title'=>$faker->word,
+        'content'=>$faker->paragraph,
     ];
 });

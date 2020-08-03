@@ -8,5 +8,8 @@ use Faker\Generator as Faker;
 $factory->define(ContactInformation::class, function (Faker $faker) {
     return [
         //
+        'phone'=>$faker->phoneNumber,
+        'email'=>$faker->safeEmail,
+        'address'=>$faker->address,
     ];
 });
