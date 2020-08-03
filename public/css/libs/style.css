@@ -50,6 +50,7 @@
     color: #2098D1;
 
 }
+
 .navbar-dark .nav-item .nav-link{
     padding-left: 50px;
     /* border: solid ; */
@@ -79,7 +80,7 @@
 /* body part */
 @font-face{
     font-family: 'bebas';
-    src: url(../font/BebasNeue-Regular.ttf);
+    src: url(../../fonts/libs/BebasNeue-Regular.ttf);
 }
 
 

@@ -55,7 +55,7 @@
                                         <div class="overlay">
                                             
                                         </div>
-                                        <button class=" btn-quick-view ">Quick View</button>
+                                    <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
                                     
                                     
@@ -89,7 +89,7 @@
                                         <div class="overlay">
                                             
                                         </div>
-                                        <button class=" btn-quick-view ">Quick View</button>
+                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
                                     
                                     
@@ -124,7 +124,7 @@
                                         <div class="overlay">
                                             
                                         </div>
-                                        <button class=" btn-quick-view ">Quick View</button>
+                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
                                     
                                     
@@ -158,7 +158,7 @@
                                         <div class="overlay">
                                             
                                         </div>
-                                        <button class=" btn-quick-view ">Quick View</button>
+                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
                                     
                                     
@@ -192,7 +192,7 @@
                                         <div class="overlay">
                                             
                                         </div>
-                                        <button class=" btn-quick-view ">Quick View</button>
+                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
                                     
                                     
@@ -226,7 +226,7 @@
                                         <div class="overlay">
                                             
                                         </div>
-                                        <button class=" btn-quick-view ">Quick View</button>
+                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
                                     
                                     
@@ -260,7 +260,7 @@
                                         <div class="overlay">
                                             
                                         </div>
-                                        <button class=" btn-quick-view ">Quick View</button>
+                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
                                     
                                     
@@ -294,7 +294,7 @@
                                         <div class="overlay">
                                             
                                         </div>
-                                        <button class=" btn-quick-view ">Quick View</button>
+                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
                                     
                                     

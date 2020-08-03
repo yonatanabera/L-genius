@@ -26,6 +26,11 @@ Route::get('shop', function(){
     return view('client.shop', compact('page'));
 })->name('shop');
 
+Route::get('shop-readmore', function(){
+    $page='shop';
+    return view('client.shop_readmore', compact('page'));
+})->name('shop.readmore');
+
 Route::get('/', function(){
     $page='home';
     return view('client.home', compact('page'));

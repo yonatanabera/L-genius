@@ -1,0 +1,681 @@
+*{
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: bigone;
+    src: url("../../fonts/libs/TexgyreadventorBold-90Wn.otf");
+}
+
+@font-face{
+    font-family: fancy;
+    src: url("../../fonts/libs/shakies-font/Shakies-L3EPW.ttf");
+}
+body{
+    margin: 0;
+    font-family: sans-serif;
+    /* background-image: linear-gradient(to top ,rgba(10, 88, 151, 0.466),rgba(195, 205, 214, 0.144)); */
+
+   
+}
+
+
+   /* .hero{
+    background-image: linear-gradient(to right ,rgba(5, 32, 48, 0.445),rgba(2, 17, 31, 0.425)), url('../images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg');
+    width: 100%;
+    height: 120vh;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+      
+   }
+
+
+.hero .hero-main-title h1{
+    font-family: bigone;
+    color: white;
+    font-size: 82px;
+}
+
+
+.hero .hero-inner{
+    width: 60%;
+} */
+
+
+.hero{
+    background-image: linear-gradient(to right ,rgba(5, 32, 48, 0.445),rgba(2, 17, 31, 0.425)), url('../../images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg');
+    width: 100%;
+    height: 120vh;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-main-title h1{
+    color: white;
+    font-family: bigone;
+    font-size: 72px;
+    text-decoration: underline;
+}
+
+.hero-description{
+    color: white;
+    width: 60%;
+    margin-top: 20px;
+    font-size: 17px;
+    font-family:  bigone;
+}
+.hero .hero-introduction{
+    font-family: bigone;
+    color: white;
+    background-color: #44576be3;
+    width: 200px;
+    border-radius: 40px;
+    border-top-left-radius: 0;
+    padding: 5px 20px ;
+    
+
+}
+
+.hero .hero-button a{
+   display: flex;
+    background-color: #2e8ece;
+   /* background-color: #44576be3; */
+
+   color: white;
+   width: 200px;
+   justify-content: center;
+   height: 50px;
+   align-items: center;
+   border-radius: 10px;
+   /* font-family: bigone; */
+   font-size: 1.5em;
+   letter-spacing: 2px;
+   transition: ease-in-out .2s;
+   font-family: regular;
+}
+
+
+.hero .hero-button a:hover{
+
+    background-color: #124364;
+    text-decoration: none;
+}
+
+
+@media (max-width:800px){
+    .hero{
+        height: 100vh;
+        /* align-items: flex-start; */
+        padding-left: 40px;
+    }
+   .hero .hero-main-title h1{
+       font-size: 8vw;
+   }
+
+   .hero .hero-description p{
+       font-family: sans-serif;
+       
+   }
+   .hero .hero-description{
+    width: 90%;
+   }
+
+   .hero-inner{
+       margin-bottom: 80px;
+   }
+   .hero-introduction{
+       margin-bottom: 20px;
+   }
+}
+.about-on-home{
+    display: grid;
+    grid-template-columns: repeat(2 , auto);
+    grid-column-gap: 5em;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 0 5em;
+    /* background-image: linear-gradient(to top ,rgba(10, 88, 151, 0.466),rgba(195, 205, 214, 0.144)); */
+    color: rgb(2, 2, 2);
+    margin-bottom: 8em;
+
+}
+
+
+
+.about-on-home-text{
+    display: grid;
+    justify-content: center;
+    /* text-align: justify; */
+    grid-template-rows: repeat(4,auto);
+    /* background-image: linear-gradient(to top ,rgba(10, 88, 151, 0.466),rgba(195, 205, 214, 0.144)); */
+
+   
+}
+
+
+
+
+
+
+.about-on-home-title h4{
+    font-family: fancy;
+}
+
+.about-on-home-title p{
+    font-family: bigone;
+}
+
+.about-on-home-footer h3{
+    font-family: fancy;
+}
+
+
+.about-on-home-body p{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px 0;
+
+}
+.about-on-home-image{
+    background-image:linear-gradient(to right , rgba(9, 59, 124, 0.363),rgba(88, 65, 83, 0.274)), url("../../images/about-me-e1473408888274.jpg");
+    width: 40vw;
+    height: 40vw;
+   
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+ 
+    border-radius: 50%;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.26);
+}
+
+
+.about-on-home-big-text h1{
+    font-family: bigone;
+    /* text-transform: capitalize; */
+    font-size: 5vw;
+    text-align: none;
+
+}
+
+
+
+/*Responsive stuff*/
+
+
+@media (max-width:800px){
+    .about-on-home{
+       display: flex;
+       flex-direction: column-reverse;
+       /* width: 100%; */
+       padding: 3em;
+       /* text-align: justify; */
+       
+    }
+
+    .about-on-home p{
+        text-align: justify;
+    }
+    .about-on-home-image{
+        width: 60vw;
+        height: 60vw;
+       
+       
+    }
+
+    .about-on-home-big-text h1{
+        font-size: 8vw;
+        text-align: none;
+    
+    }
+    
+
+  
+    
+}
+
+
+#why{
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    margin: auto;
+    position: relative;
+    transform: translate(0,-150px);
+    padding-top: 4em ;
+    padding-bottom: 4em;
+    border-radius: 20px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.26);
+}
+
+
+.service-on-home{
+    background-image: linear-gradient(to left , rgba(0, 0, 0, 0),rgba(4, 72, 136, 0)),url("../../images/xps-pduutGbL2-M-unsplash.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    min-height: 100vh;
+    
+
+}
+
+
+
+
+.service-on-home .service-on-home-main{
+    background-color: #44576be3;
+    color: white;
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    padding: 6em;
+    grid-template-columns: 1;
+}
+
+.service-on-home-main h1{
+    font-family: regular;
+    font-size: 5em;
+}
+
+
+
+.service-on-home-side{
+    background-color: rgba(255, 255, 255, 0.952);
+    transform: none;
+    transform: translate(-7vw,0);
+    
+    /* position: relative; */
+    /* height: 80vh; */
+    /* height: 100%; */
+    /* transform: translate(-7vw,0); */
+    margin-left: 2em;
+    align-self: center;
+    border-radius: 5px;
+    box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.185);
+    display: grid;
+    grid-template-columns: repeat(2 , 50% );
+    justify-content: center;
+    align-items: center;
+    padding: 4em;
+    grid-column-gap: 3em;
+    grid-row-gap: 3em;
+    /* text-align: justify; */
+    
+    
+}
+
+
+
+
+.service-on-home-side h5{
+    font-family: regular;
+    color: #247fe1e3;
+    font-size: smaller;
+
+}
+
+.service-on-home-side p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.service-home-card-icon{
+    color: #247fe1e3;
+    font-size: xx-large;
+}
+
+.service-on-home-section{
+    margin: 10em 0;
+    margin-bottom: 0;
+}
+
+
+@media (max-width:1200px){
+    .service-on-home{
+        min-height: unset;
+       display: flex;
+       flex-wrap: wrap;
+       flex-direction: column;
+       max-width: 100%;
+        
+    
+    }
+
+    .service-on-home-side{
+       transform: none;
+        
+    }
+    .service-on-home-section{
+        margin-bottom: 8em;
+    }
+}
+
+@media (max-width:800px){
+    .service-on-home-side{
+        margin-left: 0;
+        border-radius: 5px;
+        box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.185);
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        justify-content: center;
+        align-items: center;
+        align-self: flex-start;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 4em;
+      
+        grid-row-gap: 3em;
+        /* text-align: justify; */
+        
+        
+    }
+
+    .service-on-home .service-on-home-main{
+        width: 100%;
+
+        display: grid;
+        justify-self: center;
+        align-items: center;
+        /* padding: 6em; */
+        grid-template-columns: 1;
+    }
+    .service-on-home-main h1{
+        font-family: regular;
+        font-size: 10vw;
+    }
+    
+}
+
+
+/* testimonial section*/
+.testimonial-section{
+
+    display: flex;
+    /* height: 100vh; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 4em 0;
+
+}
+
+
+
+.slider-area{
+    background-color: #fff;
+    /* background-image: linear-gradient(to right ,rgb(3, 48, 68),rgba(3, 27, 49, 0.123)); */
+    padding: 50px 0;
+    position: relative;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.carousel-control.prev,.carouserl-control-next{
+    background: #2288ee;
+}
+
+
+
+.img-area{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img-area img{
+    width: 100%;
+}
+
+.carousel-caption{
+    position: static;
+    padding-bottom: 15px;
+    padding-top: 2em;
+
+}
+
+
+.carousel-caption h3{
+    font-family: regular;
+}
+.carousel-caption h4{
+    /* font-family: digital; */
+    font-family: arial;
+    /* font-weight: bold; */
+    font-size: 20px;
+    color: #2288ee;
+
+}
+
+
+.carousel-caption h3{
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.carousel-caption p{
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin: auto;
+    width: 70%;
+    margin-bottom: 10px;
+
+}
+
+.carousel-indicators {
+    bottom: -35px;
+
+}
+
+.carousel-indicators li{
+    background-color: black;
+}
+
+
+
+
+
+/* blog section*/
+.latest-blog-on-home-section{
+    margin-top: 8em;
+    margin-bottom: 4em;
+}
+.latest-blog-on-home{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 4em;
+    margin: 8em;
+    margin-top: 4em;
+}
+@media (max-width:800px){
+    .latest-blog-on-home{
+        margin: 4em;
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+    .latest-blog-on-home div{
+        margin-bottom: 2em;
+    }
+}
+
+.latest-blog-card{
+   
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    /* text-align: center; */
+   
+    padding-bottom: 20px;
+}
+.latest-blog-card img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.latest-blog-card div{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.latest-blog-card .latest-blog-card-img{
+    padding: 0;
+    max-height: 220px;
+    overflow: hidden;
+}
+.latest-blog-card .latest-blog-card-img img{
+    height: 100%;
+}
+
+.latest-blog-on-home .latest-blog-card-header{
+    padding-top: 40px;
+}
+
+
+.latest-blog-card-header h5{
+    color: black;
+    font-family: regular;
+    text-transform: lowercase;
+}
+
+
+.latest-blog-card-footer a{
+   letter-spacing: .1em;
+   font-family: bigone;
+   color: #2288ee;
+   text-decoration: none;
+   /* font-weight: bold; */
+}
+
+.latest-blog{
+    margin-bottom: 0;
+}
+
+.latest-blog-title{
+    position: relative;
+    text-align: center;
+    font-family: regular;
+    
+   
+    
+}
+.latest-blog-title::after{
+    position: absolute;
+    width: 50px;
+    border-radius: 5px;
+    height: 5px;
+    content: "";
+    color: #2e8ece; 
+    border: solid;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+
+
+@media (max-width:800){
+    .latest-blog-on-home{
+        border: solid green;
+       background-color: red;
+    }
+    
+}
+
+
+
+
+/*contact us home*/
+.contact-us-on-home{
+    display: flex;
+    background-color: #111;
+    /* position: relative; */
+    flex-direction: column;
+    height: 60vh;
+    margin-bottom: 0;
+    align-items: center;
+    align-content: center;
+    /* margin-bottom: 50px; */
+    color: white;
+    justify-content: center;
+}
+.contact-us-inner{
+    margin: auto;
+    /* margin-top: 50px; */
+    width: 80%;
+
+    
+}
+.contact-us-on-home #contact-email{
+    font-size: 2vw; 
+    font-family: fancy;
+    width: 70%;
+    height: 10vh;
+    border-top-left-radius: 10%;
+
+
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+     border-radius: 50px;
+     border: 1px solid #2d9fd9;
+     color: #a0d18c;
+    
+     padding-left: 50px;
+     
+}
+.contact-us-on-home #contact-email{
+    outline: none;
+    border: 1px solid #a0d18c;
+    color: #2d9fd9;
+}
+.contact-us-on-home #subscribe{
+    font-family: bigone;
+  font-size: 2vw;
+    width: 25%;
+    /* background-color: rgb(156, 25, 25); */
+    color: white;
+    height: 10vh;
+    /* display: flex; */
+    align-self: center;
+    border-radius: 50px;
+    
+
+}
+
+
+
+@media (max-width: 800px){
+    .contact-us-on-home #contact-email{
+       font-size: 5vw;
+      width: 100%;
+      margin-bottom: 20px;
+      height: 60px;
+    }
+    .contact-us-on-home #subscribe{
+        font-size: 4vw;
+        width: 60%;
+        height: 60px;
+    }
+
+    .contact-us-on-home h1{
+        font-size: 8vw;
+    }
+}
