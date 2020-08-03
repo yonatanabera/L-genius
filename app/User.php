@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','phone', 'photo', 'role_id'
     ];
 
     /**
@@ -36,4 +36,33 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function orders(){
+        return $this->belongsToMany('App\Model\Shop', 'orders', 'user_id', 'item_id');
+    }
+
+    public function role(){
+        return $this->belongsTo('App\Model\Role');
+    }
+
+    public function blogComment(){
+        return $this->hasMany('App\Model\BlogComment');
+    }
+
+    public function blogCommentReply(){
+        return $this->hasMany('App\Model\BlogCommentReply');
+    }
+
+    public function itemReview(){
+        return $this->hasMany('App\Model\ItemReviewAndComment');
+    }
+
+  
+    public function isAdmin(){
+        if($this->role->name=='administrator'){
+            return true;
+        }
+        return false; 
+    }
 }
