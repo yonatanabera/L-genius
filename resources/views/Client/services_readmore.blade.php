@@ -14,7 +14,7 @@
             <div class="container service-sidebar">
                <div class="row">
                    <div class="col-lg-9 col-12">
-                        <h1 class="readmore-title">Become a PHP Master and Make Money Fast</h1>
+                        <h1 class="readmore-title">{{$service->title}}</h1>
                         <div class="readmore-meta">
                             <div class="readmore-author">
                                 <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="" class="readmore-author-photo">
@@ -38,21 +38,7 @@
                                   <div class="readmore-tab-content">
                                     <div class="readmore-tab-overview">
                                         <div class="readmore-tab-overview-text">
-                                            <h4 class="service-description-title">SERVICE DESCRIPTION</h4>
-                                            <p class="service-description-body"> Sit eaque, nostrum ipsum quo quam molestias inventore? Voluptatum sed id aut! Rerum voluptas quo perferendis quidem odio? Iusto, beatae atque. Repudiandae iusto, soluta repellat voluptate porro reiciendis quaerat aperiam saepe aliquid, perspiciatis iure adipisci dolorum eius deleniti rerum impedit tenetur. Temporibus amet sequi iusto, ab dolores distinctio! Numquam magnam odio minus neque illum.</p>
-                                            <h4 class="service-description-title">CERTIFICATION</h4>
-                                            <p class="service-description-body">Sit eaque, nostrum ipsum quo quam molestias inventore? Voluptatum sed id aut! Rerum voluptas quo perferendis quidem odio? Iusto, beatae atque. Repudiandae iusto, soluta repellat voluptate porro reiciendis quaerat aperiam saepe aliquid, perspiciatis iure adipisci dolorum eius deleniti rerum impedit tenetur. Temporibus amet sequi iusto, ab dolores distinctio! Numquam magnam odio minus neque illum.</p>
-                                            <h4 class="service-description-title">LEARNING OUTCOMES</h4>
-                                            <ul class="service-description-body-ul">
-                                                <li class="service-description-body-ul-li">Over 37 lectures and 55.5 hours of content!</li>
-                                                <li class="service-description-body-ul-li">LIVE PROJECT End to End Software Testing Training Included.</li>
-                                                <li class="service-description-body-ul-li">Learn Software Testing and Automation basics from a professional trainer from your own desk.</li>
-                                                <li class="service-description-body-ul-li">Information packed practical training starting from basics to advanced testing techniques.</li>
-                                                <li class="service-description-body-ul-li">Best suitable for beginners to advanced level users and who learn faster when demonstrated.</li>
-                                                <li class="service-description-body-ul-li">Course content designed by considering current software testing technology and the job market.</li>
-                                                <li class="service-description-body-ul-li">Practical assignments at the end of every session.</li>
-                                                <li class="service-description-body-ul-li">Practical learning experience with live project work and examples.</li>
-                                            </ul>
+                                            {{$service->content}}
                                         </div>
 
                                         <div class="readmore-tab-overview-info">

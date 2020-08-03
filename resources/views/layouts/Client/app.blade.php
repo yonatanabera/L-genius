@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,16 +40,16 @@
                                         <a class="nav-link text-uppercase px-4 " href="{{route('home')}}">home</a>
                                     </li>
                                     <li class="nav-item mx-1 {{$page=='about' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
-                                        <a class="nav-link text-uppercase px-4 " href="{{route('about')}}">about</a>
+                                        <a class="nav-link text-uppercase px-4 " href="{{route('about.index')}}">about</a>
                                     </li>
                                     <li class="nav-item mx-1 {{$page=='service' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
-                                        <a class="nav-link text-uppercase px-4" href="{{route('service')}}">services</a>
+                                        <a class="nav-link text-uppercase px-4" href="{{route('service.index')}}">services</a>
                                     </li>
                                     <li class="nav-item mx-1 {{$page=='shop' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                                         <a class="nav-link text-uppercase px-4" href="{{route('shop')}}">shop</a>
                                     </li>
                                     <li class="nav-item  mx-3 {{$page=='blog' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
-                                        <a class="nav-link text-uppercase px-4" href="{{route('blog')}}">blog</a>
+                                        <a class="nav-link text-uppercase px-4" href="{{route('blog.index')}}">blog</a>
                                     </li>
                                     <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                                         <a class="nav-link text-uppercase px-4" href="{{route('contact')}}" >contact</a>
@@ -63,7 +64,7 @@
                             <nav aria-label="breadcrumb s-breadcrumb">
                                 <ol class="breadcrumb bg-transparent text-light">
                                 <li class="breadcrumb-item text-white"><a class="text-info" href="{{route('home')}}">Home</a></li>
-                                <li class="breadcrumb-item active text-light" aria-current="page">{{$page}}</li>
+                                <li class="breadcrumb-item active text-light" aria-current="page"><a class="text-white" href="{{route(strtolower($page).'.index')}}">{{$page}}</a></li>
                                 </ol>
                             </nav>
                         <h1 class="display-4  pt-0 text-white">{{$page}}</h1>

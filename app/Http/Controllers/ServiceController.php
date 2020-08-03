@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Model\Service;
+use App\Model\ServiceCounter;
+use App\Model\MainService;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -15,6 +17,11 @@ class ServiceController extends Controller
     public function index()
     {
         //
+        $page='service';
+        $services=Service::all();
+        $counter=ServiceCounter::find(1);
+        $mainService=MainService::find(1);
+        return view('client.services', compact('page', 'services', 'counter', 'mainService'));
     }
 
     /**
@@ -46,7 +53,10 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        $page='service';
+        $service=Service::findOrFail($service->id);
+    
+        return view('client.services_readmore', compact('page', 'service'));
     }
 
     /**

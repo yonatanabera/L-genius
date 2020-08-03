@@ -14,120 +14,48 @@
             <div class="row mt-5">
                 <div class="col-lg-8 col-12 px-5">
                 <!-- post begins-->
-                    <div class="post my-5 py-5">
-                        <div class="post-description">
-                            <div class="row mb-5">
-                                <div class="col-1 pr-5 post-date border-right"> <h1>14</h1> <h6 class="ml-2"> JUN</h6></div>
-                                <div class=" col-8 post-title">
-                                    <h4>HOW TO MAKE BETTER DECISIONS</h4>
-                                    <p>By <a href="#">Thang</a> <span> / in </span><a href="#"> Video</a> <span> / </span> <a href="#">0 Comment</a></p>
+                    @foreach ($blogs as $blog)
+
+                       
+                        <div class="post my-5 py-5">
+                            <div class="post-description">
+                                <div class="row mb-5">
+                                    <div class="col-1 pr-5 post-date border-right"> <h1 class="">{{$blog->created_at->isoFormat('DD')}}</h1> <h6 class="ml-2 text-uppercase"> {{$blog->created_at->FormatLocalized('%b')}}</h6></div>
+                                    <div class=" col-8 post-title">
+                                        <h4>{{$blog->title}}</h4>
+                                        <p>By <a href="#">Dr. Werotaw Bezabeh</a> <span> / in </span><a href="#"> {{$blog->category->name}}</a> <span> / </span> <a href="#">{{count($blog->comment)}} Comment</a></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card " style="width: 100%; border: none;">
-                            <img class="card-img-top" src="{{asset('images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg')}}" alt="Card image cap">
-                            <div class="card-body text-justify">
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cupiditate minima facilis rerum repellat? Ullam, eaque? Sint amet cumque maxime est ex deleniti accusamus aliquid voluptates, culpa commodi? Architecto, deserunt! Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="{{route('blog.readmore')}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
-                            <div class="share">
-                                <span class="text-capitalize border-info border-right">share </span>
-                                <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
-                                <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-instagram"></a></span>
-                                <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></a></span>
-                                <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-telegram"></a></span>
-        
-        
+                            <div class="card " style="width: 100%; border: none;">
+                                <img class="card-img-top" src="{{asset($blog->photo)}}" alt="Card image cap">
+                                <div class="card-body text-justify">
+                                <p class="card-text">{{Str::words($blog->content, 50)}}</p>
+                                <a href="{{route('blog.show', $blog->id)}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
+                                <div class="share">
+                                    <span class="text-capitalize border-info border-right">share </span>
+                                    <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
+                                    <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-instagram"></a></span>
+                                    <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></a></span>
+                                    <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-telegram"></a></span>
+            
+            
+                                </div>
+                                </div>
+                                
                             </div>
-                            </div>
-                            
                         </div>
-                    </div>
+                    @endforeach
                     <!-- post ends-->
 
-                <!-- post begins-->
+             
 
-                <div class="post my-5 py-5">
-                    <div class="post-description">
-                        <div class="row mb-5">
-                            <div class="col-1 pr-5 post-date border-right"> <h1>14</h1> <h6 class="ml-2"> JUN</h6></div>
-                            <div class=" col-8 post-title">
-                                <h4>HOW TO MAKE BETTER DECISIONS</h4>
-                                <p>By <a href="#">Thang</a> <span> / in </span><a href="#"> Video</a> <span> / </span> <a href="#">0 Comment</a></p>
-                            </div>
-                        </div>
+
+
+
+                    <div class="text-center">
+                        {{$blogs->render()}}
                     </div>
-                    <div class="card " style="width: 100%; border: none;">
-                        <img class="card-img-top" src="{{asset('images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg')}}" alt="Card image cap">
-                        <div class="card-body text-justify">
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cupiditate minima facilis rerum repellat? Ullam, eaque? Sint amet cumque maxime est ex deleniti accusamus aliquid voluptates, culpa commodi? Architecto, deserunt! Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{route('blog.readmore')}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
-                        <div class="share">
-                            <span class="text-capitalize border-info border-right">share </span>
-                            <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
-                            <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-instagram"></a></span>
-                            <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></a></span>
-                            <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-telegram"></a></span>
-
-
-                        </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <!-- post ends-->
-
-
-                <!-- post begins -->
-                <div class="post my-5 py-5">
-                <div class="post-description">
-                    <div class="row mb-5">
-                        <div class="col-1 pr-5 post-date border-right"> <h1>14</h1> <h6 class="ml-2"> JUN</h6></div>
-                        <div class=" col-8 post-title">
-                            <h4>HOW TO MAKE BETTER DECISIONS</h4>
-                            <p>By <a href="#">Thang</a> <span> / in </span><a href="#"> Video</a> <span> / </span> <a href="#">0 Comment</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card " style="width: 100%; border: none;">
-                    <img class="card-img-top" src="{{asset('images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg')}}" alt="Card image cap">
-                    <div class="card-body text-justify">
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cupiditate minima facilis rerum repellat? Ullam, eaque? Sint amet cumque maxime est ex deleniti accusamus aliquid voluptates, culpa commodi? Architecto, deserunt! Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{route('blog.readmore')}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
-                        <div class="share">
-                            <span class="text-capitalize border-info border-right">share </span>
-                            <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
-                            <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-instagram"></a></span>
-                            <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></a></span>
-                            <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-telegram"></a></span>
-
-
-                        </div>
-                    </div>
-                    
-                    </div>
-            </div>
-            <!-- post ends -->
-
-
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                        <li class="page-item disabled">
-                            <span class="page-link">Previous</span>
-                        </li>
-                        <li class="page-item active">
-                            <span class="page-link">
-                            1
-                            <span class="sr-only">(current)</span>
-                            </span>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                        </ul>
-                    </nav>
                 </div>
 
 
@@ -227,24 +155,13 @@
                             <h4 class="text-primary">Browse Catagories</h4>
                         </card-header>
                         <ul class="nav flex-column ">
-                            <li class="nav-item hvr-underline-from-center">
-                                <a class="nav-link btn " href="#">Entreprenurship</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                            <a class="nav-link btn " href="#">Marketing</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                                <a class="nav-link btn " href="#">Positivity</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                            <a class="nav-link btn " href="#">Personal Growth</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                                <a class="nav-link btn " href="#">Economics</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                            <a class="nav-link btn " href="#">Monetary Value</a>
-                            </li>
+                            @foreach ($blogCategories as $blogCategory)
+                                <li class="nav-item hvr-underline-from-center">
+                                    <a class="nav-link btn " href="#">{{$blogCategory->name}}</a>
+                                </li>
+                            @endforeach
+                            
+                            
                         </ul>
                     </div>
 

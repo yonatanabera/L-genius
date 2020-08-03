@@ -21,8 +21,7 @@
 
                 </div>
                 <div class="about-body text-justify text-secondary">
-                    <p>Lorem ipsum dolor sitint, iusione, reprehenderit odio animi minima sapiente aliquam nobis suscipit! Corporis. amet consectetur adipisicing elit. Iste odio expedita quas perspiciatis porro ratione dicta eos animi ipsum, quibusdam debitis voluptates nemo quaerat. Iure blanditiis hic suscipit voluptatum quidem ipsam velit ex adipisci iste vel eligendi ratione dicta accusamus earum, beatae recusandae quae corporis officia! Itaque magnam odit doloremque?</p>
-            
+                    <p>{{ Str::words($about->organization_statement, 100) }}</p>
                 </div>
                 <div class="about-footer">
                     <button class="btn btn-outline-primary">VIEW MORE</button>
@@ -30,7 +29,7 @@
             </div>
             <div class="col-lg ">
                 <div class="about-image">
-                    <img src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="">
+                    <img src="{{asset($about->article_photo)}}" alt="">
                 </div>
 
             </div>
@@ -50,7 +49,7 @@
                         <h5>IDENTITY</h5>
                     </div>
                     <div class="statement-body text-secondary ">
-                        <p>We are Genius working , teaching and speaking to create plenty of entreprenurs.</p>
+                        <p>{{$company_details->identity}}</p>
                     </div>
                 </div>
                 <div class="col-lg col-md-6 col-sm-6">
@@ -61,7 +60,7 @@
                         <h5>MISSION</h5>
                     </div>
                     <div class="statement-body text-secondary">
-                        <p>To create a better everyday life for the many people.</p>
+                        <p>{{$company_details->mission}}</p>
                     </div>
                 </div>
     
@@ -73,7 +72,7 @@
                         <h5>VISION</h5>
                     </div>
                     <div class="statement-body text-secondary">
-                        <P>Create economic opportunity for every member of the global workforce.</P>
+                        <P>{{$company_details->vision}}</P>
                     </div>
                 </div>
     
@@ -89,7 +88,7 @@
                         <h5>VALUE</h5>
                     </div>
                     <div class="statement-body text-secondary">
-                        <p>To spread the power of optimism.</p>
+                        <p>{{$company_details->value}}</p>
                     </div>
                 </div>
     
@@ -104,11 +103,11 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 contact-about">
                     <div class="card" style="width: 100%;">
-                        <img class="card-img-top" src="{{asset('images/about-me-e1473408888274.jpg')}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset($about->profile_card_image)}}" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title font-weight-bold">Dr. Werotaw</h5>
                           <h5 class="text-secondary mb-4">Manager and Trainer</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">{{Str::words($about->profile_card_description, 40)}}</p>
                           <a href="#" class="btn btn-outline-primary hvr-sweep-to-top">Contact</a>
                         </div>
                       </div>

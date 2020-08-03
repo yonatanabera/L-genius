@@ -36,5 +36,6 @@ class DatabaseSeeder extends Seeder
         factory(App\Model\WhyCoaching::class, 1)->create();
         factory(App\Model\YourThought::class, 50)->create();
         factory(App\Model\About::class, 1)->create();
+        factory(App\Model\MainService::class, 1)->create();
     }
 }

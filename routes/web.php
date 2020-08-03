@@ -20,6 +20,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('about', 'AboutController' );
+
+Route::resource('service', 'ServiceController' );
+
+Route::resource('blog', 'BlogController');
+
+
 $page='';
 Route::get('shop', function(){
     $page='shop';
@@ -36,35 +45,35 @@ Route::get('/', function(){
     return view('client.home', compact('page'));
 })->name('home');
 
-Route::get('blog', function(){
-    $page='blog';
-    return view('client.blog', compact('page'));
-})->name('blog');
+// Route::get('blog', function(){
+//     $page='blog';
+//     return view('client.blog', compact('page'));
+// })->name('blog');
 
-Route::get('blog-readmore', function(){
-    $page='blog';
-    return view('client.blog_readmore', compact('page'));
-})->name('blog.readmore');
+// Route::get('blog-readmore', function(){
+//     $page='blog';
+//     return view('client.blog_readmore', compact('page'));
+// })->name('blog.readmore');
 
-Route::get('about', function(){
-    $page='about';
-    return view('client.about', compact('page'));
-})->name('about');
+// Route::get('about', function(){
+//     $page='about';
+//     return view('client.about', compact('page'));
+// })->name('about');
 
 Route::get('contact', function(){
     $page='contact';
     return view('client.contact', compact('page'));
 })->name('contact');
 
-Route::get('servicereadmore', function(){
-    $page='service';
-    return view('client.services_readmore', compact('page'));
-})->name('service.readmore');
+// Route::get('servicereadmore', function(){
+//     $page='service';
+//     return view('client.services_readmore', compact('page'));
+// })->name('service.readmore');
 
-Route::get('service', function(){
-    $page='service';
-    return view('client.services', compact('page'));
-})->name('service');
+// Route::get('service', function(){
+//     $page='service';
+//     return view('client.services', compact('page'));
+// })->name('service');
 
 
 

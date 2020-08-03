@@ -13,39 +13,19 @@
                     <div class="post my-5 py-5">
                         <div class="post-description">
                             <div class="row mb-5">
-                                <div class="col-1 pr-5 post-date border-right"> <h1>14</h1> <h6 class="ml-2"> JUN</h6></div>
+                                <div class="col-1 pr-5 post-date border-right"> <h1>{{$blog->created_at->isoFormat('DD')}}</h1> <h6 class="ml-2 text-uppercase"> {{$blog->created_at->FormatLocalized('%b')}}</h6></div>
                                 <div class=" col-8 post-title">
-                                    <h4>HOW TO MAKE BETTER DECISIONS</h4>
-                                    <p>By <a href="#">Thang</a> <span> / in </span><a href="#"> Video</a> <span> / </span> <a href="#">0 Comment</a></p>
+                                    <h4 class="text-uppercase">{{$blog->title}}</h4>
+                                    <p>By <a href="#">Thang</a> <span> / in </span><a href="#"> {{$blog->category->name}}</a> <span> / </span> <a href="#">{{count($blog->comment)}} Comment</a></p>
                                 </div>
                             </div>
                         </div>
                         <div class="card blog-readmore-main-card" style="width: 100%; border: none;">
-                            <img class="card-img-top" src="{{asset('images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg')}}" alt="Card image cap">
+                            <img class="card-img-top" src="{{asset($blog->photo)}}" alt="Card image cap">
                             <div class="card-body text-justify">
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cupiditate minima facilis rerum repellat? Ullam, eaque? Sint amet cumque maxime est ex deleniti accusamus aliquid voluptates, culpa commodi? Architecto, deserunt! Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-
-                            <p class="card-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-                                <h3>1. Main Title</h3>
-
-                            <p class="card-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English.</p>
-
-                            <ul>
-                                <li>Marketing</li>
-                                <li>Economics</li>
-                                <li>Time management</li>
-                                <li>Risk taking</li>
-                            </ul>
-                            <p class="card-text">It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-
-                            <p class="card-text">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from “de Finibus Bonorum et Malorum” by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-
-                            
+                                {{$blog->content}}
                             <div class="main-blog-footer">
-                                <span class="pull-left blog-readmore-tags">Tags:</span> <a href="#" class=" blog-category"> Entreprenurship</a>
+                                <span class="pull-left blog-readmore-tags">Tags:</span> <a href="#" class=" blog-category"> {{$blog->category->name}}</a>
                                 <div class="share">
                                     <span class="text-capitalize border-info border-right">share </span>
                                     <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
@@ -66,116 +46,66 @@
                 
 
                     <div class="blog-comment">
-                        <h3 class="post-title">6 Comments</h3>
+                    <h3 class="post-title">{{count($blog->comment)}} Comments</h3>
                         <hr>
                         <ul class="comment-list">
-                            <li class="comment">
-                                <div class="vcard bio">
-                                    <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                    <h3>John Doe</h3>
-                                    <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                    <form action="" class="form-group reply-form">
-                                        <input name="" id="" placeholder="Reply" class="reply-textfield "></input>
-                                        <div class="reply-btn-wrapper">
-                                            <button type="submit" class="reply btn">Reply</button>
-                                        </div>
-                                    </form>
-                                    
-                                    
-                                
-                                </div>
-                            </li>
                             
+                            
+                            @foreach ($blog->comment as $comment)
                             <li class="comment">
                                 <div class="vcard bio">
                                     <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
                                 </div>
                                 <div class="comment-body">
-                                    <h3>John Doe</h3>
-                                    <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                    <form action="" class="form-group reply-form">
-                                        <input name="" id="" placeholder="Reply" class="reply-textfield "></input>
-                                        <div class="reply-btn-wrapper">
-                                            <button type="submit" class="reply btn">Reply</button>
-                                        </div>
-                                    </form>
+                                    <h3>{{$comment->user->name}}</h3>
+                                    <div class="meta mb-3">{{$comment->created_at->diffForHumans()}}</div>
+                                    <p>{{$comment->comment}}</p>
+                                    @if (Auth::user())
+                                        <form action="" class="form-group reply-form">
+                                            <input name="" id="" placeholder="Reply" class="reply-textfield ">
+                                            <div class="reply-btn-wrapper">
+                                                <button type="submit" class="reply btn">Reply</button>
+                                            </div>
+                                        </form>
+                                    @endif
                                 
                                 </div>
-                                <ul class="children">
-                                    <li class="comment">
-                                        <div class="vcard bio">
-                                            <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                        </div>
-                                        <div class="comment-body">
-                                            <h3>John Doe</h3>
-                                            <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                            
-                                        
-                                        </div>
-                                        
-                                    </li>
-                                </ul>
+                                @if (count($comment->reply))
+                                    @foreach ($comment->reply as $reply)
+                                        <ul class="children">
+                                            <li class="comment">
+                                                <div class="vcard bio">
+                                                    <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
+                                                </div>
+                                                <div class="comment-body">
+                                                    <h3>{{$reply->user->name}}</h3>
+                                                <div class="meta mb-3">{{$reply->created_at->diffForHumans()}}</div>
+                                                    <p>{{$reply->comment}}</p>
+                                                    
+                                                
+                                                </div>
+                                                
+                                            </li>
+                                        </ul>
+                                    @endforeach
+                                @endif
                             </li>
-                            <li class="comment">
-                                <div class="vcard bio">
-                                    <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                    <h3>John Doe</h3>
-                                    <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                    <form action="" class="form-group reply-form">
-                                        <input name="" id="" placeholder="Reply" class="reply-textfield "></input>
-                                        <div class="reply-btn-wrapper">
-                                            <button type="submit" class="reply btn">Reply</button>
-                                        </div>
-                                    </form>
-                                
-                                </div>
-                                <ul class="children">
-                                    <li class="comment">
-                                        <div class="vcard bio">
-                                            <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                        </div>
-                                        <div class="comment-body">
-                                            <h3>John Doe</h3>
-                                            <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                        
-                                        
-                                        </div>
-                                        
-                                    </li>
-                                </ul>
-
-                                <ul class="children">
-                                    <li class="comment">
-                                        <div class="vcard bio">
-                                            <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                        </div>
-                                        <div class="comment-body">
-                                            <h3>John Doe</h3>
-                                            <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                        
-                                        
-                                        </div>
-                                        
-                                    </li>
-                                </ul>
-                            </li>
+                            @endforeach
+                            
                         </ul>
 
 
-                        <form action="" class="form-group ">
-                            <textarea class="form-control" placeholder="Comment here ..." name="" id="" cols="30" rows="5"></textarea>
-                            <button class="btn btn-comment pull-right">Comment</button>
-                        </form>
+                        @if (Auth::user())
+                            <form action="" class="form-group ">
+                                <textarea class="form-control" placeholder="Comment here ..." name="" id="" cols="30" rows="5"></textarea>
+                                <button class="btn btn-comment pull-right">Comment</button>
+                            </form>
+                        @else
+                            <h3>Log in to Comment</h3>
+                        @endif
+                           
+
+                        
 
                     </div>
                     <!-- post ends-->

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Blog;
-use App\Model\BlogCategory;
+use App\MainService;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class MainServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +15,6 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $page='blog';
-        $blogs=Blog::paginate(3);
-        $blogCategories=BlogCategory::all();
-
-        
-        
-        return view('client.blog', compact('page', 'blogs', 'blogCategories'));
     }
 
     /**
@@ -49,24 +41,21 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Blog  $blog
+     * @param  \App\MainService  $mainService
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(MainService $mainService)
     {
         //
-        $page='blog';
-        $blog=Blog::findOrFail($blog->id);
-        return view('client.blog_readmore', compact('page', 'blog'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Blog  $blog
+     * @param  \App\MainService  $mainService
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit(MainService $mainService)
     {
         //
     }
@@ -75,10 +64,10 @@ class BlogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Blog  $blog
+     * @param  \App\MainService  $mainService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, MainService $mainService)
     {
         //
     }
@@ -86,10 +75,10 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Blog  $blog
+     * @param  \App\MainService  $mainService
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(MainService $mainService)
     {
         //
     }
