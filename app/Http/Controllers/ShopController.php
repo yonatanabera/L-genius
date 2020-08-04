@@ -18,7 +18,9 @@ class ShopController extends Controller
         //
         $page='shop';
         $contact=ContactInformation::find(1);
-        return view('client.shop', compact('page', 'contact'));
+        $items=Shop::paginate(9);
+        $total=Shop::all();
+        return view('client.shop', compact('page', 'contact', 'items', 'total'));
     }
 
     /**
@@ -40,6 +42,7 @@ class ShopController extends Controller
     public function store(Request $request)
     {
         //
+       
     }
 
     /**
@@ -52,9 +55,9 @@ class ShopController extends Controller
     {
         //
         $page='shop';
-        $readmore=Shop::findOrFail($shop->id);
+        $item=Shop::findOrFail($shop->id);
         $contact=ContactInformation::find(1);
-        return view('client.shop_readmore', compact('page', 'contact', 'readmore'));
+        return view('client.shop_readmore', compact('page', 'contact', 'item'));
     }
 
     /**

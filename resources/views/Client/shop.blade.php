@@ -18,23 +18,10 @@
                         <div class="clearfix shop-header">
                             <div class="shop-header-flex">
                                 <div class="shop-flex-1">
-                                    <p class="float-left" style="display: inline-block">Showing <span>1-9</span> of <span>17</span> results</p>
+                                    <p class="float-left" style="display: inline-block">Showing <span>{{$items->first()->id}}-{{$items->last()->id}}</span> of <span>{{$total->count()}}</span> results</p>
                                 </div>
     
-                                <div class="shop-flex-2 text-right">
-                                    
-                                        <form action="">
-                                            <span class="shop-label-sort-by " >Sort by</span>
-                                            <select class="" style="width: 200px" name="Sort by" id="sort-by" >
-                                                <option value="Default">Default</option>
-                                                <option value="Popularity">Popularity</option>
-                                                <option value="Average rating">Average rating</option>
-                                                <option value="Latest">Latest</option>
-                                                
-                                            </select>
-                                        </form>
-                                    
-                                </div>
+                                
                             </div>
                         </div>
                         
@@ -47,300 +34,48 @@
                         <div class="shop-item-container-flex">
                             <!-- Items inside the flex container -->
     
-                            <!-- Item 1 -->
-                            <div class="shop-item-display-flex shop-item ">
-                                <div class="card text-left" >
-                                    <div class="cardimg text-center">
-                                        <img class="card-img-top " src="{{asset('images/book1.jpg')}}" alt="Card image cap">
-                                        <div class="overlay">
-                                            
-                                        </div>
-                                    <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
-                                    </div>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <div class="upper-body">
-                                            <h5 class="card-title">Beautiful Land   </h5>
-                                            <p class="card-text">by Dr. Werotaw Bezabeh</p>
-                                            <div class="shop-star">
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
+                            @foreach ($items as $item)
+                                <!-- Item 1 -->
+                                <div class="shop-item-display-flex shop-item ">
+                                    <div class="card text-left" >
+                                        <div class="cardimg text-center">
+                                            <img class="card-img-top " src="{{$item->photo}}" alt="Card image cap">
+                                            <div class="overlay">
                                                 
                                             </div>
-                                            <p class="price pull-right">$35.00</p>
+                                        <a href="{{route('shop.show', $item->id)}}" class=" btn-quick-view ">Quick View</a>
                                         </div>
-                                      
-                                      <div class="lower-body ">
-                                        <button class="add-to-cart hvr-shrink">Add to Cart</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                            <!-- Item 2 -->
-                            <div class="shop-item-display-flex shop-item ">
-                                <div class="card text-left" style="width: 18rem;">
-                                    <div class="cardimg text-center">
-                                        <img class="card-img-top " src="{{asset('images/book2.jpg')}}" alt="Card image cap">
-                                        <div class="overlay">
-                                            
-                                        </div>
-                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
-                                    </div>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <div class="upper-body">
-                                            <h5 class="card-title">Beautiful Land   </h5>
-                                            <p class="card-text">by Dr. Werotaw Bezabeh</p>
-                                            <div class="shop-star">
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                
+                                        
+                                        
+                                        <div class="card-body">
+                                            <div class="upper-body">
+                                                <h5 class="card-title">{{$item->title}}</h5>
+                                                <p class="card-text">by Dr. Werotaw Bezabeh</p>
+                                                <div class="shop-star">
+                                                    <a href="" ><i class="fa fa-star-o shop-star"></i></a>
+                                                    <a href="" ><i class="fa fa-star-o shop-star"></i></a>
+                                                    <a href="" ><i class="fa fa-star-o shop-star"></i></a>
+                                                    <a href="" ><i class="fa fa-star-o shop-star"></i></a>
+                                                    <a href="" ><i class="fa fa-star-o shop-star"></i></a>
+                                                    
+                                                </div>
+                                                <p class="price pull-right">${{$item->price}}</p>
                                             </div>
-                                            <p class="price pull-right">$35.00</p>
+                                        
+                                        <div class="lower-body ">
+                                            <a class="add-to-cart hvr-shrink" href="{{route('order.create')}}">Add to Cart</a>
                                         </div>
-                                      
-                                      <div class="lower-body ">
-                                        <button class="add-to-cart hvr-shrink">Add to Cart</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
-     
-    
-                            <!-- Item 3 -->
-                            <div class="shop-item-display-flex shop-item ">
-                                <div class="card text-left" style="width: 18rem;">
-                                    <div class="cardimg text-center">
-                                        <img class="card-img-top " src="{{asset('images/book3.jpg')}}" alt="Card image cap">
-                                        <div class="overlay">
-                                            
                                         </div>
-                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
                                     </div>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <div class="upper-body">
-                                            <h5 class="card-title">Beautiful Land   </h5>
-                                            <p class="card-text">by Dr. Werotaw Bezabeh</p>
-                                            <div class="shop-star">
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                
-                                            </div>
-                                            <p class="price pull-right">$35.00</p>
-                                        </div>
-                                      
-                                      <div class="lower-body ">
-                                        <button class="add-to-cart hvr-shrink">Add to Cart</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                            <!-- Item 4 -->
-                            <div class="shop-item-display-flex shop-item ">
-                                <div class="card text-left" style="width: 18rem;">
-                                    <div class="cardimg text-center">
-                                        <img class="card-img-top " src="{{asset('images/book4.jpg')}}" alt="Card image cap">
-                                        <div class="overlay">
-                                            
-                                        </div>
-                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
-                                    </div>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <div class="upper-body">
-                                            <h5 class="card-title">Beautiful Land   </h5>
-                                            <p class="card-text">by Dr. Werotaw Bezabeh</p>
-                                            <div class="shop-star">
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                
-                                            </div>
-                                            <p class="price pull-right">$35.00</p>
-                                        </div>
-                                      
-                                      <div class="lower-body ">
-                                        <button class="add-to-cart hvr-shrink">Add to Cart</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                            <!-- Item 5 -->
-                            <div class="shop-item-display-flex shop-item ">
-                                <div class="card text-left" style="width: 18rem;">
-                                    <div class="cardimg text-center">
-                                        <img class="card-img-top " src="{{asset('images/book5.jpg')}}" alt="Card image cap">
-                                        <div class="overlay">
-                                            
-                                        </div>
-                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
-                                    </div>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <div class="upper-body">
-                                            <h5 class="card-title">Beautiful Land   </h5>
-                                            <p class="card-text">by Dr. Werotaw Bezabeh</p>
-                                            <div class="shop-star">
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                
-                                            </div>
-                                            <p class="price pull-right">$35.00</p>
-                                        </div>
-                                      
-                                      <div class="lower-body ">
-                                        <button class="add-to-cart hvr-shrink">Add to Cart</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                            <!-- Item 6 -->
-                            <div class="shop-item-display-flex shop-item ">
-                                <div class="card text-left" style="width: 18rem;">
-                                    <div class="cardimg text-center">
-                                        <img class="card-img-top " src="{{asset('images/audio1.jpg')}}" alt="Card image cap">
-                                        <div class="overlay">
-                                            
-                                        </div>
-                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
-                                    </div>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <div class="upper-body">
-                                            <h5 class="card-title">Beautiful Land   </h5>
-                                            <p class="card-text">by Dr. Werotaw Bezabeh</p>
-                                            <div class="shop-star">
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                
-                                            </div>
-                                            <p class="price pull-right">$35.00</p>
-                                        </div>
-                                      
-                                      <div class="lower-body ">
-                                        <button class="add-to-cart hvr-shrink">Add to Cart</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                            <!-- Item 7 -->
-                            <div class="shop-item-display-flex shop-item ">
-                                <div class="card text-left" style="width: 18rem;">
-                                    <div class="cardimg text-center">
-                                        <img class="card-img-top " src="{{asset('images/audio2.jpg')}}" alt="Card image cap">
-                                        <div class="overlay">
-                                            
-                                        </div>
-                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
-                                    </div>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <div class="upper-body">
-                                            <h5 class="card-title">Beautiful Land   </h5>
-                                            <p class="card-text">by Dr. Werotaw Bezabeh</p>
-                                            <div class="shop-star">
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                
-                                            </div>
-                                            <p class="price pull-right">$35.00</p>
-                                        </div>
-                                      
-                                      <div class="lower-body ">
-                                        <button class="add-to-cart hvr-shrink">Add to Cart</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                            <!-- Item 8 -->
-                            <div class="shop-item-display-flex shop-item ">
-                                <div class="card text-left" style="width: 18rem;">
-                                    <div class="cardimg text-center">
-                                        <img class="card-img-top " src="{{asset('images/audio3.jpg')}}" alt="Card image cap">
-                                        <div class="overlay">
-                                            
-                                        </div>
-                                        <a href="{{route('shop.readmore')}}" class=" btn-quick-view ">Quick View</a>
-                                    </div>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <div class="upper-body">
-                                            <h5 class="card-title">Beautiful Land   </h5>
-                                            <p class="card-text">by Dr. Werotaw Bezabeh</p>
-                                            <div class="shop-star">
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                <a href="" ><i class="fa fa-star-o shop-star"></i></a>
-                                                
-                                            </div>
-                                            <p class="price pull-right">$35.00</p>
-                                        </div>
-                                      
-                                      <div class="lower-body ">
-                                        <button class="add-to-cart hvr-shrink">Add to Cart</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
+                                </div>
+                            @endforeach
     
     
+                            
                         </div>
-                        <nav aria-label="...">
-                            <ul class="pagination">
-                              <li class="page-item disabled">
-                                <span class="page-link">Previous</span>
-                              </li>
-                              <li class="page-item active">
-                                <span class="page-link">
-                                  1
-                                  <span class="sr-only">(current)</span>
-                                </span>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                              </li>
-                            </ul>
-                          </nav>
+                        <div class="text-center">
+                            {{$items->render()}}
+                        </div>
                     </div>
     
                     <div class="col-lg-3 col-md-4 col-sm-7 col-7 text-left fixed-side-bar">

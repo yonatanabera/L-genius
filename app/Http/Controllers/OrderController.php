@@ -12,6 +12,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
@@ -36,6 +39,9 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        Order::create($request->all());
+        return redirect()->back();
+        
     }
 
     /**

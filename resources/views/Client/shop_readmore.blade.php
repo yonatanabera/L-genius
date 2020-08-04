@@ -13,27 +13,35 @@
                 <div class="readmore-summary">
                     <div class="shop-readmore-flex-container">
                         <div class="readmore-thumbnail shop-readmore-flex-1">
-                        <img class="readmore-thumbnail-main-image" src="{{asset('images/book3.jpg')}}" alt="">
+                        <img class="readmore-thumbnail-main-image" src="{{asset($item->photo)}}" alt="">
                         </div>
                         <div class="shop-readmore-flex-2">
-                            <h3 class="book-title">Entrepreneurship and Innovation</h3>
-                            <p class="price">$35.00</p>
+                            <h3 class="book-title">{{$item->title}}</h3>
+                            <div class="meta mb-3"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+
+                            <p class="price">${{$item->price}}</p>
+                            
                             <div class="description">
                                 <div class="authorProduct">
                                     By: <span>Dr. Werotaw Bezabih</span>
                                 </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, quasi reiciendis blanditiis mollitia totam eveniet maxime dignissimos ea, recusandae magni error vitae adipisci quibusdam nihil molestiae odit ut? Excepturi a voluptatibus architecto deleniti laborum beatae et repellendus, minus nisi voluptas.</p>
+                                    <p>{{$item->readmore}}</p>
                             </div>
-                        <form action="" enctype="multipart/form-data" class="cart">
+                        {{-- <form action=""  class="cart"> --}}
+                            {!! Form::open(['class'=>'cart', 'method'=>'post', 'action'=>'OrderController@store']) !!}
                             <div class="thim-quantity">
                                 <div class="minus">-</div>
                                 <div class="quantity">
-                                    <input class="quantity-input-text" type="number" min="1" value="1" name="" id="">
+                                    <input class="quantity-input-text" type="number" min="1" value="1" name="quantity" id="">
+                                    {!! Form::hidden('item_id', $item->id, []) !!}
+                                    {!! Form::hidden('user_id', Auth::user()? Auth::user()->id:'Not-logged-in', []) !!}
                                 </div>
                                 <div class="plus">+</div>
                             </div>
                             <button class="readmore-add-to-cart" type="submit" name="add-to-cart">Add to cart</button>
-                        </form>
+                            {{-- {!! Form::submit('add-to-cart', ['class'=>'readmore-add-to-cart']) !!} --}}
+                        {{-- </form> --}}
+                        {!! Form::close() !!}
                         <div class="clearfix"></div>
                         <ul class="productShare text-right">
                             <li class="heading">Share: </li>
@@ -48,7 +56,7 @@
                     <div class="readmore-summary-content shop-readmore-summary">
                         <ul class="nav nav-tabs" role='tablist' id='nav-tab'>
                             <li class="active nav-item"><a href="#nav-home" class="nav-link active" id="nav-home-tab" data-toggle='tab'>Body</a></li>
-                            <li class=" nav-item"><a href="#nav-review" class="nav-link " id="nav-review-tab" data-toggle='tab'>Reviews (0)</a></li>
+                            <li class=" nav-item"><a href="#nav-review" class="nav-link " id="nav-review-tab" data-toggle='tab'>Reviews ({{count($item->review)}})</a></li>
                         </ul>
                           
                           <div class="readmore-tab-content tab-content">
@@ -56,21 +64,8 @@
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel">
                                 <div class="readmore-tab-overview "  >
                                     <div class="readmore-tab-overview-text">
-                                        <h4 class="service-description-title">SERVICE DESCRIPTION</h4>
-                                        <p class="service-description-body"> Sit eaque, nostrum ipsum quo quam molestias inventore? Voluptatum sed id aut! Rerum voluptas quo perferendis quidem odio? Iusto, beatae atque. Repudiandae iusto, soluta repellat voluptate porro reiciendis quaerat aperiam saepe aliquid, perspiciatis iure adipisci dolorum eius deleniti rerum impedit tenetur. Temporibus amet sequi iusto, ab dolores distinctio! Numquam magnam odio minus neque illum.</p>
-                                        <h4 class="service-description-title">CERTIFICATION</h4>
-                                        <p class="service-description-body">Sit eaque, nostrum ipsum quo quam molestias inventore? Voluptatum sed id aut! Rerum voluptas quo perferendis quidem odio? Iusto, beatae atque. Repudiandae iusto, soluta repellat voluptate porro reiciendis quaerat aperiam saepe aliquid, perspiciatis iure adipisci dolorum eius deleniti rerum impedit tenetur. Temporibus amet sequi iusto, ab dolores distinctio! Numquam magnam odio minus neque illum.</p>
-                                        <h4 class="service-description-title">LEARNING OUTCOMES</h4>
-                                        <ul class="service-description-body-ul">
-                                            <li class="service-description-body-ul-li">Over 37 lectures and 55.5 hours of content!</li>
-                                            <li class="service-description-body-ul-li">LIVE PROJECT End to End Software Testing Training Included.</li>
-                                            <li class="service-description-body-ul-li">Learn Software Testing and Automation basics from a professional trainer from your own desk.</li>
-                                            <li class="service-description-body-ul-li">Information packed practical training starting from basics to advanced testing techniques.</li>
-                                            <li class="service-description-body-ul-li">Best suitable for beginners to advanced level users and who learn faster when demonstrated.</li>
-                                            <li class="service-description-body-ul-li">Course content designed by considering current software testing technology and the job market.</li>
-                                            <li class="service-description-body-ul-li">Practical assignments at the end of every session.</li>
-                                            <li class="service-description-body-ul-li">Practical learning experience with live project work and examples.</li>
-                                        </ul>
+                                        
+                                        {{$item->content}}
                                     </div>
 
                                     <div class="readmore-tab-overview-info">
@@ -120,124 +115,47 @@
                             <!-- Review tab content -->
                              <div class="tab-pane fade show " id="nav-review" role="tabpanel"> 
                                 <div class="blog-comment">
-                                    
-                                    <ul class="comment-list">
-                                        <li class="comment">
-                                            <div class="vcard bio">
-                                                <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                            </div>
-                                            <div class="comment-body">
-                                                <h3>John Doe</h3>
-                                                <div class="meta mb-3"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                                                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                <form action="" class="form-group reply-form">
-                                                    <input name="" id="" placeholder="Reply" class="reply-textfield "></input>
-                                                    <div class="reply-btn-wrapper">
-                                                        <button type="submit" class="reply btn">Reply</button>
-                                                    </div>
-                                                </form>
-                                                
-                                                
-                                               
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="comment">
-                                            <div class="vcard bio">
-                                                <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                            </div>
-                                            <div class="comment-body">
-                                                <h3>John Doe</h3>
-                                                <div class="meta mb-3"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <div>
+                                        <ul class="comment-list">
 
-                                                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                <form action="" class="form-group reply-form">
-                                                    <input name="" id="" placeholder="Reply" class="reply-textfield "></input>
-                                                    <div class="reply-btn-wrapper">
-                                                        <button type="submit" class="reply btn">Reply</button>
+
+                                            @foreach ($item->review as $review)
+                                                <li class="comment">
+                                                    <div class="vcard bio">
+                                                        <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
                                                     </div>
-                                                </form>
+                                                    <div class="comment-body">
+                                                        <h3>{{$review->user->name}}</h3>
+                                                        <div class="meta mb-3"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+
+                                                        <div class="meta mb-3">{{$review->created_at->diffForHumans()}}</div>
+                                                        <p>{{$review->comment}}</p>
+                                                        @if (Auth::user())
+                                                            <form action="" class="form-group reply-form">
+                                                                <input name="" id="" placeholder="Reply" class="reply-textfield ">
+                                                                <div class="reply-btn-wrapper">
+                                                                    <button type="submit" class="reply btn">Reply</button>
+                                                                </div>
+                                                            </form>
+                                                        @endif
+                                                    
+                                                    </div>
+                                                    
+                                                </li>
+                                            @endforeach
                                             
-                                            </div>
-                                            <ul class="children">
-                                                <li class="comment">
-                                                    <div class="vcard bio">
-                                                        <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                                    </div>
-                                                    <div class="comment-body">
-                                                        <h3>John Doe</h3>
-                                                        <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                        
-                                                    
-                                                    </div>
-                                                    
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="comment">
-                                            <div class="vcard bio">
-                                                <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                            </div>
-                                            <div class="comment-body">
-                                                <h3>John Doe</h3>
-                                                <div class="meta mb-3"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                        </ul>
 
-                                                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                <form action="" class="form-group reply-form">
-                                                    <input name="" id="" placeholder="Reply" class="reply-textfield "></input>
-                                                    <div class="reply-btn-wrapper">
-                                                        <button type="submit" class="reply btn">Reply</button>
-                                                    </div>
-                                                </form>
-                                               
-                                            </div>
-                                            <ul class="children">
-                                                <li class="comment">
-                                                    <div class="vcard bio">
-                                                        <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                                    </div>
-                                                    <div class="comment-body">
-                                                        <h3>John Doe</h3>
-                                                        <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                       
-                                                     
-                                                    </div>
-                                                    
-                                                </li>
-                                            </ul>
-                
-                                            <ul class="children">
-                                                <li class="comment">
-                                                    <div class="vcard bio">
-                                                        <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
-                                                    </div>
-                                                    <div class="comment-body">
-                                                        <h3>John Doe</h3>
-                                                        <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                       
-                                                     
-                                                    </div>
-                                                    
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                
-                
-                                    <form action="" class="form-group ">
-                                        <textarea class="form-control" placeholder="Comment here ..." name="" id="" cols="30" rows="5"></textarea>
-                                        <button class="btn btn-comment pull-right">Comment</button>
-                                    </form>
-                
-                                  </div>
+                                        <form action="" class="form-group ">
+                                            <textarea class="form-control" type="hidden" placeholder="Comment here ..." name="" id="" cols="30" rows="5"></textarea>
+                                            <button class="btn btn-comment pull-right">Comment</button>
+                                        </form>
+                                    </div>
+                                    
+                                        
+                                </div>
                             </div> 
-                            
+                          
                         </div>
 
                           <div class="services-related">

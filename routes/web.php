@@ -36,6 +36,8 @@ Route::resource('contact', 'YourThoughtController');
 
 Route::resource('callback', 'CallbackRequestController');
 
+Route::resource('order', 'OrderController');
+
 $page='';
 // Route::get('shop', function(){
 //     $page='shop';
