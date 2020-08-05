@@ -93,4 +93,16 @@ class ShopController extends Controller
     {
         //
     }
+
+    public function items(){
+        return view('admin.shop.items');
+    }
+
+    public function orders(){
+        return view('admin.shop.orders');
+    }
+
+    public function reviews(){
+        return view('admin.shop.reviews');
+    }
 }

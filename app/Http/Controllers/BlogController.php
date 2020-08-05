@@ -34,6 +34,7 @@ class BlogController extends Controller
     public function create()
     {
         //
+        return view('admin.blog.create');
     }
 
     /**
@@ -95,4 +96,10 @@ class BlogController extends Controller
     {
         //
     }
+
+    public function admin_blog_view(){
+        return view('admin.blog.view');
+    }
+
+
 }

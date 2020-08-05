@@ -21,6 +21,35 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('admin', function(){
+//     return view('admin.blog.view');
+// });
+
+Route::get('adminHome', 'HomeController@admin_home')->name('admin.home');
+
+Route::get('adminHomeAbout', 'HomeController@admin_home_about')->name('admin.home.about');
+
+Route::get('adminHomeTestimonials', 'HomeController@admin_home_testimonials')->name('admin.home.testimonials');
+
+Route::get('adminAboutArticle', 'AboutController@article')->name('admin.about.article');
+
+Route::get('adminAboutManagerInfor', 'AboutController@manager_information')->name('admin.about.manager.info');
+
+Route::get('adminAboutStatements', 'AboutController@statements')->name('admin.about.statements');
+
+Route::get('adminServicesMain', 'ServiceController@main_service')->name('admin.services.service');
+
+Route::get('adminServicesCounter', 'ServiceController@counter')->name('admin.service.counter');
+
+Route::get('adminShopItems', 'ShopController@items')->name('admin.shop.items');
+
+Route::get('adminShopOrders', 'ShopController@orders')->name('admin.shop.orders');
+
+Route::get('adminShopReviews', 'ShopController@reviews')->name('admin.shop.reviews');
+
+Route::get('adminBlogView', 'BlogController@admin_blog_view')->name('admin.blog.view');
+
+Route::resource('admincontact', 'ContactInformationController');
 
 Route::resource('about', 'AboutController' );
 

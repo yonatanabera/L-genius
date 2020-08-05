@@ -96,4 +96,12 @@ class ServiceController extends Controller
     {
         //
     }
+
+    public function main_service(){
+        return view('admin.services.service');
+    }
+
+    public function counter(){
+        return view('admin.services.counter');
+    }
 }

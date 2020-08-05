@@ -92,4 +92,16 @@ class AboutController extends Controller
     {
         //
     }
+
+    public function article(){
+        return view('admin.about.article');
+    }
+
+    public function manager_information(){
+        return view('admin.about.managerinfo');
+    }
+
+    public function statements(){
+        return view('admin.about.statement');
+    }
 }

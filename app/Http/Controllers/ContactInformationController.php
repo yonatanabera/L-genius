@@ -55,9 +55,10 @@ class ContactInformationController extends Controller
      * @param  \App\Model\ContactInformation  $contactInformation
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContactInformation $contactInformation)
+    public function edit($contactInformation)
     {
         //
+        return view('admin.contact.edit');
     }
 
     /**
@@ -82,4 +83,6 @@ class ContactInformationController extends Controller
     {
         //
     }
+
+   
 }
