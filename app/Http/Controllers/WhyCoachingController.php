@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DataTables;
 use App\Model\WhyCoaching;
 use Illuminate\Http\Request;
 
@@ -15,6 +15,7 @@ class WhyCoachingController extends Controller
     public function index()
     {
         //
+        return view('admin.home.whyus');
     }
 
     /**
@@ -55,9 +56,12 @@ class WhyCoachingController extends Controller
      * @param  \App\Model\WhyCoaching  $whyCoaching
      * @return \Illuminate\Http\Response
      */
-    public function edit(WhyCoaching $whyCoaching)
+    public function edit($whyCoaching)
     {
         //
+        $data=WhyCoaching::where('id',$whyCoaching)->first();
+        // return $data;
+        return view('admin.home.whyusedit', compact('data'));
     }
 
     /**
@@ -67,9 +71,14 @@ class WhyCoachingController extends Controller
      * @param  \App\Model\WhyCoaching  $whyCoaching
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WhyCoaching $whyCoaching)
+    public function update(Request $request,  $whyCoaching)
     {
         //
+        // $data=$request->all();
+        // return $data;
+        WhyCoaching::find($whyCoaching)->update($request->all());
+        return redirect(route('admin_why.index'));
+        
     }
 
     /**
@@ -81,5 +90,15 @@ class WhyCoachingController extends Controller
     public function destroy(WhyCoaching $whyCoaching)
     {
         //
+    }
+
+    public function dataAjax(){
+        $data=WhyCoaching::all();
+        return Datatables::of($data)->editColumn('updated_at', function($data){
+            return $data->updated_at->diffForHumans();
+        })->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('admin_why.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            return $button;
+        })->rawColumns(['action'])->make(true);
     }
 }

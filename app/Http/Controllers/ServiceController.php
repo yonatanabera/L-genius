@@ -7,7 +7,7 @@ use App\Model\ServiceCounter;
 use App\Model\MainService;
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
-
+use DataTables;
 class ServiceController extends Controller
 {
     /**
@@ -36,6 +36,7 @@ class ServiceController extends Controller
     public function create()
     {
         //
+        return view('admin.services.servicecreate');
     }
 
     /**
@@ -47,6 +48,8 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         //
+        Service::create($request->all());
+        return redirect(route('admin.services.service'));
     }
 
     /**
@@ -69,9 +72,11 @@ class ServiceController extends Controller
      * @param  \App\Model\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit( $service)
     {
         //
+        $data=Service::find($service);
+        return view('admin.services.serviceedit', compact('data'));
     }
 
     /**
@@ -81,9 +86,11 @@ class ServiceController extends Controller
      * @param  \App\Model\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request,  $service)
     {
         //
+        Service::find($service)->update($request->all());
+        return redirect(route('admin.services.service'));
     }
 
     /**
@@ -103,5 +110,15 @@ class ServiceController extends Controller
 
     public function counter(){
         return view('admin.services.counter');
+    }
+
+    public function dataAjax(){
+        $data=Service::all();
+        return Datatables::of($data)->editColumn('created_at', function($data){
+            return $data->updated_at->diffForHumans();
+        })->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('service.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            return $button;
+        })->rawColumns(['action'])->make(true);
     }
 }

@@ -5,17 +5,25 @@
     <div class="container">
         <div class="editAbout radius shadow mb-5 p-5">
             <h3 class="mb-5">About Article</h3>
-            <form action="">
+            {!! Form::model($data, ['method'=>'PATCH', 'files'=>true,'action'=>['AboutController@update',$data->id]]) !!}
                 <div class="form-group">
-                    <label for="AboutImage" style="display: block;">About Image</label>
-                    <input id="AboutImage" class="" type="file" name="">
+                    
+                    
+                    {!! Form::label('article_photo', 'About-Image', ['style'=>'display:block']) !!}
+                    {!! Form::file('article_photo', []) !!}
                 </div>
                 <div class="md-form my-5">
-                    <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Article</label>
-                    <textarea id="testimonyArticle" class="md-textarea form-control" rows="5"></textarea>
+                   
+
+                    {!! Form::label('organization_statement', 'Article', []) !!}
+                    {!! Form::textarea('organization_statement', null, ['class'=>"md-textarea form-control", 'rows'=>5]) !!}
 
                 </div>
-            </form>
+
+                <div>
+                    {!! Form::submit('Update', ['class'=>'btn btn-success']) !!}
+                </div>
+            {!! Form::close() !!}
         </div>
 
        

@@ -65,9 +65,9 @@ class AboutController extends Controller
      * @param  \App\Model\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit($about)
     {
-        //
+     
     }
 
     /**
@@ -77,9 +77,22 @@ class AboutController extends Controller
      * @param  \App\Model\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request,  $about)
     {
         //
+        $input=$request->all();
+        if($file=$request->file('article_photo')){
+            $name=$file->getClientOriginalName();
+            $file->move('images/about', $name);
+            $input['article_photo']=$name;
+            
+        }else if($file=$request->file('profile_card_image')){
+            $name=$file->getClientOriginalName();
+            $file->move('images/about', $name);
+            $input['profile_card_image']=$name;
+        }
+        About::find(1)->update($input);
+        return redirect(route('admin.home'));
     }
 
     /**
@@ -94,14 +107,19 @@ class AboutController extends Controller
     }
 
     public function article(){
-        return view('admin.about.article');
+        $data=About::find(1);
+        
+        return view('admin.about.article', compact('data'));
     }
 
     public function manager_information(){
-        return view('admin.about.managerinfo');
+        $data=About::find(1);
+        return view('admin.about.managerinfo', compact('data'));
     }
 
     public function statements(){
-        return view('admin.about.statement');
+        $data=CompanyDetail::find(1);
+        // return $data;
+        return view('admin.about.statement', compact('data'));
     }
 }

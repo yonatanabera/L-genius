@@ -12,5 +12,25 @@ class ServiceCounterSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('service_counters')->insert([
+            'title'=>'Satisfied Clients',
+            'count'=>15448,
+        ]);
+
+        DB::table('service_counters')->insert([
+            'title'=>'Ongoing Projects',
+            'count'=>15448,
+        ]);
+
+        DB::table('service_counters')->insert([
+            'title'=>'Completed Projects',
+            'count'=>15448,
+        ]);
+
+        DB::table('service_counters')->insert([
+            'title'=>'Graduated Entrepreneurs',
+            'count'=>15448,
+        ]);
+
     }
 }

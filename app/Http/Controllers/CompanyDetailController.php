@@ -67,9 +67,12 @@ class CompanyDetailController extends Controller
      * @param  \App\Model\CompanyDetail  $companyDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CompanyDetail $companyDetail)
+    public function update(Request $request,  $companyDetail)
     {
         //
+        CompanyDetail::find($companyDetail)->update($request->all());
+        return redirect(route('admin.home'));
+
     }
 
     /**

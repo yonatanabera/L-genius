@@ -49,6 +49,26 @@ Route::get('adminShopReviews', 'ShopController@reviews')->name('admin.shop.revie
 
 Route::get('adminBlogView', 'BlogController@admin_blog_view')->name('admin.blog.view');
 
+Route::get('whyCoachingAjax', 'WhyCoachingController@dataAjax')->name('why.coaching.ajax');
+
+Route::get('testimonialAjax', 'TestimonialController@dataAjax')->name('testimonial.ajax');
+
+Route::get('servicesAjax', 'ServiceController@dataAjax')->name('services.ajax');
+
+Route::get('mainServicesAjax', 'MainServiceController@dataAjax')->name('mainservices.ajax');
+
+Route::get('serviceCounterAjax', 'ServiceCounterController@dataAjax')->name('service.counter.ajax');
+
+Route::resource('serviceCounter', 'ServiceCounterController');
+
+Route::resource('main_service', 'MainServiceController');
+
+Route::resource('companyDetail', 'CompanyDetailController');
+
+Route::resource('testimonial', 'TestimonialController');
+
+Route::resource('admin_why', 'WhyCoachingController');
+
 Route::resource('admincontact', 'ContactInformationController');
 
 Route::resource('about', 'AboutController' );

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\MainService;
+use App\Model\MainService;
 use Illuminate\Http\Request;
-
+use DataTables;
 class MainServiceController extends Controller
 {
     /**
@@ -55,9 +55,11 @@ class MainServiceController extends Controller
      * @param  \App\MainService  $mainService
      * @return \Illuminate\Http\Response
      */
-    public function edit(MainService $mainService)
+    public function edit($mainService)
     {
         //
+        $data=MainService::find($mainService);
+        return view('admin.services.mainservices', compact('data'));
     }
 
     /**
@@ -67,9 +69,11 @@ class MainServiceController extends Controller
      * @param  \App\MainService  $mainService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MainService $mainService)
+    public function update(Request $request,  $mainService)
     {
         //
+        MainService::find($mainService)->update($request->all());
+        return redirect(route('admin.services.service'));
     }
 
     /**
@@ -81,5 +85,15 @@ class MainServiceController extends Controller
     public function destroy(MainService $mainService)
     {
         //
+    }
+
+    public function dataAjax(){
+        $data=MainService::all();
+        return Datatables::of($data)->editColumn('created_at', function($data){
+            return $data->updated_at->diffForHumans();
+        })->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('main_service.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            return $button;
+        })->rawColumns(['action'])->make(true);
     }
 }

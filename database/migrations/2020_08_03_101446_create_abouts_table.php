@@ -20,6 +20,7 @@ class CreateAboutsTable extends Migration
             $table->text('organization_statement');
             $table->string('profile_card_image');
             $table->text('profile_card_description');
+            $table->string('position');
             $table->timestamps();
         });
     }

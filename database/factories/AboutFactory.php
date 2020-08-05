@@ -13,5 +13,6 @@ $factory->define(About::class, function (Faker $faker) {
         'organization_statement'=>$faker->paragraph,
         'profile_card_image'=>'images/about-me-e1473408888274.jpg',
         'profile_card_description'=>$faker->paragraph,
+        'position'=>$faker->word,
     ];
 });

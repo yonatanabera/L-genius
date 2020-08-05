@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(BlogCategorySeeder::class);
         $this->call(ItemCategorySeeder::class);
+        $this->call(ServiceCounterSeeder::class);
 
         factory(App\User::class, 7)->create();
         factory(App\Model\Blog::class, 50)->create();
@@ -30,10 +31,10 @@ class DatabaseSeeder extends Seeder
         factory(App\Model\Shop::class, 50)->create();
         factory(App\Model\ItemReviewAndComment::class, 50)->create();
         factory(App\Model\Order::class, 50)->create();
-        factory(App\Model\ServiceCounter::class, 1)->create();
+        
         factory(App\Model\Service::class, 9)->create();
         factory(App\Model\Testimonial::class, 50)->create();
-        factory(App\Model\WhyCoaching::class, 1)->create();
+        factory(App\Model\WhyCoaching::class, 5)->create();
         factory(App\Model\YourThought::class, 50)->create();
         factory(App\Model\About::class, 1)->create();
         factory(App\Model\MainService::class, 1)->create();

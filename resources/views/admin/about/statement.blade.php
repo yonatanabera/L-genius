@@ -7,75 +7,42 @@
 
         <div class="editOrganizationStatements">
             <h3>Edit Organization Statements</h3>
-            <form action="">
+
+            {!! Form::model($data, ["method"=>'PATCH','action'=>['CompanyDetailController@update',$data->id]]) !!}
                 <div class="row my-5" >
-                    <div class="editStatement col-lg-5 mb-5 shadow p-4 ml-lg-5">
+                    <div class="editStatement col-lg-10 mb-5 shadow p-4 ml-lg-5">
                         <h4 class="mb-4">Current Statement</h4>
-                        <div class="form-group">
-                            <label for="StatementName">Statement Type/Name</label>
-                            <input id="StatementName" class="form-control" placeholder="Statement Name" type="text" name="">
-                        </div>
+                        
                         <div class="md-form my-4">
-                            <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Statement</label>
-                            <textarea id="testimonyArticle" class="md-textarea form-control" rows="3"></textarea>
+                            <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Identity</label>
+                            {!! Form::textarea('identity', null, ['class'=>'md-textarea form-control', 'rows'=>3]) !!}
+                        </div>
+
+                        <div class="md-form my-4">
+                            <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Mission</label>
+                            {!! Form::textarea('mission', null, ['class'=>'md-textarea form-control', 'rows'=>3]) !!}
+    
+                        </div>
+
+                        <div class="md-form my-4">
+                            <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Vision</label>
+                            {!! Form::textarea('vision', null, ['class'=>'md-textarea form-control', 'rows'=>3]) !!}
+    
+                        </div>
+
+                        <div class="md-form my-4">
+                            <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Value</label>
+                            {!! Form::textarea('value', null, ['class'=>'md-textarea form-control', 'rows'=>3]) !!}
     
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Done" class="btn btn-success">
+                            {!! Form::submit('Update', ['class'=>'btn btn-success']) !!}
                         </div>
                     </div>
 
-                    <div class="editStatement col-lg-5 shadow p-4 offset-lg-1 mb-5">
-                        <h4 class="mb-4">Current Statement</h4>
-                        <div class="form-group">
-                            <label for="StatementName">Statement Type/Name</label>
-                            <input id="StatementName" class="form-control" placeholder="Statement Name" type="text" name="">
-                        </div>
-                        <div class="md-form my-4">
-                            <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Statement</label>
-                            <textarea id="testimonyArticle" class="md-textarea form-control" rows="3"></textarea>
-    
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Done" class="btn btn-success">
-                        </div>
-                    </div>
-
-
-                    <div class="editStatement col-lg-5 shadow p-4 ml-lg-5 mb-5">
-                        <h4 class="mb-4">Current Statement</h4>
-                        <div class="form-group">
-                            <label for="StatementName">Statement Type/Name</label>
-                            <input id="StatementName" class="form-control" placeholder="Statement Name" type="text" name="">
-                        </div>
-                        <div class="md-form my-4">
-                            <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Statement</label>
-                            <textarea id="testimonyArticle" class="md-textarea form-control" rows="3"></textarea>
-    
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Done" class="btn btn-success">
-                        </div>
-                    </div>
-
-
-                    <div class="editStatement col-lg-5 shadow p-4 mb-5 offset-lg-1">
-                        <h4 class="mb-4">Current Statement</h4>
-                        <div class="form-group">
-                            <label for="StatementName">Statement Type/Name</label>
-                            <input id="StatementName" class="form-control" placeholder="Statement Name" type="text" name="">
-                        </div>
-                        <div class="md-form my-4">
-                            <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Statement</label>
-                            <textarea id="testimonyArticle" class="md-textarea form-control" rows="3"></textarea>
-    
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Done" class="btn btn-success">
-                        </div>
-                    </div>
+                   
                 </div>
-            </form>
+           {!! Form::close() !!}
         </div>           
 
 

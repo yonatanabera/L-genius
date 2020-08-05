@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\ServiceCounter;
 use Illuminate\Http\Request;
-
+use DataTables;
 class ServiceCounterController extends Controller
 {
     /**
@@ -55,9 +55,12 @@ class ServiceCounterController extends Controller
      * @param  \App\Model\ServiceCounter  $serviceCounter
      * @return \Illuminate\Http\Response
      */
-    public function edit(ServiceCounter $serviceCounter)
+    public function edit( $serviceCounter)
     {
         //
+        $data=ServiceCounter::find($serviceCounter);
+
+         return view('admin.services.counteredit', compact('data'));
     }
 
     /**
@@ -67,9 +70,11 @@ class ServiceCounterController extends Controller
      * @param  \App\Model\ServiceCounter  $serviceCounter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServiceCounter $serviceCounter)
+    public function update(Request $request,  $serviceCounter)
     {
         //
+        ServiceCounter::find($serviceCounter)->update($request->all());
+        return redirect(route('admin.service.counter'));
     }
 
     /**
@@ -81,5 +86,14 @@ class ServiceCounterController extends Controller
     public function destroy(ServiceCounter $serviceCounter)
     {
         //
+    }
+
+    public function dataAjax(){
+        $data=ServiceCounter::all();
+        return Datatables::of($data)
+        ->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('serviceCounter.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            return $button;
+        })->rawColumns(['action'])->make(true);
     }
 }
