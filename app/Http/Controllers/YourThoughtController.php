@@ -15,6 +15,11 @@ class YourThoughtController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware(['auth','admin'])->except(['index', 'store']);
+    }
+
+
     public function index()
     {
         //
@@ -58,6 +63,7 @@ class YourThoughtController extends Controller
     {
         //
         $contact=ContactInformation::find(1);
+        return $contact;
     }
 
     /**

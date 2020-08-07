@@ -13,6 +13,9 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware(['auth','admin'])->except(['index', 'show']);
+    }
     public function index()
     {
         //

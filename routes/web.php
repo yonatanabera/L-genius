@@ -13,87 +13,89 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return redirect(route('home.index'));
+});
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth', 'admin'])->group(function () {
+    
+    Route::get('adminHome', 'HomeController@admin_home')->name('admin.home');
 
-// Route::get('admin', function(){
-//     return view('admin.blog.view');
-// });
+    Route::get('adminHomeAbout', 'HomeController@admin_home_about')->name('admin.home.about');
 
-Route::get('adminHome', 'HomeController@admin_home')->name('admin.home');
+    Route::get('adminHomeTestimonials', 'HomeController@admin_home_testimonials')->name('admin.home.testimonials');
 
-Route::get('adminHomeAbout', 'HomeController@admin_home_about')->name('admin.home.about');
+    Route::get('adminAboutArticle', 'AboutController@article')->name('admin.about.article');
 
-Route::get('adminHomeTestimonials', 'HomeController@admin_home_testimonials')->name('admin.home.testimonials');
+    Route::get('adminAboutManagerInfor', 'AboutController@manager_information')->name('admin.about.manager.info');
 
-Route::get('adminAboutArticle', 'AboutController@article')->name('admin.about.article');
+    Route::get('adminAboutStatements', 'AboutController@statements')->name('admin.about.statements');
 
-Route::get('adminAboutManagerInfor', 'AboutController@manager_information')->name('admin.about.manager.info');
+    Route::get('adminServicesMain', 'ServiceController@main_service')->name('admin.services.service');
 
-Route::get('adminAboutStatements', 'AboutController@statements')->name('admin.about.statements');
+    Route::get('adminServicesCounter', 'ServiceController@counter')->name('admin.service.counter');
 
-Route::get('adminServicesMain', 'ServiceController@main_service')->name('admin.services.service');
+    Route::get('adminShopItems', 'ShopController@items')->name('admin.shop.items');
 
-Route::get('adminServicesCounter', 'ServiceController@counter')->name('admin.service.counter');
+    Route::get('adminShopOrders', 'ShopController@orders')->name('admin.shop.orders');
 
-Route::get('adminShopItems', 'ShopController@items')->name('admin.shop.items');
+    Route::get('adminShopReviews', 'ShopController@reviews')->name('admin.shop.reviews');
 
-Route::get('adminShopOrders', 'ShopController@orders')->name('admin.shop.orders');
+    Route::get('adminBlogView', 'BlogController@admin_blog_view')->name('admin.blog.view');
 
-Route::get('adminShopReviews', 'ShopController@reviews')->name('admin.shop.reviews');
+    Route::get('whyCoachingAjax', 'WhyCoachingController@dataAjax')->name('why.coaching.ajax');
 
-Route::get('adminBlogView', 'BlogController@admin_blog_view')->name('admin.blog.view');
+    Route::get('testimonialAjax', 'TestimonialController@dataAjax')->name('testimonial.ajax');
 
-Route::get('whyCoachingAjax', 'WhyCoachingController@dataAjax')->name('why.coaching.ajax');
+    Route::get('servicesAjax', 'ServiceController@dataAjax')->name('services.ajax');
 
-Route::get('testimonialAjax', 'TestimonialController@dataAjax')->name('testimonial.ajax');
+    Route::get('mainServicesAjax', 'MainServiceController@dataAjax')->name('mainservices.ajax');
 
-Route::get('servicesAjax', 'ServiceController@dataAjax')->name('services.ajax');
+    Route::get('serviceCounterAjax', 'ServiceCounterController@dataAjax')->name('service.counter.ajax');
 
-Route::get('mainServicesAjax', 'MainServiceController@dataAjax')->name('mainservices.ajax');
+    Route::get('blogAjax', 'BlogController@dataAjax')->name('blog.ajax');
 
-Route::get('serviceCounterAjax', 'ServiceCounterController@dataAjax')->name('service.counter.ajax');
+    Route::get('blogCategoryAjax', 'BlogCategoryController@dataAjax')->name('blog.category.ajax');
 
-Route::get('blogAjax', 'BlogController@dataAjax')->name('blog.ajax');
+    Route::get('usersAjax', 'UserController@dataAjax')->name('users.ajax');
 
-Route::get('blogCategoryAjax', 'BlogCategoryController@dataAjax')->name('blog.category.ajax');
+    Route::get('callbackAjax', 'CallbackRequestController@dataAjax')->name('callback.ajax');
 
-Route::get('usersAjax', 'UserController@dataAjax')->name('users.ajax');
+    Route::get('yourthoughtAjax', 'YourThoughtController@dataAjax')->name('thought.ajax');
 
-Route::get('callbackAjax', 'CallbackRequestController@dataAjax')->name('callback.ajax');
+    Route::get('yourThoughts', 'YourThoughtController@your_thought_view')->name('yourThoughts');
 
-Route::get('yourthoughtAjax', 'YourThoughtController@dataAjax')->name('thought.ajax');
+    Route::get('blogCommentAjax/{id}', 'BlogCommentController@dataAjax')->name('blogComment.ajax');
 
-Route::get('yourThoughts', 'YourThoughtController@your_thought_view')->name('yourThoughts');
+    Route::get('blogCommentReplyAjax/{id}', 'BlogCommentReplyController@dataAjax')->name('blogCommentReply.ajax');
 
-Route::get('blogCommentAjax/{id}', 'BlogCommentController@dataAjax')->name('blogComment.ajax');
+    Route::resource('blogCommentReply', 'BlogCommentReplyController');
 
-Route::get('blogCommentReplyAjax/{id}', 'BlogCommentReplyController@dataAjax')->name('blogCommentReply.ajax');
+    Route::resource('blogComment', 'BlogCommentController');
 
-Route::resource('blogCommentReply', 'BlogCommentReplyController');
+    Route::resource('users', 'UserController');
 
-Route::resource('blogComment', 'BlogCommentController');
+    Route::resource('blogCategory', 'BlogCategoryController');
 
-Route::resource('users', 'UserController');
+    Route::resource('serviceCounter', 'ServiceCounterController');
 
-Route::resource('blogCategory', 'BlogCategoryController');
+    Route::resource('main_service', 'MainServiceController');
 
-Route::resource('serviceCounter', 'ServiceCounterController');
+    Route::resource('companyDetail', 'CompanyDetailController');
 
-Route::resource('main_service', 'MainServiceController');
+    Route::resource('testimonial', 'TestimonialController');
 
-Route::resource('companyDetail', 'CompanyDetailController');
+    Route::resource('admin_why', 'WhyCoachingController');
 
-Route::resource('testimonial', 'TestimonialController');
+    Route::resource('admincontact', 'ContactInformationController');
 
-Route::resource('admin_why', 'WhyCoachingController');
 
-Route::resource('admincontact', 'ContactInformationController');
+});
+
+
+Route::resource('callback', 'CallbackRequestController');
 
 Route::resource('about', 'AboutController' );
 
@@ -107,55 +109,11 @@ Route::resource('shop', 'ShopController');
 
 Route::resource('contact', 'YourThoughtController');
 
-Route::resource('callback', 'CallbackRequestController');
-
+// You have not worked with order controller , make it work
 Route::resource('order', 'OrderController');
-
-$page='';
-// Route::get('shop', function(){
-//     $page='shop';
-//     return view('client.shop', compact('page'));
-// })->name('shop');
 
 Route::get('shop-readmore', function(){
     $page='shop';
     return view('client.shop_readmore', compact('page'));
 })->name('shop.readmore');
-
-// Route::get('/', function(){
-//     $page='home';
-//     return view('client.home', compact('page'));
-// })->name('home');
-
-// Route::get('blog', function(){
-//     $page='blog';
-//     return view('client.blog', compact('page'));
-// })->name('blog');
-
-// Route::get('blog-readmore', function(){
-//     $page='blog';
-//     return view('client.blog_readmore', compact('page'));
-// })->name('blog.readmore');
-
-// Route::get('about', function(){
-//     $page='about';
-//     return view('client.about', compact('page'));
-// })->name('about');
-
-// Route::get('contact', function(){
-//     $page='contact';
-//     return view('client.contact', compact('page'));
-// })->name('contact');
-
-// Route::get('servicereadmore', function(){
-//     $page='service';
-//     return view('client.services_readmore', compact('page'));
-// })->name('service.readmore');
-
-// Route::get('service', function(){
-//     $page='service';
-//     return view('client.services', compact('page'));
-// })->name('service');
-
-
 

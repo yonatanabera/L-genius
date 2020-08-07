@@ -15,11 +15,12 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+   
     
     public function index()
     {
         //
-        $page='About';
+        $page='about';
         $company_details=CompanyDetail::find(1);
         $about=About::find(1);
         $contact=ContactInformation::find(1);
