@@ -6,6 +6,8 @@
     <h3>Create Blog</h3>
     <div class="row">
         <div class="testimonial col-lg-10 shadow my-5 p-4 ">
+
+         
             
             {!! Form::open( ['method'=>'POST','files'=>true ,'action'=>'BlogController@store']) !!}
                 
@@ -41,12 +43,25 @@
                             </span>
                         @enderror
                     </div>
+
+                    <div class="md-form my-5">
+
+                        
+                      {!! Form::label('short_note', 'Short Note' ) !!}
+                      {!! Form::textarea('short_note', null, ['class'=>'form-control', 'rows'=>10]) !!}
+
+                      @error('short_note')
+                          <span class="text-warning" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
                   
                     <div class="md-form my-5">
 
                         
                         {!! Form::label('content', 'Content' ) !!}
-                        {!! Form::textarea('content', null, ['class'=>'form-control', 'rows'=>10]) !!}
+                        {!! Form::textarea('content', null, ['class'=>'form-control content', 'rows'=>10]) !!}
 
                         @error('content')
                             <span class="text-warning" role="alert">
@@ -87,7 +102,7 @@
 <script>
   var editor_config = {
     path_absolute : "/",
-    selector: "textarea",
+    selector: "textarea.content",
     plugins: [
       "advlist autolink lists link image charmap print preview hr anchor pagebreak",
       "searchreplace wordcount visualblocks visualchars code fullscreen",

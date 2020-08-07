@@ -154,6 +154,16 @@ class BlogController extends Controller
         return view('admin.blog.view');
     }
 
+    public function category($id){
+        $page='blog';
+        $blogs=Blog::where('category_id', $id)->paginate(3);
+        
+        $blogCategories=BlogCategory::all();
+
+        $contact=ContactInformation::find(1);
+        return view('client.blog', compact('blogs', 'blogCategories', 'contact', 'blog', 'page'));
+    }
+
 
     public function dataAjax(){
         $data=Blog::all();

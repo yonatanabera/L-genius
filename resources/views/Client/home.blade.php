@@ -100,29 +100,29 @@
 <main>
     <section id="why" class="mt-5">
         <div class="container text-center">
-            <h1 class="why_title" style="font-family: regular;">WHY <span>COACHING</span> </h1>
-            <p class="why_subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h1 class="why_title" style="font-family: regular;">WHY <span>{{$why[0]->title}}</span> </h1>
+            <p class="why_subtitle">{{$why[0]->description}}</p>
 
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-12  why-hover">
                     <i class="fa fa-diamond"></i>
-                    <h1 class="why_col_title">BEING HAPPY</h1>
-                    <p class="why_col_p">Overcome roadblocks and accomplish goals. </p>
+                    <h1 class="why_col_title">{{$why[1]->title}}</h1>
+                    <p class="why_col_p">{{$why[1]->description}} </p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12  why-hover">
                     <i class="fa fa-gift"></i>
-                    <h1 class="why_col_title">FULFILLING POTENTIAL</h1>
-                    <p class="why_col_p">Overcome roadblocks and accomplish goals. </p>
+                    <h1 class="why_col_title">{{$why[2]->title}}</h1>
+                    <p class="why_col_p">{{$why[2]->description}} </p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12  why-hover">
                     <i class="fa fa-book"></i>
-                    <h1 class="why_col_title">MAKING CHANGES</h1>
-                    <p class="why_col_p">Overcome roadblocks and accomplish goals. </p>
+                    <h1 class="why_col_title">{{$why[3]->title}}</h1>
+                    <p class="why_col_p">{{$why[3]->description}}</p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12  why-hover">
                     <i class="fa fa-map"></i>
-                    <h1 class="why_col_title">FINDING BALANCE</h1>
-                    <p class="why_col_p">Overcome roadblocks and accomplish goals. </p>
+                    <h1 class="why_col_title">{{$why[4]->title}}</h1>
+                    <p class="why_col_p">{{$why[4]->description}} </p>
                 </div>
                 
             </div>
@@ -243,34 +243,34 @@
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <div class="img-area">
-                            <img src="{{asset('images/team-6.jpg')}}" alt="">
+                            <img src="{{$testimonials[0]->user_photo}}" alt="">
                         </div>
                         <div class="carousel-caption " style="color: black;">
-                          <h3>Jason Doe</h3>
-                          <h4>Web Developer</h4>
-                          <p>Nulla vitae elit libero, a pharetra augue mollis interdum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, obcaecati debitis?</p>
+                          <h3>{{$testimonials[0]->username}}</h3>
+                          <h4>{{$testimonials[0]->position}}</h4>
+                          <p>{{$testimonials[0]->text}}</p>
                         </div>
                       </div>
                       <div class="carousel-item">
                         <div class="img-area">
-                            <img src="{{asset('images/team-7.jpg')}}" alt="">
+                            <img src="{{$testimonials[1]->user_photo}}" alt="">
                         </div>
                         <div class="carousel-caption " style="color: black;">
 
-                          <h3>Dia Jane</h3>
-                          <h4>IT assistance</h4>
-                          <p>Nulla vitae elit libero, a pharetra augue mollis interdum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero expedita suscipit atque aspernatur!</p>
+                            <h3>{{$testimonials[1]->username}}</h3>
+                            <h4>{{$testimonials[1]->position}}</h4>
+                            <p>{{$testimonials[1]->text}}</p> 
                         </div>
                       </div>
                       <div class="carousel-item">
                         <div class="img-area">
-                            <img src="{{asset('images/team-8.jpg')}}" alt="">
+                            <img src="{{$testimonials[2]->user_photo}}" alt="">
                         </div>
                         <div class="carousel-caption " style="color: black;">
 
-                          <h3>Claire Chedd</h3>
-                          <h4>Graphics Designer</h4>
-                          <p>Nulla vitae elit libero, a pfharetra augue mollis Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur assumenda, suscipit unde deleniti incidunt eligendi. interdum.</p>
+                            <h3>{{$testimonials[2]->username}}</h3>
+                            <h4>{{$testimonials[2]->position}}</h4>
+                            <p>{{$testimonials[2]->text}}</p>
                         </div>
                       </div>
                     </div>
@@ -295,10 +295,10 @@
                             <span class="fa fa-tasks"></span>
                        </div>
                        <div class="counter-element-number pb-2">
-                            <h1>220</h1>
+                            <h1>{{$counter[0]->count}}</h1>
                        </div>
                        <div class="counter-element-body">
-                            <h6>COMPLETE PROJECTs</h6>
+                            <h6>{{$counter[0]->title}}</h6>
                        </div>
                    </div>
                     
@@ -310,10 +310,10 @@
                              <span class="fa fa-smile-o"></span>
                         </div>
                         <div class="counter-element-number pb-2">
-                             <h1>54</h1>
+                             <h1>{{$counter[1]->count}}</h1>
                         </div>
                         <div class="counter-element-body">
-                             <h6>satisfied clients</h6>
+                             <h6>{{$counter[1]->title}}</h6>
                         </div>
                     </div>
                      
@@ -325,10 +325,10 @@
                              <span class="fa fa-calendar-check-o"></span>
                         </div>
                         <div class="counter-element-number pb-2">
-                             <h1>20</h1>
+                             <h1>{{$counter[2]->count}}</h1>
                         </div>
                         <div class="counter-element-body">
-                             <h6>ongoing PROJECTs</h6>
+                             <h6>{{$counter[2]->title}}</h6>
                         </div>
                     </div>
                      
@@ -339,10 +339,10 @@
                              <span class="fa fa-graduation-cap"></span>
                         </div>
                         <div class="counter-element-number pb-2">
-                             <h1>2200</h1>
+                             <h1>{{$counter[3]->count}}</h1>
                         </div>
                         <div class="counter-element-body">
-                             <h6>Graduated Entrepreneurs</h6>
+                             <h6>{{$counter[3]->title}}</h6>
                         </div>
                     </div>
                      
@@ -351,6 +351,8 @@
             </div>
         </div>
     </section>
+
+   
 
     <section class="latest-blog-on-home-section">
         <div class="latest-blog text-center ">
@@ -361,18 +363,18 @@
 					
 					<div class="latest-blog-card text-secondary">
 						<div class="latest-blog-card-img">
-							<img src="{{asset('images/photo-1467987506553-8f3916508521.jpg')}}" alt="" style="width: 100%;">
+							<img src="{{$blog[0]->photo}}" alt="" style="width: 100%;">
 						</div>
 						<div class="latest-blog-card-header">
-							<h5>Escape the city today</h5>
-							<p>by Dr. John Doe</p>
-							<p><span class="fa fa-clock-o"></span> January 16, 2016</p>
+							<h5>{{$blog[0]->title}}</h5>
+							<p>by Dr. Werotaw Bezabih</p>
+							<p><span class="fa fa-clock-o"></span> {{$blog[0]->created_at->diffForHumans()}}</p>
 						</div>
 						<div class="latest-blog-card-body">
-							<p>is am hastily invited settled Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, porro?</p>
+							<p>{{$blog[0]->short_note}}</p>
 						</div>
 						<div class="latest-blog-card-footer">
-                            <a href="" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
+                            <a href="{{route('blog.show', $blog[0]->id)}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
                         </div>
 
 					</div>
@@ -380,18 +382,18 @@
 			<div class="latest-blog-two text-secondary">
 				<div class="latest-blog-card">
 					<div class="latest-blog-card-img">
-						<img src="{{asset('images/photo-1512917774080-9991f1c4c750.jpg')}}" alt="" style="width: 100%;">
+						<img src="{{$blog[1]->photo}}" alt="" style="width: 100%;">
 					</div>
 					<div class="latest-blog-card-header">
-						<h5>Escape the city today</h5>
+						<h5>{{$blog[1]->photo}}</h5>
 						<p>by Dr. John Doe</p>
-						<p><span class="fa fa-clock-o"></span> January 16, 2016</p>
+						<p><span class="fa fa-clock-o"></span> {{$blog[1]->created_at->diffForHumans()}}</p>
 					</div>
 					<div class="latest-blog-card-body">
-						<p>is am hastily invited settled Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, porro?</p>
+						<p>{{$blog[1]->short_note}}</p>
 					</div>
 					<div class="latest-blog-card-footer">
-						<a href="" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
+						<a href="{{route('blog.show', $blog[1]->id )}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
 					</div>
 
 				</div>
@@ -399,18 +401,18 @@
 			<div class="latest-blog-three">
 				<div class="latest-blog-card text-secondary">
 					<div class="latest-blog-card-img">
-						<img src="{{asset('images/photo-1522771739844-6a9f6d5f14af.jpg')}}" alt="" style="width: 100%;">
+						<img src="{{$blog[2]->photo}}" alt="" style="width: 100%;">
 					</div>
 					<div class="latest-blog-card-header">
-						<h5>Escape the city today</h5>
+						<h5>{{$blog[2]->photo}}</h5>
 						<p>by Dr. John Doe</p>
-						<p><span class="fa fa-clock-o"></span> January 16, 2016</p>
+						<p><span class="fa fa-clock-o"></span> {{$blog[2]->created_at->diffForHumans()}}</p>
 					</div>
 					<div class="latest-blog-card-body">
-						<p>is am hastily invited settled Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, porro?</p>
+						<p>{{$blog[2]->short_note}}</p>
 					</div>
 					<div class="latest-blog-card-footer">
-                        <a href="" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
+                        <a href="{{route('blog.show', $blog[2]->id)}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
                     </div>
 
 				</div>

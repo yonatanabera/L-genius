@@ -37,6 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public $directory="/images/users/";
 
     public function orders(){
         return $this->belongsToMany('App\Model\Shop', 'orders', 'user_id', 'item_id');
@@ -64,5 +65,16 @@ class User extends Authenticatable
             return true;
         }
         return false; 
+    }
+
+    public function isBlocked(){
+        if($this->role->name=='block'){
+            return true;
+        }
+        return false; 
+    }
+
+    public function getPhotoAttribute($value){
+        return $this->directory.$value;
     }
 }

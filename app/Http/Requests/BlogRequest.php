@@ -27,6 +27,7 @@ class BlogRequest extends FormRequest
             //
             'title'=>'required',
             'category'=>'required',
+            'short_note'=>'required',
             'content'=>'required',
         ];
     }

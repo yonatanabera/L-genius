@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\ContactInformation;
+use App\Model\WhyCoaching;
+use App\Model\Testimonial;
+use App\Model\ServiceCounter;
+use App\Model\Blog;
 class HomeController extends Controller
 {
     /**
@@ -19,7 +23,12 @@ class HomeController extends Controller
         //
         $page='home';
         $contact=ContactInformation::find(1);
-        return view('client.home', compact('page' ,'contact'));
+        $why=WhyCoaching::all();
+        $testimonials=Testimonial::all();
+        $counter=ServiceCounter::all();
+        $blog=Blog::latest()->get();
+        
+        return view('client.home', compact('page' ,'contact', 'why', 'testimonials', 'counter', 'blog'));
     }
 
     /**

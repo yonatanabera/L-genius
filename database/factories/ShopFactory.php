@@ -9,7 +9,6 @@ $factory->define(Shop::class, function (Faker $faker) {
     return [
         //
         'title'=>$faker->word,
-        'photo'=>'images/book1.jpg',
         'price'=>$faker->numberBetween(100,250),
         'readmore'=>$faker->paragraph,
         'content'=>implode($faker->paragraphs),

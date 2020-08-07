@@ -25,7 +25,7 @@ class ServiceController extends Controller
         //
         $page='service';
         $services=Service::all();
-        $counter=ServiceCounter::find(1);
+        $counter=ServiceCounter::all();
         $mainService=MainService::find(1);
         $contact=ContactInformation::find(1);
         $category=Service::pluck('title', 'id');

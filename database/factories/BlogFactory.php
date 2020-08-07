@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Blog::class, function (Faker $faker) {
     return [
         'title'=>$faker->word,
-        'photo'=>'https://via.placeholder.com/150',
+        'short_note'=>implode($faker->paragraphs),
         'content'=>$faker->paragraph,
         'count'=>$faker->numberBetween(100,300),
         'category_id'=>App\Model\BlogCategory::all()->random()->id,

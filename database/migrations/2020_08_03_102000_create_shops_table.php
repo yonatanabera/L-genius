@@ -16,7 +16,7 @@ class CreateShopsTable extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('photo');
+            $table->string('photo')->default('book1.jpg');
             $table->integer('price');
             $table->text('readmore');
             $table->text('content');

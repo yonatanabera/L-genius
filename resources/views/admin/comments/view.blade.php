@@ -10,12 +10,12 @@
      <table class="table table-bordered" id="table">
         <thead>
            <tr>
-              <th>Id</th>
               <th>Name</th>
               <th>Email</th>
               <th>Topic</th>
               <th>Description</th>
               <th>Created at</th>
+              <th>Archive</th>
               
            </tr>
         </thead>
@@ -41,12 +41,13 @@
                 },
                 columns: 
                     [
-                        { data: 'id', name: 'id' },
+                        
                         { data: 'name', name: 'name'},
                         { data: 'email', name: 'email'},
                         { data: 'subject', name: 'subject' },
                         { data: 'message', name: 'message' },
                         { data: 'created_at', name: 'created_at' },
+                        { data: 'archive', name: 'archive' },
                     
                     ]
             });

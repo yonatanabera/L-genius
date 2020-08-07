@@ -111,6 +111,8 @@ Route::resource('shop', 'ShopController');
 
 Route::resource('contact', 'YourThoughtController');
 
+Route::get('blogwithCategory/{id}', 'BlogController@category')->name('blog.category');
+
 // You have not worked with order controller , make it work
 Route::resource('order', 'OrderController');
 

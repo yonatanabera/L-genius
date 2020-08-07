@@ -55,7 +55,7 @@
                             @foreach ($blog->comment as $comment)
                             <li class="comment">
                                 <div class="vcard bio">
-                                    <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
+                                    <img src="{{$comment->user->photo}}" alt="Image placeholder">
                                 </div>
                                 <div class="comment-body">
                                     <h3>{{$comment->user->name}}</h3>
@@ -76,7 +76,7 @@
                                         <ul class="children">
                                             <li class="comment">
                                                 <div class="vcard bio">
-                                                    <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
+                                                    <img src="{{$reply->user->photo}}" alt="Image placeholder">
                                                 </div>
                                                 <div class="comment-body">
                                                     <h3>{{$reply->user->name}}</h3>

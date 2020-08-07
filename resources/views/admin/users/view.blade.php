@@ -48,7 +48,7 @@
                     [
                         { data: 'id', name: 'id' },
                         { data: 'photo', name: 'photo', render: function(data, type, full,){
-                            return "<img src=\"/images/users/"+data+"\" style='width:75px' >";
+                            return "<img src=\""+data+"\" style='width:75px' >";
                         } },
                         { data: 'name', name: 'name' },
                         { data: 'email', name: 'email' },

@@ -10,6 +10,12 @@
 
      @include('includes\flash')
 
+        <div class="mb-3" style="width: 150px;">
+            <img src="{{$data->profile_card_image}}" alt="..." class="img-thumbnail">
+        </div>
+
+    
+
      {!! Form::model($data, ['method'=>'PATCH','files'=>true ,'action'=>['AboutController@updates', $data->id]]) !!}
          <div class="row">
              <div class="form-group col-lg-5">

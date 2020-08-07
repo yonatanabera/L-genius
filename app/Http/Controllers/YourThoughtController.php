@@ -106,10 +106,15 @@ class YourThoughtController extends Controller
         return view('admin.comments.view');
     }
 
+ 
+
     public function dataAjax(){
         $data=YourThought::latest();
         return Datatables::of($data)->editColumn('created_at', function($data){
             return $data->created_at->diffForHumans();
-        })->make(true);
+        })->addColumn('archive', function($data){
+            $button='<a type="button" class="edit btn btn-primary btn-sm disabled" role="button" disabled href="'. route('blogComment.show', $data->id).'" name="edit" id="'.$data->id.'"> Archive</a>';
+            return $button;
+        })->rawColumns(['archive'])->make(true);
     }
 }

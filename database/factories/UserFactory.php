@@ -24,7 +24,6 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => bcrypt('password'), // password
         'phone'=>$faker->phoneNumber,
-        'photo'=>'https://via.placeholder.com/150',
         'role_id'=>App\Model\Role::all()->random()->id,
         'remember_token' => Str::random(10),
     ];

@@ -51,71 +51,71 @@
                 
         </div>
 
-            <section class="counter-section mb-5">
-                <div class="service-counter">
-                    <div class="row service-counter-inner py-5  container">
-                        <div class="col-lg-3 col-md-6 py-5">
+        <section class="counter-section mb-5">
+            <div class="service-counter">
+                <div class="row service-counter-inner py-5  container">
+                    <div class="col-lg-3 col-md-6 py-5">
+                       <div class="counter-element text-center">
+                           <div class="counter-element-icon pb-3">
+                                <span class="fa fa-tasks"></span>
+                           </div>
+                           <div class="counter-element-number pb-2">
+                                <h1>{{$counter[0]->count}}</h1>
+                           </div>
+                           <div class="counter-element-body">
+                                <h6>{{$counter[0]->title}}</h6>
+                           </div>
+                       </div>
+                        
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6 py-5">
                         <div class="counter-element text-center">
                             <div class="counter-element-icon pb-3">
-                                    <span class="fa fa-tasks"></span>
+                                 <span class="fa fa-smile-o"></span>
                             </div>
                             <div class="counter-element-number pb-2">
-                                    <h1>{{$counter->completed_projects}}</h1>
+                                 <h1>{{$counter[1]->count}}</h1>
                             </div>
                             <div class="counter-element-body">
-                                    <h6>COMPLETE PROJECTs</h6>
+                                 <h6>{{$counter[1]->title}}</h6>
                             </div>
                         </div>
-                            
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 py-5">
-                            <div class="counter-element text-center">
-                                <div class="counter-element-icon pb-3">
-                                    <span class="fa fa-smile-o"></span>
-                                </div>
-                                <div class="counter-element-number pb-2">
-                                    <h1>{{$counter->satisfied_clients}}</h1>
-                                </div>
-                                <div class="counter-element-body">
-                                    <h6>satisfied clients</h6>
-                                </div>
+                         
+                     </div>
+    
+                     <div class="col-lg-3 col-md-6 py-5">
+                        <div class="counter-element text-center">
+                            <div class="counter-element-icon pb-3">
+                                 <span class="fa fa-calendar-check-o"></span>
                             </div>
-                            
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 py-5">
-                            <div class="counter-element text-center">
-                                <div class="counter-element-icon pb-3">
-                                    <span class="fa fa-calendar-check-o"></span>
-                                </div>
-                                <div class="counter-element-number pb-2">
-                                    <h1>{{$counter->ongoing_projects}}</h1>
-                                </div>
-                                <div class="counter-element-body">
-                                    <h6>ongoing PROJECTs</h6>
-                                </div>
+                            <div class="counter-element-number pb-2">
+                                 <h1>{{$counter[2]->count}}</h1>
                             </div>
-                            
-                        </div>
-                        <div class="col-lg-3 col-md-6 py-5">
-                            <div class="counter-element text-center">
-                                <div class="counter-element-icon pb-3">
-                                    <span class="fa fa-graduation-cap"></span>
-                                </div>
-                                <div class="counter-element-number pb-2">
-                                    <h1>{{$counter->graduated_entrepreneurs}}</h1>
-                                </div>
-                                <div class="counter-element-body">
-                                    <h6>Graduated Entrepreneurs</h6>
-                                </div>
+                            <div class="counter-element-body">
+                                 <h6>{{$counter[2]->title}}</h6>
                             </div>
-                            
                         </div>
-
-                    </div>
+                         
+                     </div>
+                     <div class="col-lg-3 col-md-6 py-5">
+                        <div class="counter-element text-center">
+                            <div class="counter-element-icon pb-3">
+                                 <span class="fa fa-graduation-cap"></span>
+                            </div>
+                            <div class="counter-element-number pb-2">
+                                 <h1>{{$counter[3]->count}}</h1>
+                            </div>
+                            <div class="counter-element-body">
+                                 <h6>{{$counter[3]->title}}</h6>
+                            </div>
+                        </div>
+                         
+                     </div>
+    
                 </div>
-            </section>
+            </div>
+        </section>
         
 
             <section class="call-back">

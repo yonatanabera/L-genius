@@ -122,7 +122,7 @@
                                             @foreach ($item->review as $review)
                                                 <li class="comment">
                                                     <div class="vcard bio">
-                                                        <img src="{{asset('images/man-image-1.png')}}" alt="Image placeholder">
+                                                        <img src="{{$review->user->photo}}" alt="Image placeholder">
                                                     </div>
                                                     <div class="comment-body">
                                                         <h3>{{$review->user->name}}</h3>

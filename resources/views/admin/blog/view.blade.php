@@ -14,7 +14,7 @@
               <th>Id</th>
               <th>Photo</th>
               <th>Title</th>
-              <th>Content</th>
+              <th>Short note</th>
               <th>Views</th>
               <th>Category</th>
               <th>Action</th>
@@ -45,10 +45,10 @@
                     [
                         { data: 'id', name: 'id'},
                         { data: 'photo', name: 'photo' ,render: function(data, type, full,){
-                            return "<img src=\"/images/blogs/"+data+"\" style='width:75px' >";
+                            return "<img src=\""+data+"\" style='width:75px' >";
                         } },
                         { data: 'title', name: 'title'},
-                        { data: 'content', name: 'content' },
+                        { data: 'short_note', name: 'short_note' },
                         { data: 'count', name: 'count' },
                         { data: 'category_id', name: 'category_id' },
                         { data: 'action', name: 'action' },

@@ -9,4 +9,10 @@ class Testimonial extends Model
     protected $fillable=[
         'user_photo', 'username', 'text', 'position',
     ];
+
+    public $directory="/images/testimonials/";
+
+    public function getUserPhotoAttribute($value){
+        return $this->directory.$value;
+    }
 }

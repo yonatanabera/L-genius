@@ -46,7 +46,7 @@
                     [
                         { data: 'id', name: 'id' },
                         { data: 'user_photo', name: 'user_photo' ,render: function(data, type, full,){
-                            return "<img src=\"/images/testimonials/"+data+"\" style='width:75px' >";
+                            return "<img src=\""+data+"\" style='width:75px' >";
                         } },
                         { data: 'username', name: 'username'},
                         { data: 'position', name: 'position' },
