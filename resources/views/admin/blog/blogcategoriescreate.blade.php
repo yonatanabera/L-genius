@@ -17,6 +17,12 @@
                         {!! Form::label('name', 'Category Name' ) !!}
                         {!! Form::text('name', null, ['class'=>'form-control']) !!}
 
+                        @error('name')
+                            <span class="text-warning" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
                     </div>
                     <div class="form-group">
                         

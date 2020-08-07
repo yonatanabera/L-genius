@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\ServiceCounter;
 use Illuminate\Http\Request;
 use DataTables;
+use App\Http\Requests\ServiceCounterRequest;
 class ServiceCounterController extends Controller
 {
     /**
@@ -70,10 +71,11 @@ class ServiceCounterController extends Controller
      * @param  \App\Model\ServiceCounter  $serviceCounter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $serviceCounter)
+    public function update(ServiceCounterRequest $request,  $serviceCounter)
     {
         //
         ServiceCounter::find($serviceCounter)->update($request->all());
+        $request->session()->flash('success', 'Service counter updated');
         return redirect(route('admin.service.counter'));
     }
 

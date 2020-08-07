@@ -50,6 +50,8 @@ class YourThoughtController extends Controller
         
         YourThought::create($request->all());
 
+        $request->session()->flash('success', 'Message has been sent. Thanks for your feedback.');
+
         return redirect(route('contact.index'));
     }
 

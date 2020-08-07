@@ -7,6 +7,7 @@ use App\Model\ServiceCounter;
 use App\Model\MainService;
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
+use App\Http\Requests\ServicesListRequest;
 use DataTables;
 class ServiceController extends Controller
 {
@@ -49,10 +50,11 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServicesListRequest $request)
     {
         //
         Service::create($request->all());
+        $request->session()->flash('success', 'New service created');
         return redirect(route('admin.services.service'));
     }
 
@@ -90,10 +92,11 @@ class ServiceController extends Controller
      * @param  \App\Model\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $service)
+    public function update(ServicesListRequest $request,  $service)
     {
         //
         Service::find($service)->update($request->all());
+        $request->session()->flash('success', 'Service updated');
         return redirect(route('admin.services.service'));
     }
 
@@ -103,9 +106,12 @@ class ServiceController extends Controller
      * @param  \App\Model\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Request $request, $service)
     {
         //
+        Service::find($service)->delete();
+        $request->session()->flash('success','Service Deleted');
+        return redirect()->back();
     }
 
     public function main_service(){
@@ -121,7 +127,9 @@ class ServiceController extends Controller
         return Datatables::of($data)->editColumn('created_at', function($data){
             return $data->updated_at->diffForHumans();
         })->addColumn('action', function($data){
-            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('service.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            $button='<a type="button" class="edit btn btn-warning btn-sm mx-1 my-1" href="'. route('service.edit', $data->id).'" name="edit" id="'.$data->id.'"><i class="fa fa-edit"></i></a>';
+            $button.='<form method="post" action="'.route('service.destroy', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="DELETE"><button type="submit" value="" class="edit btn btn-danger btn-sm my-1 mx-1" ><i class="fa fa-trash"></i></button></form>';
+
             return $button;
         })->rawColumns(['action'])->make(true);
     }

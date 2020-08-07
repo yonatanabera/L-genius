@@ -19,7 +19,9 @@ class CreateBlogsTable extends Migration
             $table->string('photo');
             $table->text('content');
             $table->integer('count')->default(0);
-            $table->integer('category_id');
+            $table->bigInteger('category_id')->unsigned();
+
+            $table->foreign('category_id')->references('id')->on('blog_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

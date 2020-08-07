@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DataTables;
 use App\Model\WhyCoaching;
 use Illuminate\Http\Request;
+use App\Http\Requests\WhyUsRequest;
 
 class WhyCoachingController extends Controller
 {
@@ -71,11 +72,9 @@ class WhyCoachingController extends Controller
      * @param  \App\Model\WhyCoaching  $whyCoaching
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $whyCoaching)
+    public function update(WhyUsRequest $request,  $whyCoaching)
     {
-        //
-        // $data=$request->all();
-        // return $data;
+        $request->session()->flash('success', 'Updated Successfully'); 
         WhyCoaching::find($whyCoaching)->update($request->all());
         return redirect(route('admin_why.index'));
         

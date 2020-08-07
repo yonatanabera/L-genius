@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\CompanyDetail;
 use Illuminate\Http\Request;
+use App\Http\Requests\CompanyDetailRequest;
 
 class CompanyDetailController extends Controller
 {
@@ -67,11 +68,12 @@ class CompanyDetailController extends Controller
      * @param  \App\Model\CompanyDetail  $companyDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $companyDetail)
+    public function update(CompanyDetailRequest $request,  $companyDetail)
     {
         //
         CompanyDetail::find($companyDetail)->update($request->all());
-        return redirect(route('admin.home'));
+        $request->session()->flash('success', 'Organization Statement updated successfully');
+        return redirect()->back();
 
     }
 

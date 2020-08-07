@@ -125,34 +125,46 @@
                             <div class="call-back-header">
                                 <h4>Request a call Back</h2>
                                 <p class="text-secondary">If you are intested in any of our services, leave us your information down below ,and we'll get to you. </p>
-                                <ul>
-                                    @if (count($errors->all())>0)
-        
-                                        @foreach ($errors->all() as $error)
-                                            <li class="text-danger text-capitalize">{{$error}}</li>
-                                        @endforeach
-                                    
-                                    @endif
-                                </ul>
+              
                             </div>
+                            
+                            @include('includes\flash')
+
                             <div class="call-back-form">
                                 {!! Form::open(['method'=>'post', 'action'=>'CallbackRequestController@store']) !!}
-                                    <div class="form-group">
+                                    <div class="form-group ">
                                         
                                         {!! Form::label('name', 'Your Name:') !!}
-                                        {!! Form::text('name', null, ['class'=>'form-control']) !!}
-
+                                        {!! Form::text('name', null, ['class'=>'form-control ']) !!}
+                                        
+                                        @error('name')
+                                            <span class="text-warning" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         
                                         {!! Form::label('email', 'Your Email:') !!}
                                         {!! Form::text('email', null, ['class'=>'form-control']) !!}
+
+                                        @error('email')
+                                            <span class="text-warning" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         
 
                                         {!! Form::label('phone', 'Your Phone Number:') !!}
                                         {!! Form::text('phone', null, ['class'=>'form-control']) !!}
+
+                                        @error('phone')
+                                            <span class="text-warning" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                         
                                     </div>
                                     <div class="form-group">
@@ -168,6 +180,12 @@
 
                                         {!! Form::label('description', 'Any Other Topic:') !!}
                                         {!! Form::text('description', null, ['class'=>'form-control']) !!}
+
+                                        @error('description')
+                                            <span class="text-warning" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                         
                                     </div>
                                     <div class="form-group py-3">

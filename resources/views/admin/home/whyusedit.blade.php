@@ -7,6 +7,7 @@
         <div class="editWhyUsOne">
             <h3>WHY US?</h3>
 
+            
           
             {!! Form::model($data, ['method'=>'PATCH', 'action'=>['WhyCoachingController@update', $data->id]]) !!}
                 <div class="form-group">
@@ -14,6 +15,12 @@
 
                     {!! Form::label('title', 'Title', []) !!}
                     {!! Form::text('title', null, ['class'=>'form-control']) !!}
+
+                    @error('title')
+                        <span class="text-warning" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 
                 </div>
                 <div class="form-group">
@@ -21,6 +28,12 @@
                     
                     {!! Form::label('description', 'Description', []) !!}
                     {!! Form::textarea('description', null, ['class'=>'form-control']) !!}
+
+                    @error('description')
+                        <span class="text-warning" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     
                 </div>
                 <div class="form-group">

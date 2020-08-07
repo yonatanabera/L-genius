@@ -77,6 +77,7 @@ class UserController extends Controller
         // return $request;
 
         User::find($id)->update($request->all());
+        $request->session()->flash('success', 'User role is updated');
         return redirect(route('users.index'));
     }
 

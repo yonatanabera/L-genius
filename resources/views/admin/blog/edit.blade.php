@@ -24,11 +24,23 @@
                         {!! Form::label('title', 'Title' ) !!}
                         {!! Form::text('title', null, ['class'=>'form-control']) !!}
 
+                        @error('title')
+                            <span class="text-warning" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
                     </div>
                     <div class="form-group">
                       
                         {!! Form::label('category', 'Category' ) !!}
-                        {!! Form::text('category', null, ['class'=>'form-control']) !!}
+                        {!! Form::select('category', $category, null, ['class'=>'form-control']) !!}
+
+                        @error('category')
+                            <span class="text-warning" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 
                     </div>
                   
@@ -37,6 +49,12 @@
                         
                         {!! Form::label('content', 'Content' ) !!}
                         {!! Form::textarea('content', null, ['class'=>'form-control']) !!}
+
+                        @error('content')
+                            <span class="text-warning" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 
                     </div>
                     <div class="form-group">

@@ -47,6 +47,8 @@ class CallbackRequestController extends Controller
         $data['topic']=Service::find($data['topic'])->title;
         
         CallbackRequest::create($data);
+
+        $request->session()->flash('success', 'Request callback has been sent. We will reach you soon.');
         return redirect(route('service.index'));
 
     }

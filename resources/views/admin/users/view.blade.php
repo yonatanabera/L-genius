@@ -6,6 +6,9 @@
        
     <div class="container">
         <h2>Users</h2>
+
+        @include('includes\flash')
+
         {{-- <a class="btn btn-primary pull-right m-3" href="{{route('blogCategory.create')}}">Create Blog Category</a> --}}
      <table class="table table-bordered" id="table">
         <thead>

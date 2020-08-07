@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ContactInformationRequest;
 class ContactInformationController extends Controller
 {
     /**
@@ -75,10 +75,11 @@ class ContactInformationController extends Controller
      * @param  \App\Model\ContactInformation  $contactInformation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $contactInformation)
+    public function update(ContactInformationRequest $request,  $contactInformation)
     {
         //
         ContactInformation::find($contactInformation)->update($request->all());
+        $request->session()->flash('success', 'Contact information is updated');
         return redirect(route('admincontact.edit', 1));
     }
 

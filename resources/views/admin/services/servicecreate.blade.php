@@ -13,20 +13,34 @@
 
                     {!! Form::label('icon', 'Font awesome icon', []) !!}
                     {!! Form::text('icon', null, ['class'=>'form-control']) !!}
-
+                    @error('icon')
+                        <span class="text-warning" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="form-group">
                    
                     {!! Form::label('title', 'Title', []) !!}
                     {!! Form::text('title', null, ['class'=>'form-control']) !!}
+                    @error('title')
+                        <span class="text-warning" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="md-form my-4">
                 <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Service Detail</label>
                 {!! Form::textarea('content', null, ['class'=>'md-textarea form-control', 'row'=>'10']) !!}
+                @error('content')
+                    <span class="text-warning" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
             </div>
             <div class="form-group">
-                {!! Form::submit('Update', ['class'=>"btn btn-success"]) !!}
+                {!! Form::submit('Create', ['class'=>"btn btn-success"]) !!}
                
             </div>
             {!! Form::close() !!}

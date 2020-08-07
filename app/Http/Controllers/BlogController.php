@@ -6,6 +6,7 @@ use App\Model\Blog;
 use App\Model\BlogCategory;
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogRequest;
 use DataTables;
 class BlogController extends Controller
 {
@@ -39,8 +40,8 @@ class BlogController extends Controller
     public function create()
     {
        
-       
-        return view('admin.blog.create');
+        $category=BlogCategory::pluck('name', 'name');
+        return view('admin.blog.create', compact('category'));
     }
 
     /**
@@ -49,7 +50,7 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
         //
 
@@ -70,6 +71,7 @@ class BlogController extends Controller
            
         }
         Blog::create($data);
+        $request->session()->flash('success', 'Blog Created');
         return redirect(route('admin.blog.view'));
     }
 
@@ -99,7 +101,8 @@ class BlogController extends Controller
         //
         $data=Blog::find($blog);
         $data['category']=$data->category->name;
-        return view('admin.blog.edit', compact('data'));
+        $category=BlogCategory::pluck('name' , 'name');
+        return view('admin.blog.edit', compact('data', 'category'));
        
     }
 
@@ -110,7 +113,7 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $blog)
+    public function update(BlogRequest $request, $blog)
     {
         //
         $data=$request->all();
@@ -129,6 +132,7 @@ class BlogController extends Controller
             $data['category_id']=BlogCategory::create(['name'=>$data['category']])->id;
             Blog::find($blog)->update($data);
         }
+        $request->session()->flash('success', 'Blog Updated');
         return redirect(route('admin.blog.view'));
     }
 
@@ -138,9 +142,12 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(Request $request, $blog)
     {
         //
+        Blog::find($blog)->delete();
+        $request->session()->flash('success', 'Blog Deleted');
+        return redirect()->back();
     }
 
     public function admin_blog_view(){
@@ -155,7 +162,9 @@ class BlogController extends Controller
         })->editColumn('category_id', function($data){
             return $data->category->name;
         })->addColumn('action', function($data){
-            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('blog.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            $button='<a type="button" class="edit btn btn-warning btn-sm mx-1 my-1" href="'. route('blog.edit', $data->id).'" name="edit" id="'.$data->id.'"><i class="fa fa-edit"></i></a>';
+            $button.='<form method="post" action="'.route('blog.destroy', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="DELETE"><button type="submit" value="" class="edit btn btn-danger btn-sm my-1 mx-1" ><i class="fa fa-trash"></i></button></form>';
+
             return $button;
         })->addColumn('comment', function($data){
             $count=count(Blog::find($data->id)->comment);

@@ -91,6 +91,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::resource('admincontact', 'ContactInformationController');
 
+    Route::patch('managerUpdate/{id}', 'AboutController@updates');
+
 
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\MainService;
 use Illuminate\Http\Request;
 use DataTables;
+use App\Http\Requests\MainServiceRequest;
 class MainServiceController extends Controller
 {
     /**
@@ -69,10 +70,11 @@ class MainServiceController extends Controller
      * @param  \App\MainService  $mainService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $mainService)
+    public function update(MainServiceRequest $request,  $mainService)
     {
         //
         MainService::find($mainService)->update($request->all());
+        $request->session()->flash('success', 'Service header updated successfully');
         return redirect(route('admin.services.service'));
     }
 
@@ -92,7 +94,7 @@ class MainServiceController extends Controller
         return Datatables::of($data)->editColumn('created_at', function($data){
             return $data->updated_at->diffForHumans();
         })->addColumn('action', function($data){
-            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('main_service.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            $button='<a type="button" class="edit btn btn-warning btn-sm mx-1 my-1" href="'. route('main_service.edit', $data->id).'" name="edit" id="'.$data->id.'"><i class="fa fa-edit"></i></a>';
             return $button;
         })->rawColumns(['action'])->make(true);
     }

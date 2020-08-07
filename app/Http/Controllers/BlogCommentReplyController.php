@@ -81,9 +81,12 @@ class BlogCommentReplyController extends Controller
      * @param  \App\Model\BlogCommentReply  $blogCommentReply
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogCommentReply $blogCommentReply)
+    public function destroy(Request $request, $blogCommentReply)
     {
         //
+        BlogCommentReply::find($blogCommentReply)->delete();
+        $request->session()->flash('success', 'Reply Deleted');
+        return redirect()->back();
     }
 
     public function dataAjax($id){
@@ -94,7 +97,7 @@ class BlogCommentReplyController extends Controller
         })->editColumn('created_at', function($data){
             return $data->updated_at->diffForHumans();
         })->addColumn('action', function($data){
-            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('blog.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            $button='<form method="post" action="'.route('blogCommentReply.destroy', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="DELETE"><button type="submit" value="" class="edit btn btn-danger btn-sm my-1 mx-1" ><i class="fa fa-trash"></i></button></form>';
             return $button;
         })->rawColumns(['action'])->make(true);
     }

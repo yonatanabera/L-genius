@@ -5,6 +5,9 @@
 @section('content')
        
     <div class="container">
+
+        @include('includes\flash')
+        
         <h2 class="title m-3 pb-5">Main Services</h2>
      <table class="table table-bordered" id="tableMain">
         <thead>

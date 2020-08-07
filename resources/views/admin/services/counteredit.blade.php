@@ -13,11 +13,23 @@
                      
                         {!! Form::label('title', 'Title', []) !!}
                         {!! Form::text('title', null, ['class'=>'form-control']) !!}
+
+                        @error('title')
+                            <span class="text-warning" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         
                         {!! Form::label('counter', 'Total Value', []) !!}
-                        {!! Form::number('count', null, ['class'=>'form-control']) !!}
+                        {!! Form::number('count', null, ['class'=>'form-control', 'min'=>0]) !!}
+
+                        @error('count')
+                            <span class="text-warning" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                        

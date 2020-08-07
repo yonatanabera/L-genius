@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\BlogCategory;
 use Illuminate\Http\Request;
 use DataTables;
+use App\Http\Requests\BlogCategoryRequest;
 class BlogCategoryController extends Controller
 {
     /**
@@ -35,11 +36,12 @@ class BlogCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogCategoryRequest $request)
     {
         //
         
         BlogCategory::create($request->all());
+        $request->session()->flash('success', 'Blog category created');
         return redirect(route('blogCategory.index'));
     }
 
@@ -75,10 +77,11 @@ class BlogCategoryController extends Controller
      * @param  \App\Model\BlogCategory  $blogCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $blogCategory)
+    public function update(BlogCategoryRequest $request,  $blogCategory)
     {
         //
         BlogCategory::find($blogCategory)->update($request->all());
+        $request->session()->flash('success', 'Blog category updated');
         return redirect(route('blogCategory.index'));
     }
 
@@ -88,15 +91,19 @@ class BlogCategoryController extends Controller
      * @param  \App\Model\BlogCategory  $blogCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogCategory $blogCategory)
+    public function destroy(Request $request, $blogCategory)
     {
         //
+        BlogCategory::find($blogCategory)->delete();
+        $request->session()->flash('success', 'Category and related blogs are deleted');
+        return redirect()->back();
     }
 
     public function dataAjax(){
         $data=BlogCategory::all();
         return Datatables::of($data)->addColumn('action', function($data){
-            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('blogCategory.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            $button='<a type="button" class="edit btn btn-warning btn-sm mx-1 my-1" href="'. route('blogCategory.edit', $data->id).'" name="edit" id="'.$data->id.'"><i class="fa fa-edit"></i></a>';
+            $button.='<form method="post" action="'.route('blogCategory.destroy', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="DELETE"><button type="submit" value="" class="edit btn btn-danger btn-sm my-1 mx-1" ><i class="fa fa-trash"></i></button></form>';
             return $button;
         })->rawColumns(['action'])->make(true);
     }

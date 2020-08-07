@@ -6,6 +6,8 @@ use App\Model\About;
 use App\Model\CompanyDetail;
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
+use App\Http\Requests\AboutArticleRequest;
+use App\Http\Requests\ManagerInformationRequest;
 
 class AboutController extends Controller
 {
@@ -78,24 +80,47 @@ class AboutController extends Controller
      * @param  \App\Model\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $about)
+    public function update(AboutArticleRequest $request,  $about)
     {
         //
         $input=$request->all();
         if($file=$request->file('article_photo')){
+            
             $name=$file->getClientOriginalName();
             $file->move('images/about', $name);
             $input['article_photo']=$name;
             
         }else if($file=$request->file('profile_card_image')){
+            
             $name=$file->getClientOriginalName();
             $file->move('images/about', $name);
             $input['profile_card_image']=$name;
         }
         About::find(1)->update($input);
-        return redirect(route('admin.home'));
+        $request->session()->flash('success', 'About article is updated successfully');
+        return redirect()->back();
     }
 
+    public function updates(ManagerInformationRequest $request,  $about)
+    {
+        //
+        $input=$request->all();
+        if($file=$request->file('article_photo')){
+            
+            $name=$file->getClientOriginalName();
+            $file->move('images/about', $name);
+            $input['article_photo']=$name;
+            
+        }else if($file=$request->file('profile_card_image')){
+            
+            $name=$file->getClientOriginalName();
+            $file->move('images/about', $name);
+            $input['profile_card_image']=$name;
+        }
+        About::find(1)->update($input);
+        $request->session()->flash('success', 'Manager information has been updated successfully');
+        return redirect()->back();
+    }
     /**
      * Remove the specified resource from storage.
      *

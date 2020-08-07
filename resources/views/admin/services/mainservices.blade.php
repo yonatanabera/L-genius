@@ -13,6 +13,12 @@
                 <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Service Detail</label>
                 {!! Form::textarea('content', null, ['class'=>'md-textarea form-control', 'row'=>'10']) !!}
 
+                @error('content')
+                    <span class="text-warning" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
             </div>
             <div class="form-group">
                 {!! Form::submit('Update', ['class'=>"btn btn-success"]) !!}

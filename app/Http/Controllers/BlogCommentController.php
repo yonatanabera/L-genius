@@ -81,9 +81,12 @@ class BlogCommentController extends Controller
      * @param  \App\Model\BlogComment  $blogComment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogComment $blogComment)
+    public function destroy(Request $request, $blogComment)
     {
         //
+        BlogComment::find($blogComment)->delete();
+        $request->session()->flash('success', 'Comment Deleted');
+        return redirect()->back();
     }
 
     
@@ -96,7 +99,7 @@ class BlogCommentController extends Controller
         })->editColumn('created_at', function($data){
             return $data->updated_at->diffForHumans();
         })->addColumn('action', function($data){
-            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('blog.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            $button='<form method="post" action="'.route('blogComment.destroy', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="DELETE"><button type="submit" value="" class="edit btn btn-danger btn-sm my-1 mx-1" ><i class="fa fa-trash"></i></button></form>';
             return $button;
         })->addColumn('review', function($data){
             $count=count(BlogComment::find($data->id)->reply);

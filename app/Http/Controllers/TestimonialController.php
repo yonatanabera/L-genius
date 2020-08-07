@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DataTables;
 use App\Model\Testimonial;
 use Illuminate\Http\Request;
+use App\Http\Requests\TestimonialRequest;
 
 
 class TestimonialController extends Controller
@@ -35,7 +36,7 @@ class TestimonialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TestimonialRequest $request)
     {
         //
         $input=$request->all();
@@ -48,6 +49,7 @@ class TestimonialController extends Controller
         
         
         $testimony=Testimonial::create($input);
+        $request->session()->flash('success', 'Testimony is created successfully');
         return redirect(route('admin.home.testimonials'));
         
     }
@@ -83,7 +85,7 @@ class TestimonialController extends Controller
      * @param  \App\Model\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $testimonial)
+    public function update(TestimonialRequest $request, $testimonial)
     {
         //
         $input=$request->all();
@@ -96,6 +98,7 @@ class TestimonialController extends Controller
         
         
         $testimony=Testimonial::find($testimonial)->update($input);
+        $request->session()->flash('success', 'Update is successful');
         return redirect(route('admin.home.testimonials'));
     }
 
@@ -105,9 +108,12 @@ class TestimonialController extends Controller
      * @param  \App\Model\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy(Request $request, $testimonial)
     {
         //
+        Testimonial::find($testimonial)->delete();
+        $request->session()->flash('success', 'Testimony Deleted');
+        return redirect()->back();
     }
 
     public function dataAjax(){
@@ -115,8 +121,11 @@ class TestimonialController extends Controller
         return Datatables::of($data)->editColumn('updated_at', function($data){
             return $data->updated_at->diffForHumans();
         })->addColumn('action', function($data){
-            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('testimonial.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            $button='<a type="button" class="edit btn btn-warning btn-sm  my-1 mx-1" href="'. route('testimonial.edit', $data->id).'" name="edit" id="'.$data->id.'"><i class="fa fa-edit"></i></a>';
+            $button.="";
+            $button.='<form method="post" action="'.route('testimonial.destroy', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="DELETE"><button type="submit" value="" class="edit btn btn-danger btn-sm my-1 mx-1" ><i class="fa fa-trash"></i></button></form>';
             return $button;
         })->rawColumns(['action'])->make(true);
     }
 }
+

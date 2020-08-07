@@ -53,18 +53,13 @@
                     <div class="contact-email-header mb-5">
                         <h5>Let us know your thoughts about Us</h5>
                         <p class="text-secondary"> <span> Your</span> email address will not be published.</p>
-                        <ul>
-                            @if (count($errors->all())>0)
-
-                                @foreach ($errors->all() as $error)
-                                    <li class="text-danger text-capitalize">{{$error}}</li>
-                                @endforeach
-                            
-                            @endif
-                        </ul>
+                     
                         
                     
                     </div>
+
+                    @include('includes\flash')
+                    
                     <div class="contact-email-body">
                         {!! Form::open(['action'=>'YourThoughtController@store', 'method'=>'post']) !!}
                             <div class="row">
@@ -72,20 +67,40 @@
                                     <div class="form-group my-3 ">
                                         
                                         {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Name']) !!}
+                                        @error('name')
+                                            <span class="text-warning" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group my-3">
                                         
                                         {!! Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Email']) !!}
+                                        @error('email')
+                                            <span class="text-warning" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group my-3">
                                         
                                         {!! Form::text('subject', null, ['class'=>'form-control', 'placeholder'=>'Subject']) !!}
+                                        @error('subject')
+                                            <span class="text-warning" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     
                                 </div>
                                 <div class="col-lg">
                                     <div class="form-group my-3">
                                         {!! Form::textarea('message', '', ['class'=>'form-control', 'rows'=>5, 'cols'=>30]) !!}
+                                        @error('message')
+                                            <span class="text-warning" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

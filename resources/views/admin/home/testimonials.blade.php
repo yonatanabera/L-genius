@@ -6,7 +6,11 @@
        
     <div class="container">
         <h2>Testimonials</h2>
+        @include('includes\flash')
         <a class="btn btn-primary pull-right m-3" href="{{route('testimonial.create')}}">Create Testimony</a>
+
+        
+
      <table class="table table-bordered" id="table">
         <thead>
            <tr>
