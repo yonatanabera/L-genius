@@ -1,38 +1,61 @@
-{{-- View page --}}
+{{-- Edit page --}}
+
 @extends('layouts.admin.app')
 
 @section('content')
-    <h1>Put edit and create button here</h1>
+       
     <div class="container">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">12 June 2020</th>
-                <td style="max-width: 200px;">Characters of Successful Entreprenurship</td>
-                <td>Dr. Werotaw Bezabeh</td>
-                <td> <a class="btn actionBtn " href="adminEditCurrentBlog.html"><span class="fa fa-edit text-success"></span></a> <button class="btn actionBtn"><span class="fa fa-trash text-danger"></span></button></td>
-            </tr>
-            <tr>
-                <th scope="row">12 June 2020</th>
-                <td style="max-width: 200px;">Characters of Successful Entreprenurship</td>
-                <td>Dr. Werotaw Bezabeh</td>
-                <td> <a class="btn actionBtn " href="adminEditCurrentBlog.html"><span class="fa fa-edit text-success"></span></a> <button class="btn actionBtn"><span class="fa fa-trash text-danger"></span></button></td>
-            </tr>
-            <tr>
-                <th scope="row">12 June 2020</th>
-                <td style="max-width: 200px;">Characters of Successful Entreprenurship</td>
-                <td>Dr. Werotaw Bezabeh</td>
-                <td> <a class="btn actionBtn " href="adminEditCurrentBlog.html"><span class="fa fa-edit text-success"></span></a> <button class="btn actionBtn"><span class="fa fa-trash text-danger"></span></button></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+        <h2>Blogs</h2>
+        <a class="btn btn-primary pull-right m-3" href="{{route('blog.create')}}">Create Blog</a>
+     <table class="table table-bordered" id="table">
+        <thead>
+           <tr>
+              <th>Id</th>
+              <th>Photo</th>
+              <th>Title</th>
+              <th>Content</th>
+              <th>Views</th>
+              <th>Category</th>
+              <th>Action</th>
+              <th>View Comment</th>
+           </tr>
+        </thead>
+
+        
+     </table>
+  </div>
+
+
+  
 @endsection
+
+@section('scripts')
+  
+    <script>
+        $(function() {
+                $('#table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: 
+                {
+                    url:  '{{ route('blog.ajax') }}'
+                },
+                columns: 
+                    [
+                        { data: 'id', name: 'id'},
+                        { data: 'photo', name: 'photo' ,render: function(data, type, full,){
+                            return "<img src=\"/images/blogs/"+data+"\" style='width:75px' >";
+                        } },
+                        { data: 'title', name: 'title'},
+                        { data: 'content', name: 'content' },
+                        { data: 'count', name: 'count' },
+                        { data: 'category_id', name: 'category_id' },
+                        { data: 'action', name: 'action' },
+                        { data: 'comment', name: 'comment' },
+                    
+                    ]
+            });
+        });
+    </script>
+@endsection
+

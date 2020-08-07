@@ -1,48 +1,109 @@
-{{-- create page --}}
+{{-- edit page --}}
 @extends('layouts.admin.app')
 
 @section('content')
-    <div class="container">
-        <h3 class="mb-5">Create A new Blog Post</h3>
-        <form action="#" class="ml-lg-5">
-            <div class="row">
-                <div class="form-group col-lg-5 ">
-                    <label for="editBlogger">Blogger</label>
-                    <input id="editBlogger" placeholder="Blogger Name" class="form-control" type="text" name="">
-                </div>
-                <div class="form-group col-lg-5 offset-lg-1">
-                    <label for="editBlogDate">Date</label>
-                    <input id="editBlogDate" class="form-control" type="Date" name="">
-                </div>
-                <div class="form-group col-lg-5 " >
-                        <label for="editBlogTitle">Subject/Title</label>
-                        <input id="editBlogTitle" class="form-control" placeholder="Title" type="text" name="">
-                </div>
-                <div class="form-group col-lg-5 offset-lg-1" >
-                    <label for="editBlogImage" style="display: block;">Blog Image</label>
-                    <input id="editBlogImage" class="" type="file" name="">
-                </div>
-                    
-            </div>
-            <div class="form-group tagsSection clearfix" >
-                <label for="my-input" style="display: block;">Tags</label>
-
-                    <div class="TagsClone w-50 float-left mb-2">
-                    <input id="my-input" class="form-control w-75" style="display: inline;" type="text" name="">
-                    <button class="btn btn-secondary" onclick="add();" style="display: inline;"><span class="fa fa-plus"></span></button>
+<div class="container">
+    <h3>Create Blog</h3>
+    <div class="row">
+        <div class="testimonial col-lg-10 shadow my-5 p-4 ">
+            
+            {!! Form::open( ['method'=>'POST','files'=>true ,'action'=>'BlogController@store']) !!}
                 
+
+                    <div class="form-group">
+                                
+                                
+                        {!! Form::label('photo', 'Photo', ['style'=>'display:block'] ) !!}
+                        {!! Form::file('photo', null, ['class'=>'form-control']) !!}
+
                     </div>
-                </div>
-        <div class="md-form my-4">
-            <label for="BlogArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> BLog Article</label>
-            <textarea id="BlogArticle" class="md-textarea form-control" rows="3"></textarea>
 
+                    <div class="form-group ">
+                       
+
+                        {!! Form::label('title', 'Title' ) !!}
+                        {!! Form::text('title', null, ['class'=>'form-control']) !!}
+
+                    </div>
+                    <div class="form-group">
+                      
+                        {!! Form::label('category', 'Category' ) !!}
+                        {!! Form::text('category', null, ['class'=>'form-control']) !!}
+
+                    </div>
+                  
+                    <div class="md-form my-5">
+
+                        
+                        {!! Form::label('content', 'Content' ) !!}
+                        {!! Form::textarea('content', null, ['class'=>'form-control', 'rows'=>10]) !!}
+
+                    </div>
+                    <div class="form-group">
+                        
+
+                        {!! Form::submit('Create', ['class'=>'btn btn-success']) !!}
+                    </div>
+            
+            {!! Form::close() !!}
         </div>
-        <div class="form-group">
-            <input type="submit" value="Done" class="btn btn-success">
-        </div>
 
 
-        </form>
+    
     </div>
+    
+</div>
+@endsection
+
+@section('scripts')
+{{-- <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script> --}}
+
+
+
+<script>
+  var editor_config = {
+    path_absolute : "/",
+    selector: "textarea",
+    plugins: [
+      "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+      "searchreplace wordcount visualblocks visualchars code fullscreen",
+      "insertdatetime media nonbreaking save table contextmenu directionality",
+      "emoticons template paste textcolor colorpicker textpattern"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+    relative_urls: false,
+    file_browser_callback : function(field_name, url, type, win) {
+      var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+      var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+      var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+      if (type == 'image') {
+        cmsURL = cmsURL + "&type=Images";
+      } else {
+        cmsURL = cmsURL + "&type=Files";
+      }
+
+      tinyMCE.activeEditor.windowManager.open({
+        file : cmsURL,
+        title : 'Filemanager',
+        width : x * 0.8,
+        height : y * 0.8,
+        resizable : "yes",
+        close_previous : "no"
+      });
+    }
+  };
+
+  tinymce.init(editor_config);
+</script>
+
 @endsection

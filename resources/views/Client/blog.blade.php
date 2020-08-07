@@ -30,7 +30,7 @@
                             <div class="card " style="width: 100%; border: none;">
                                 <img class="card-img-top" src="{{asset($blog->photo)}}" alt="Card image cap">
                                 <div class="card-body text-justify">
-                                <p class="card-text">{{Str::words($blog->content, 50)}}</p>
+                                <p class="card-text">{!!Str::words($blog->content, 50)!!}</p>
                                 <a href="{{route('blog.show', $blog->id)}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
                                 <div class="share">
                                     <span class="text-capitalize border-info border-right">share </span>

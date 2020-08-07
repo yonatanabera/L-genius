@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Model\BlogComment;
+use App\Model\Blog;
 use Illuminate\Http\Request;
+use DataTables;
 
 class BlogCommentController extends Controller
 {
@@ -33,7 +35,7 @@ class BlogCommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($request)
     {
         //
     }
@@ -44,9 +46,10 @@ class BlogCommentController extends Controller
      * @param  \App\Model\BlogComment  $blogComment
      * @return \Illuminate\Http\Response
      */
-    public function show(BlogComment $blogComment)
+    public function show( $blogComment)
     {
-        //
+      return view('admin.blog.blogCommentsView',compact('blogComment'));
+       
     }
 
     /**
@@ -81,5 +84,24 @@ class BlogCommentController extends Controller
     public function destroy(BlogComment $blogComment)
     {
         //
+    }
+
+    
+    public function dataAjax($id){
+        
+        $data=Blog::find($id)->comment;
+        // return $data;
+        return Datatables::of($data)->editColumn('user_id', function($data){
+            return $data->user->name;
+        })->editColumn('created_at', function($data){
+            return $data->updated_at->diffForHumans();
+        })->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('blog.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            return $button;
+        })->addColumn('review', function($data){
+            $count=count(BlogComment::find($data->id)->reply);
+            $button='<a type="button" class="edit btn btn-primary btn-sm" href="'. route('blogCommentReply.show', $data->id).'" name="edit" id="'.$data->id.'"> ('.$count.') Review</a>';
+            return $button;
+        })->rawColumns(['action', 'review'])->make(true);
     }
 }

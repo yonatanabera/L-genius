@@ -21,6 +21,7 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script src="https://cdn.tiny.cloud/1/780f4nnx9f4d7fd4377e6xwcbawix7el7th7t9qgyipfs7p9/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 
 </head>
@@ -99,9 +100,48 @@
                     </ul>
                 </li>
 
-                <li  >
-                    <a href="{{route('admin.blog.view')}}">Blog</a>
+   
+                <li>
+                    <a href="#blogSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
+                    <ul class="collapse list-unstyled" id="blogSubmenu">
+                        <li>
+                            <a href="{{route('admin.blog.view')}}">Blog</a>
+
+                        </li>
+                        <li>
+                            <a href="{{route('blogCategory.index')}}">Blog Categories</a>
+
+                        </li>
+                       
+                      
+                    </ul>
                 </li>
+
+
+
+                <li>
+                    <a href="{{route('users.index')}}">Users</a>
+
+                </li>
+
+                <li>
+                    <a href="{{route('yourThoughts')}}">Comments</a>
+
+                </li>
+                
+                <li>
+                    <a href="{{route('callback.index')}}">Call Back Requests</a>
+
+                </li>
+
+                
+
+
+
+
+          
+
+
                 <li>
                     <a href="{{route('admincontact.edit', 1)}}">Contact</a>
 

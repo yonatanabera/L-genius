@@ -6,6 +6,7 @@ use App\Model\YourThought;
 use App\Model\ContactInformation;
 use App\Http\Requests\YourThoughtRequest;
 use Illuminate\Http\Request;
+use DataTables;
 
 class YourThoughtController extends Controller
 {
@@ -91,5 +92,16 @@ class YourThoughtController extends Controller
     public function destroy(YourThought $yourThought)
     {
         //
+    }
+
+    public function your_thought_view(){
+        return view('admin.comments.view');
+    }
+
+    public function dataAjax(){
+        $data=YourThought::latest();
+        return Datatables::of($data)->editColumn('created_at', function($data){
+            return $data->created_at->diffForHumans();
+        })->make(true);
     }
 }

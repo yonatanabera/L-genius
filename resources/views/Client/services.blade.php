@@ -136,7 +136,7 @@
                                 </ul>
                             </div>
                             <div class="call-back-form">
-                                {!! Form::open(['method'=>'post', 'action'=>'CallbackRequestController@index']) !!}
+                                {!! Form::open(['method'=>'post', 'action'=>'CallbackRequestController@store']) !!}
                                     <div class="form-group">
                                         
                                         {!! Form::label('name', 'Your Name:') !!}

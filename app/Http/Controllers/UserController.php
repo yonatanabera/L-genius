@@ -1,14 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Model\CallbackRequest;
+use App\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\RequestCallback;
-
-use App\Model\Service;
 use DataTables;
-class CallbackRequestController extends Controller
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +15,7 @@ class CallbackRequestController extends Controller
     public function index()
     {
         //
-        return view('admin.callback.view');
+        return view('admin.users.view'); 
     }
 
     /**
@@ -37,24 +34,18 @@ class CallbackRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestCallback $request)
+    public function store(Request $request)
     {
         //
-        $data= $request->all();
-        $data['topic']=Service::find($data['topic'])->title;
-        
-        CallbackRequest::create($data);
-        return redirect(route('service.index'));
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\CallbackRequest  $callbackRequest
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(CallbackRequest $callbackRequest)
+    public function show($id)
     {
         //
     }
@@ -62,41 +53,53 @@ class CallbackRequestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\CallbackRequest  $callbackRequest
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(CallbackRequest $callbackRequest)
+    public function edit($id)
     {
-        //
+        $roles=User::find($id)->role->pluck('name', 'id');
+        $data=User::find($id);
+
+        return view('admin.users.edit', compact('data', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\CallbackRequest  $callbackRequest
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CallbackRequest $callbackRequest)
+    public function update(Request $request, $id)
     {
         //
+        // return $request;
+
+        User::find($id)->update($request->all());
+        return redirect(route('users.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\CallbackRequest  $callbackRequest
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CallbackRequest $callbackRequest)
+    public function destroy($id)
     {
         //
     }
 
     public function dataAjax(){
-        $data=CallbackRequest::latest();
-        return Datatables::of($data)->editColumn('created_at', function($data){
+        $data=User::all();
+        return Datatables::of($data)->editColumn('role_id', function($data){
+            return strtoupper($data->role->name);
+        })->editColumn('created_at', function($data){
             return $data->created_at->diffForHumans();
+        })->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('users.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            return $button;
         })->rawColumns(['action'])->make(true);
     }
 }

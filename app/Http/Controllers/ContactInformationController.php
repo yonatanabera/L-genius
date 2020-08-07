@@ -58,7 +58,9 @@ class ContactInformationController extends Controller
     public function edit($contactInformation)
     {
         //
-        return view('admin.contact.edit');
+        $data=ContactInformation::find(1);
+
+        return view('admin.contact.edit', compact('data'));
     }
 
     /**
@@ -68,9 +70,11 @@ class ContactInformationController extends Controller
      * @param  \App\Model\ContactInformation  $contactInformation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContactInformation $contactInformation)
+    public function update(Request $request,  $contactInformation)
     {
         //
+        ContactInformation::find($contactInformation)->update($request->all());
+        return redirect(route('admincontact.edit', 1));
     }
 
     /**

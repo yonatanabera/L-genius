@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\BlogCategory;
 use Illuminate\Http\Request;
-
+use DataTables;
 class BlogCategoryController extends Controller
 {
     /**
@@ -15,6 +15,7 @@ class BlogCategoryController extends Controller
     public function index()
     {
         //
+        return view('admin.blog.blogcategoriesview');
     }
 
     /**
@@ -25,6 +26,7 @@ class BlogCategoryController extends Controller
     public function create()
     {
         //
+        return view('admin.blog.blogcategoriescreate');
     }
 
     /**
@@ -36,6 +38,9 @@ class BlogCategoryController extends Controller
     public function store(Request $request)
     {
         //
+        
+        BlogCategory::create($request->all());
+        return redirect(route('blogCategory.index'));
     }
 
     /**
@@ -55,9 +60,12 @@ class BlogCategoryController extends Controller
      * @param  \App\Model\BlogCategory  $blogCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(BlogCategory $blogCategory)
+    public function edit( $blogCategory)
     {
         //
+        $data=BlogCategory::find($blogCategory);
+
+        return view('admin.blog.blogcategoriesedit', compact('data'));
     }
 
     /**
@@ -67,9 +75,11 @@ class BlogCategoryController extends Controller
      * @param  \App\Model\BlogCategory  $blogCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BlogCategory $blogCategory)
+    public function update(Request $request,  $blogCategory)
     {
         //
+        BlogCategory::find($blogCategory)->update($request->all());
+        return redirect(route('blogCategory.index'));
     }
 
     /**
@@ -81,5 +91,13 @@ class BlogCategoryController extends Controller
     public function destroy(BlogCategory $blogCategory)
     {
         //
+    }
+
+    public function dataAjax(){
+        $data=BlogCategory::all();
+        return Datatables::of($data)->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('blogCategory.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            return $button;
+        })->rawColumns(['action'])->make(true);
     }
 }

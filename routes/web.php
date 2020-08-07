@@ -59,6 +59,30 @@ Route::get('mainServicesAjax', 'MainServiceController@dataAjax')->name('mainserv
 
 Route::get('serviceCounterAjax', 'ServiceCounterController@dataAjax')->name('service.counter.ajax');
 
+Route::get('blogAjax', 'BlogController@dataAjax')->name('blog.ajax');
+
+Route::get('blogCategoryAjax', 'BlogCategoryController@dataAjax')->name('blog.category.ajax');
+
+Route::get('usersAjax', 'UserController@dataAjax')->name('users.ajax');
+
+Route::get('callbackAjax', 'CallbackRequestController@dataAjax')->name('callback.ajax');
+
+Route::get('yourthoughtAjax', 'YourThoughtController@dataAjax')->name('thought.ajax');
+
+Route::get('yourThoughts', 'YourThoughtController@your_thought_view')->name('yourThoughts');
+
+Route::get('blogCommentAjax/{id}', 'BlogCommentController@dataAjax')->name('blogComment.ajax');
+
+Route::get('blogCommentReplyAjax/{id}', 'BlogCommentReplyController@dataAjax')->name('blogCommentReply.ajax');
+
+Route::resource('blogCommentReply', 'BlogCommentReplyController');
+
+Route::resource('blogComment', 'BlogCommentController');
+
+Route::resource('users', 'UserController');
+
+Route::resource('blogCategory', 'BlogCategoryController');
+
 Route::resource('serviceCounter', 'ServiceCounterController');
 
 Route::resource('main_service', 'MainServiceController');

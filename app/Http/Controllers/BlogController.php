@@ -6,7 +6,7 @@ use App\Model\Blog;
 use App\Model\BlogCategory;
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
-
+use DataTables;
 class BlogController extends Controller
 {
     /**
@@ -33,7 +33,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+       
+       
         return view('admin.blog.create');
     }
 
@@ -46,6 +47,25 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         //
+
+        $data=$request->all();
+        if($file=$request->file('photo')){
+            $name=$request->file('photo')->getClientOriginalName();
+            $file->move('images/Blogs', $name);
+            $data['photo']=$name;
+            
+        }
+        if($blogCategory=BlogCategory::where('name',$data['category'])->first()){
+            $data['category_id']=$blogCategory->id;
+         
+          
+        }else{
+            
+            $data['category_id']=BlogCategory::create(['name'=>$data['category']])->id;
+           
+        }
+        Blog::create($data);
+        return redirect(route('admin.blog.view'));
     }
 
     /**
@@ -69,9 +89,13 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit( $blog)
     {
         //
+        $data=Blog::find($blog);
+        $data['category']=$data->category->name;
+        return view('admin.blog.edit', compact('data'));
+       
     }
 
     /**
@@ -81,9 +105,26 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $blog)
     {
         //
+        $data=$request->all();
+        if($file=$request->file('photo')){
+            $name=$request->file('photo')->getClientOriginalName();
+            $file->move('images/Blogs', $name);
+            $data['photo']=$name;
+            
+        }
+        if($blogCategory=BlogCategory::where('name',$data['category'])->first()){
+            $data['category_id']=$blogCategory->id;
+            Blog::find($blog)->update($data);
+          
+        }else{
+            
+            $data['category_id']=BlogCategory::create(['name'=>$data['category']])->id;
+            Blog::find($blog)->update($data);
+        }
+        return redirect(route('admin.blog.view'));
     }
 
     /**
@@ -102,4 +143,19 @@ class BlogController extends Controller
     }
 
 
+    public function dataAjax(){
+        $data=Blog::all();
+        return Datatables::of($data)->editColumn('updated_at', function($data){
+            return $data->updated_at->diffForHumans();
+        })->editColumn('category_id', function($data){
+            return $data->category->name;
+        })->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm" href="'. route('blog.edit', $data->id).'" name="edit" id="'.$data->id.'">Edit</a>';
+            return $button;
+        })->addColumn('comment', function($data){
+            $count=count(Blog::find($data->id)->comment);
+            $button='<a type="button" class="edit btn btn-primary btn-sm" href="'. route('blogComment.show', $data->id).'" name="edit" id="'.$data->id.'"> ('.$count.') Comment</a>';
+            return $button;
+        })->rawColumns(['action', 'comment'])->make(true);
+    }
 }

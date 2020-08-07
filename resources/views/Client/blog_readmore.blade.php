@@ -24,7 +24,7 @@
                         <div class="card blog-readmore-main-card" style="width: 100%; border: none;">
                             <img class="card-img-top" src="{{asset($blog->photo)}}" alt="Card image cap">
                             <div class="card-body text-justify">
-                                {{$blog->content}}
+                                {!!$blog->content!!}
                             <div class="main-blog-footer">
                                 <span class="pull-left blog-readmore-tags">Tags:</span> <a href="#" class=" blog-category"> {{$blog->category->name}}</a>
                                 <div class="share">
@@ -47,7 +47,7 @@
                 
 
                     <div class="blog-comment">
-                    <h3 class="post-title">{{count($blog->comment)}} Comments</h3>
+                        <h3 class="post-title">{{count($blog->comment)}} Comments</h3>
                         <hr>
                         <ul class="comment-list">
                             
