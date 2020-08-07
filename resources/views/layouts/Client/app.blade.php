@@ -54,6 +54,28 @@
                                     <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                                         <a class="nav-link text-uppercase px-4" href="{{route('contact.index')}}" >contact</a>
                                     </li>
+                                    <li class="nav-item mx-1   hvr-wobble-bottom hvr-sweep-to-right">
+                                        @if (Auth::user())
+                                            @if (Auth::user()->role->name=='administrator')
+                
+                                                    <a class="nav-link text-uppercase px-4" href="{{route('admin.home')}}" >Manage </a>
+                
+                                            @endif
+                                        @endif
+                                    </li>
+                                    <li class="nav-item mx-1  hvr-wobble-bottom hvr-sweep-to-right">
+                                        @if (Auth::user())
+                                            <form action="{{route('logout')}}" method="post">
+                                                @csrf
+                                                <button type="submit" value="logout" class="nav-link text-uppercase px-4" style="background-color: transparent; border:none;" >logout</button>
+                                            </form>
+                                        @else
+                                            <a class="nav-link text-uppercase px-4" href="{{route('login')}}" >login</a>
+                                        @endif
+                
+                                        
+                                    </li>
+                                    
                 
                                 </ul>
         
@@ -175,6 +197,7 @@
     <script src="{{asset('js/libs/owl.carousel.min.js')}}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+
     <script src="{{asset('js/libs/script.js')}}"></script>
 
 

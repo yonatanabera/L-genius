@@ -174,7 +174,10 @@
                             </li>
                     
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                                <form action="{{route('logout')}}" method="post">
+                                    @csrf
+                                    <input type="submit" value="logout" class="nav-link text-capitalize"  style="background-color: transparent; border:none;" >
+                                </form>
                             </li>
                         </ul>
                     </div>

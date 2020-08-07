@@ -49,6 +49,28 @@
                     <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                         <a class="nav-link text-uppercase px-4" href="{{route('contact.index')}}" >contact</a>
                     </li>
+                    <li class="nav-item mx-1   hvr-wobble-bottom hvr-sweep-to-right">
+                        @if (Auth::user())
+                            @if (Auth::user()->role->name=='administrator')
+
+                                    <a class="nav-link text-uppercase px-4" href="{{route('admin.home')}}" >Manage </a>
+
+                            @endif
+                        @endif
+                    </li>
+                    <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
+                        @if (Auth::user())
+                            <form action="{{route('logout')}}" method="post">
+                                @csrf
+                                <button type="submit" value="logout" class="nav-link text-uppercase px-4"  style="background-color: transparent; border:none;">logout</button>
+                            </form>
+                        @else
+                            <a class="nav-link text-uppercase px-4" href="{{route('login')}}" >login</a>
+                        @endif
+
+                        
+                    </li>
+                    
 
                 </ul>
             </div>
@@ -65,7 +87,9 @@
                <p>Dicover the simple 3 steps that I discovered to hack productivity. It works 100%. Wanna tranform your life?</p>
            </div>
            <div class="hero-button">
-               <a href="">Join Us</a>
+               @if (!Auth::user())
+                    <a href="{{route('register')}}">Join Us</a>
+               @endif
            </div>
         </div>
     </div>
