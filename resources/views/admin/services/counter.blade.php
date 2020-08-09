@@ -5,7 +5,7 @@
 
     <div class="container">
         <h2>Service Counter</h2>
-        @include('includes\flash')
+        @include('includes.flash')
         <div class="container">
             <h2 class="title m-3 pb-5"></h2>
          <table class="table table-bordered" id="table">

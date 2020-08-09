@@ -151,13 +151,13 @@
                             <div class="row ">
                                 <div class=" ml-4 col-4">
                                     <div class="card" style="width: 100%;">
-                                        <img class="card-img-top" src="{{asset('images/riccardo-annandale-7e2pe9wjL9M-unsplash.jpg')}}" alt="Card image cap">
+                                        <img class="card-img-top" src="/{{$popular[0]->photo}}" alt="Card image cap">
                                         
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                        <p><b>The Amazing Hubble</b></p>
-                                        <p class="text-secondary">03 HOURS AGO</p>
+                                        <p><b><a href="{{route('blog.show', $popular[0]->id)}}">{{$popular[0]->title}}</a> </b></p>
+                                        <p class="text-secondary">{{$popular[0]->created_at->diffForHumans()}}</p>
                                 </div>
                             </div>
                         </div>
@@ -165,75 +165,68 @@
                         <div class="card mb-4 post-item card-border-none">
                             <div class="row ">
                                 <div class=" ml-4 col-4">
-                                <div class="card" style="width: 100%;">
-                                    <img class="card-img-top" src="{{asset('images/toa-heftiba-_UIVmIBB3JU-unsplash.jpg')}}" alt="Card image cap">
+                                    <div class="card" style="width: 100%;">
+                                        <img class="card-img-top" src="/{{$popular[1]->photo}}" alt="Card image cap">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <p><b><a href="{{route('blog.show', $popular[1]->id)}}">{{$popular[1]->title}}</a> </b></p>
+                                    <p class="text-secondary">{{$popular[0]->created_at->diffForHumans()}}</p>
+                                </div></p>
+                            </div>
+                        </div>
+
+                         <!-- item 3 -->
+                         <div class="card mb-4 post-item card-border-none">
+                            <div class="row ">
+                                <div class=" ml-4 col-4">
+                                    <div class="card" style="width: 100%;">
+                                        <img class="card-img-top" src="/{{$popular[2]->photo}}" alt="Card image cap">
                                     
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                    <p><b>Astronomy Astrology</b></p>
-                                    <p class="text-secondary">02 HOURS AGO</p>
-                            </div>
+                                    <p><b><a href="{{route('blog.show', $popular[2]->id)}}">{{$popular[2]->title}}</a> </b></p>
+                                    <p class="text-secondary">{{$popular[2]->created_at->diffForHumans()}}</p>
+                                </div>
                             </div>
                         </div>
-                        <!-- item 3 -->
+
+                        <!-- item 4 -->
                         <div class="card mb-4 post-item card-border-none">
                             <div class="row ">
                                 <div class=" ml-4 col-4">
-                                <div class="card" style="width: 100%;">
-                                    <img class="card-img-top" src="{{asset('images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg')}}" alt="Card image cap">
-                                    
+                                    <div class="card" style="width: 100%;">
+                                        <img class="card-img-top" src="/{{$popular[3]->photo}}" alt="is this even working">
+                                        
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                    <p><b>Space Final Frontier</b></p>
-                                    <p class="text-secondary">02 HOURS AGO</p>
-                            </div>
-                            </div>
-                        </div>
-                    <!-- item 4 -->
-                    <div class="card mb-4 post-item card-border-none">
-                        <div class="row ">
-                            <div class=" ml-4 col-4">
-                                <div class="card" style="width: 100%;">
-                                    <img class="card-img-top" src="{{asset('images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg')}}" alt="is this even working">
-                                    
+                                        <p><b><a href="{{route('blog.show', $popular[3]->id)}}">{{$popular[3]->title}}</a></b></p>
+                                        <p class="text-secondary">{{$popular[3]->created_at->diffForHumans()}}</p>
                                 </div>
-                            </div>
-                            <div class="col-7">
-                                    <p><b>The Radical Change</b></p>
-                                    <p class="text-secondary">08 HOURS AGO</p>
-                            </div>
                         </div>
                     </div>
+                       
+                    
                     </div>
+
                     <!-- catagories card -->
                     <div class="card catagories-card my-5 py-4 text-center">
                         <card-header class="bg-transparent mb-4">
                             <h4 class="text-primary">Browse Catagories</h4>
                         </card-header>
                         <ul class="nav flex-column ">
-                            <li class="nav-item hvr-underline-from-center">
-                                <a class="nav-link btn " href="#">Entreprenurship</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                            <a class="nav-link btn " href="#">Marketing</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                                <a class="nav-link btn " href="#">Positivity</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                            <a class="nav-link btn " href="#">Personal Growth</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                                <a class="nav-link btn " href="#">Economics</a>
-                            </li>
-                            <li class="nav-item hvr-underline-from-center">
-                            <a class="nav-link btn " href="#">Monetary Value</a>
-                            </li>
+                            @foreach ($blogCategories as $blogCategory)
+                                <li class="nav-item hvr-underline-from-center">
+                                    <a class="nav-link btn " href="{{route('blog.category', $blogCategory->id)}}">{{$blogCategory->name}}</a>
+                                </li>
+                            @endforeach
+                            
+                            
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>

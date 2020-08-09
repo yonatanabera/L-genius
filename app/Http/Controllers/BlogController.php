@@ -28,8 +28,9 @@ class BlogController extends Controller
         $blogCategories=BlogCategory::all();
 
         $contact=ContactInformation::find(1);
-        
-        return view('client.blog', compact('page', 'blogs', 'blogCategories', 'contact'));
+        $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+
+        return view('client.blog', compact('page', 'blogs', 'blogCategories', 'contact', 'popular'));
     }
 
     /**
@@ -56,7 +57,7 @@ class BlogController extends Controller
 
         $data=$request->all();
         if($file=$request->file('photo')){
-            $name=$request->file('photo')->getClientOriginalName();
+            $name=time().$request->file('photo')->getClientOriginalName();
             $file->move('images/Blogs', $name);
             $data['photo']=$name;
             
@@ -86,8 +87,10 @@ class BlogController extends Controller
         //
         $page='blog';
         $blog=Blog::findOrFail($blog->id);
+        $blogCategories=BlogCategory::all();
         $contact=ContactInformation::find(1);
-        return view('client.blog_readmore', compact('page', 'blog', 'contact'));
+        $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+        return view('client.blog_readmore', compact('page', 'blog', 'contact', 'blogCategories', 'popular'));
     }
 
     /**
@@ -118,7 +121,7 @@ class BlogController extends Controller
         //
         $data=$request->all();
         if($file=$request->file('photo')){
-            $name=$request->file('photo')->getClientOriginalName();
+            $name=time().$request->file('photo')->getClientOriginalName();
             $file->move('images/Blogs', $name);
             $data['photo']=$name;
             

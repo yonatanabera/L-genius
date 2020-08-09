@@ -8,7 +8,7 @@
         <div class="editOrganizationStatements">
             <h3>Edit Organization Statements</h3>
 
-            @include('includes\flash')
+            @include('includes.flash')
 
             {!! Form::model($data, ["method"=>'PATCH','action'=>['CompanyDetailController@update',$data->id]]) !!}
                 <div class="row my-5" >

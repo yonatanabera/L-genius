@@ -6,7 +6,7 @@
         <div class="editAbout radius shadow mb-5 p-5">
             <h3 class="mb-5">About Article</h3>
 
-            @include('includes\flash')
+            @include('includes.flash')
 
             <div class="mb-3" style="width: 150px;">
                 <img src="{{$data->article_photo}}" alt="..." class="img-thumbnail">

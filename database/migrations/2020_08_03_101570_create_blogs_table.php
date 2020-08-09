@@ -17,7 +17,7 @@ class CreateBlogsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('photo')->default('blog.jpeg');
-            $table->text('short_note');
+            $table->text('short_note')->nullable();
             $table->text('content');
             $table->integer('count')->default(0);
             $table->bigInteger('category_id')->unsigned();

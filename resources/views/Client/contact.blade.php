@@ -58,7 +58,7 @@
                     
                     </div>
 
-                    @include('includes\flash')
+                    @include('includes.flash')
                     
                     <div class="contact-email-body">
                         {!! Form::open(['action'=>'YourThoughtController@store', 'method'=>'post']) !!}

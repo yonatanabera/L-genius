@@ -10,7 +10,7 @@ class Testimonial extends Model
         'user_photo', 'username', 'text', 'position',
     ];
 
-    public $directory="/images/testimonials/";
+    public $directory="images/testimonials/";
 
     public function getUserPhotoAttribute($value){
         return $this->directory.$value;

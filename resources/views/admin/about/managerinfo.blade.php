@@ -8,7 +8,7 @@
     <div class="editManagersInfo  radius shadow p-5 ">
      <h3 class="mb-5">Manager's Information</h3>
 
-     @include('includes\flash')
+     @include('includes.flash')
 
         <div class="mb-3" style="width: 150px;">
             <img src="{{$data->profile_card_image}}" alt="..." class="img-thumbnail">

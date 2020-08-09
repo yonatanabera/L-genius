@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
 
-        @include('includes\flash')
+        @include('includes.flash')
 
         <h3>Contact information of the Organization</h3>
 

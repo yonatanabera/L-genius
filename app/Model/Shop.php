@@ -23,7 +23,7 @@ class Shop extends Model
         return $this->hasMany('App\Model\ItemReviewAndComment', 'item_id');
     }
 
-    public $directory="/images/shops/";
+    public $directory="images/shops/";
 
     public function getPhotoAttribute($value){
         return $this->directory.$value;

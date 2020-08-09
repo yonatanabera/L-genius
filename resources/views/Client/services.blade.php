@@ -128,7 +128,7 @@
               
                             </div>
                             
-                            @include('includes\flash')
+                            @include('includes.flash')
 
                             <div class="call-back-form">
                                 {!! Form::open(['method'=>'post', 'action'=>'CallbackRequestController@store']) !!}

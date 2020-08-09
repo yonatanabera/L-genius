@@ -86,13 +86,13 @@ class AboutController extends Controller
         $input=$request->all();
         if($file=$request->file('article_photo')){
             
-            $name=$file->getClientOriginalName();
+            $name=time().$file->getClientOriginalName();
             $file->move('images/about', $name);
             $input['article_photo']=$name;
             
         }else if($file=$request->file('profile_card_image')){
             
-            $name=$file->getClientOriginalName();
+            $name=time().$file->getClientOriginalName();
             $file->move('images/about', $name);
             $input['profile_card_image']=$name;
         }
@@ -107,13 +107,13 @@ class AboutController extends Controller
         $input=$request->all();
         if($file=$request->file('article_photo')){
             
-            $name=$file->getClientOriginalName();
+            $name=time().$file->getClientOriginalName();
             $file->move('images/about', $name);
             $input['article_photo']=$name;
             
         }else if($file=$request->file('profile_card_image')){
             
-            $name=$file->getClientOriginalName();
+            $name=time().$file->getClientOriginalName();
             $file->move('images/about', $name);
             $input['profile_card_image']=$name;
         }

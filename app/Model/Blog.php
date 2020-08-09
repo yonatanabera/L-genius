@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    public $directory='/images/blogs/';
+    public $directory='images/blogs/';
     
     protected $fillable=[
-        'title', 'photo', 'content', 'count', 'category_id',
+        'title', 'photo', 'content', 'count', 'category_id', 'short_note',
     ];
 
     public function category(){

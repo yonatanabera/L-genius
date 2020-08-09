@@ -385,8 +385,8 @@
 						<img src="{{$blog[1]->photo}}" alt="" style="width: 100%;">
 					</div>
 					<div class="latest-blog-card-header">
-						<h5>{{$blog[1]->photo}}</h5>
-						<p>by Dr. John Doe</p>
+						<h5>{{$blog[1]->title}}</h5>
+						<p>by Dr. Werotaw Bezabih</p>
 						<p><span class="fa fa-clock-o"></span> {{$blog[1]->created_at->diffForHumans()}}</p>
 					</div>
 					<div class="latest-blog-card-body">
@@ -404,8 +404,8 @@
 						<img src="{{$blog[2]->photo}}" alt="" style="width: 100%;">
 					</div>
 					<div class="latest-blog-card-header">
-						<h5>{{$blog[2]->photo}}</h5>
-						<p>by Dr. John Doe</p>
+						<h5>{{$blog[2]->title}}</h5>
+						<p>by Dr. Werotaw Bezabih</p>
 						<p><span class="fa fa-clock-o"></span> {{$blog[2]->created_at->diffForHumans()}}</p>
 					</div>
 					<div class="latest-blog-card-body">

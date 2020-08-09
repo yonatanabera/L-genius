@@ -7,7 +7,7 @@
     <div class="container">
         <h2>Why US?</h2>
 
-        @include('includes\flash')
+        @include('includes.flash')
      <table class="table table-bordered" id="table">
         <thead>
            <tr>

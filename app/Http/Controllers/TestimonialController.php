@@ -42,7 +42,7 @@ class TestimonialController extends Controller
         $input=$request->all();
 
         if($file=$request->file('user_photo')){
-            $name=$request->file('user_photo')->getClientOriginalName();
+            $name=time().$request->file('user_photo')->getClientOriginalName();
             $file->move('images/testimonials', $name);
             $input['user_photo']=$name;
         }
@@ -91,7 +91,7 @@ class TestimonialController extends Controller
         $input=$request->all();
 
         if($file=$request->file('user_photo')){
-            $name=$request->file('user_photo')->getClientOriginalName();
+            $name=time().$request->file('user_photo')->getClientOriginalName();
             $file->move('images/testimonials', $name);
             $input['user_photo']=$name;
         }
