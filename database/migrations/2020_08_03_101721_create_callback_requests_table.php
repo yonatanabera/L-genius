@@ -20,6 +20,8 @@ class CreateCallbackRequestsTable extends Migration
             $table->string('phone');
             $table->string('topic');
             $table->text('description');
+            $table->integer('archived')->default(0);
+            $table->string('slug');
             $table->timestamps();
         });
     }

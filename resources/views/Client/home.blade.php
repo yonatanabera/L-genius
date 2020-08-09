@@ -374,7 +374,7 @@
 							<p>{{$blog[0]->short_note}}</p>
 						</div>
 						<div class="latest-blog-card-footer">
-                            <a href="{{route('blog.show', $blog[0]->id)}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
+                            <a href="{{route('blog.show', $blog[0]->slug)}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
                         </div>
 
 					</div>
@@ -393,7 +393,7 @@
 						<p>{{$blog[1]->short_note}}</p>
 					</div>
 					<div class="latest-blog-card-footer">
-						<a href="{{route('blog.show', $blog[1]->id )}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
+						<a href="{{route('blog.show', $blog[1]->slug )}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
 					</div>
 
 				</div>
@@ -412,7 +412,7 @@
 						<p>{{$blog[2]->short_note}}</p>
 					</div>
 					<div class="latest-blog-card-footer">
-                        <a href="{{route('blog.show', $blog[2]->id)}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
+                        <a href="{{route('blog.show', $blog[2]->slug)}}" class=""> Continue Reading  <span class="px-2 fa fa-arrow-right "></span></a>
                     </div>
 
 				</div>

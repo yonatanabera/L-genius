@@ -19,6 +19,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('username');
             $table->string('position'); //Think about it again
             $table->text('text'); 
+            $table->string('slug');
             $table->timestamps();
         });
     }

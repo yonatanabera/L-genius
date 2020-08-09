@@ -5,8 +5,7 @@
 @section('content')
        
     <div class="container">
-        <h2>Your thought</h2>
-        @include('includes.flash')
+        <h2>Your thought ARCHIVED</h2>
         {{-- <a class="btn btn-primary pull-right m-3" href="{{route('blog.create')}}">Create Blog</a> --}}
      <table class="table table-bordered" id="table">
         <thead>
@@ -16,7 +15,6 @@
               <th>Topic</th>
               <th>Description</th>
               <th>Created at</th>
-              <th>Archive</th>
               
            </tr>
         </thead>
@@ -38,7 +36,7 @@
                 serverSide: true,
                 ajax: 
                 {
-                    url:  '{{ route('thought.ajax') }}'
+                    url:  '{{ route('yourThoughts.archive.ajax') }}'
                 },
                 columns: 
                     [
@@ -48,7 +46,6 @@
                         { data: 'subject', name: 'subject' },
                         { data: 'message', name: 'message' },
                         { data: 'created_at', name: 'created_at' },
-                        { data: 'archive', name: 'archive' },
                     
                     ]
             });

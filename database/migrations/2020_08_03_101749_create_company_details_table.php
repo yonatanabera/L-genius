@@ -19,6 +19,7 @@ class CreateCompanyDetailsTable extends Migration
             $table->text('mission');
             $table->text('vision');
             $table->text('value');
+            $table->string('slug');
             $table->timestamps();
         });
     }

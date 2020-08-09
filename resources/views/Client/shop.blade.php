@@ -43,7 +43,7 @@
                                             <div class="overlay">
                                                 
                                             </div>
-                                        <a href="{{route('shop.show', $item->id)}}" class=" btn-quick-view ">Quick View</a>
+                                        <a href="{{route('shop.show', $item->slug)}}" class=" btn-quick-view ">Quick View</a>
                                         </div>
                                         
                                         

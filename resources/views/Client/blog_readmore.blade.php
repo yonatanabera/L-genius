@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                        <p><b><a href="{{route('blog.show', $popular[0]->id)}}">{{$popular[0]->title}}</a> </b></p>
+                                        <p><b><a href="{{route('blog.show', $popular[0]->slug)}}">{{$popular[0]->title}}</a> </b></p>
                                         <p class="text-secondary">{{$popular[0]->created_at->diffForHumans()}}</p>
                                 </div>
                             </div>
@@ -171,8 +171,8 @@
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                    <p><b><a href="{{route('blog.show', $popular[1]->id)}}">{{$popular[1]->title}}</a> </b></p>
-                                    <p class="text-secondary">{{$popular[0]->created_at->diffForHumans()}}</p>
+                                    <p><b><a href="{{route('blog.show', $popular[1]->slug)}}">{{$popular[1]->title}}</a> </b></p>
+                                    <p class="text-secondary">{{$popular[1]->created_at->diffForHumans()}}</p>
                                 </div></p>
                             </div>
                         </div>
@@ -187,7 +187,7 @@
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                    <p><b><a href="{{route('blog.show', $popular[2]->id)}}">{{$popular[2]->title}}</a> </b></p>
+                                    <p><b><a href="{{route('blog.show', $popular[2]->slug)}}">{{$popular[2]->title}}</a> </b></p>
                                     <p class="text-secondary">{{$popular[2]->created_at->diffForHumans()}}</p>
                                 </div>
                             </div>
@@ -203,7 +203,7 @@
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                        <p><b><a href="{{route('blog.show', $popular[3]->id)}}">{{$popular[3]->title}}</a></b></p>
+                                        <p><b><a href="{{route('blog.show', $popular[3]->slug)}}">{{$popular[3]->title}}</a></b></p>
                                         <p class="text-secondary">{{$popular[3]->created_at->diffForHumans()}}</p>
                                 </div>
                         </div>
@@ -220,7 +220,7 @@
                         <ul class="nav flex-column ">
                             @foreach ($blogCategories as $blogCategory)
                                 <li class="nav-item hvr-underline-from-center">
-                                    <a class="nav-link btn " href="{{route('blog.category', $blogCategory->id)}}">{{$blogCategory->name}}</a>
+                                    <a class="nav-link btn " href="{{route('blog.category', $blogCategory->slug)}}">{{$blogCategory->name}}</a>
                                 </li>
                             @endforeach
                             

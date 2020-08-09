@@ -33,10 +33,10 @@
                                             <h6>{{$service->title}}</h6>
                                         </div>
                                         <div class="service-card-body  pt-3 pb-1">
-                                            <p>{{Str::words($service->content, 25 )}}</p>
+                                            <p>{{$service->short_note}}</p>
                                         </div>
                                         <div class="service-card-footer pb-3">
-                                            <a href="{{route('service.show', $service->id)}}" class="btn btn-info ">Learn More</a>
+                                            <a href="{{route('service.show', $service->slug)}}" class="btn btn-info ">Learn More</a>
                                         </div>
                                     </div>
 

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('photo')->default('profile.png')->nullable();
             $table->integer('role_id')->default(2);
+            $table->string('slug');
             $table->rememberToken();
             $table->timestamps();
         });

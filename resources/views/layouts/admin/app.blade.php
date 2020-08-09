@@ -124,22 +124,40 @@
 
                 </li>
 
+
                 <li>
-                    <a href="{{route('yourThoughts')}}">Comments</a>
+                    <a href="#commentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Comments</a>
+                    <ul class="collapse list-unstyled" id="commentSubmenu">
+                        <li>
+                            <a href="{{route('yourThoughts')}}">New Comments</a>
+        
+                        </li>
+                        <li>
+                            <a href="{{route('yourThoughts.archived')}}">Archive</a>
 
+                        </li>
+                       
+                      
+                    </ul>
                 </li>
-                
+
+
+
                 <li>
-                    <a href="{{route('callback.index')}}">Call Back Requests</a>
+                    <a href="#callbackSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Callback Requests</a>
+                    <ul class="collapse list-unstyled" id="callbackSubmenu">
+                        <li>
+                            <a href="{{route('callback.index')}}">New Callback</a>
+        
+                        </li>
+                        <li>
+                            <a href="{{route('callback.archived')}}">Archive</a>
 
+                        </li>
+                       
+                      
+                    </ul>
                 </li>
-
-                
-
-
-
-
-          
 
 
                 <li>

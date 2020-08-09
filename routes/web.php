@@ -93,7 +93,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::patch('managerUpdate/{id}', 'AboutController@updates');
 
+    Route::get('callbackArchived', 'CallbackRequestController@archived')->name('callback.archived');
 
+    Route::patch('callbackArchive/{id}', 'CallbackRequestController@archive')->name('callback.archive');
+
+    Route::get('callbackArchiveAjax', 'CallbackRequestController@dataArchiveAjax')->name('callback.archive.ajax');
+
+    Route::get('yourThoughtsArchived', 'YourThoughtController@Archived')->name('yourThoughts.archived');
+
+    Route::patch('yourThoughtsArchive/{id}', 'YourThoughtController@Archive')->name('yourThoughts.archive');
+
+    Route::get('yourThoughtsArchive.ajax', 'YourThoughtController@dataArchiveAjax')->name('yourThoughts.archive.ajax');
 });
 
 

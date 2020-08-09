@@ -21,6 +21,7 @@ class CreateShopsTable extends Migration
             $table->text('readmore');
             $table->text('content');
             $table->integer('category_id');
+            $table->string('slug');
             $table->timestamps();
         });
     }

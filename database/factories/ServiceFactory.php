@@ -10,6 +10,7 @@ $factory->define(Service::class, function (Faker $faker) {
         //
         'icon'=>'fa fa-lg fa-star-o',
         'title'=>$faker->word,
+        'short_note'=>$faker->paragraph,
         'content'=>$faker->paragraph,
     ];
 });

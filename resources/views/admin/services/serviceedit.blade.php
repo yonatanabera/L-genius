@@ -32,15 +32,31 @@
                         </span>
                     @enderror
                 </div>
+
+
+                <div class="md-form my-5">
+
+                        
+                  {!! Form::label('short_note', 'Short Note' ) !!}
+                  {!! Form::textarea('short_note', null, ['class'=>'form-control ', 'rows'=>10]) !!}
+
+                  @error('short_note')
+                      <span class="text-warning" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+              </div>
+
+
                 <div class="md-form my-4">
-                <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Service Detail</label>
-                {!! Form::textarea('content', null, ['class'=>'md-textarea form-control', 'row'=>'10']) !!}
-                @error('content')
-                    <span class="text-warning" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+                    <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Service Detail</label>
+                    {!! Form::textarea('content', null, ['class'=>'md-textarea form-control content', 'row'=>'10']) !!}
+                    @error('content')
+                        <span class="text-warning" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
             <div class="form-group">
                 {!! Form::submit('Update', ['class'=>"btn btn-success"]) !!}
                
@@ -81,7 +97,7 @@
 <script>
   var editor_config = {
     path_absolute : "/",
-    selector: "textarea",
+    selector: "textarea.content",
     plugins: [
       "advlist autolink lists link image charmap print preview hr anchor pagebreak",
       "searchreplace wordcount visualblocks visualchars code fullscreen",

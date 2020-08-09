@@ -16,6 +16,7 @@ class CreateMainServicesTable extends Migration
         Schema::create('main_services', function (Blueprint $table) {
             $table->id();
             $table->text('content');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

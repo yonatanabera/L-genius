@@ -13,15 +13,18 @@ class RoleSeeder extends Seeder
     {
         //
         DB::table('roles')->insert([
-            'name'=>'administrator'
+            'name'=>'administrator',
+            'slug'=>'administratorRole'
         ]);
 
         DB::table('roles')->insert([
-            'name'=>'subscriber'
+            'name'=>'subscriber',
+            'slug'=>'subscriberRole'
         ]);
 
         DB::table('roles')->insert([
-            'name'=>'block'
+            'name'=>'block',
+            'slug'=>'blockRole'
         ]);
     }
 }

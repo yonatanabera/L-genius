@@ -82,11 +82,11 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($blog)
     {
         //
         $page='blog';
-        $blog=Blog::findOrFail($blog->id);
+        $blog=Blog::where('slug',$blog)->first();
         $blogCategories=BlogCategory::all();
         $contact=ContactInformation::find(1);
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
@@ -159,12 +159,15 @@ class BlogController extends Controller
 
     public function category($id){
         $page='blog';
-        $blogs=Blog::where('category_id', $id)->paginate(3);
+        $cat=BlogCategory::where('slug', $id)->first();
+        $blogs=Blog::where('category_id', $cat->id)->paginate(3);
         
         $blogCategories=BlogCategory::all();
 
         $contact=ContactInformation::find(1);
-        return view('client.blog', compact('blogs', 'blogCategories', 'contact', 'blog', 'page'));
+       
+        $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+        return view('client.blog', compact('blogs', 'blogCategories', 'contact', 'blog', 'page', 'popular'));
     }
 
 

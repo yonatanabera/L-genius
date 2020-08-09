@@ -18,6 +18,7 @@ class CreateBlogCommentRepliesTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('comment_id')->unsigned();
             $table->text('comment');
+            $table->string('slug');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('comment_id')->references('id')->on('blog_comments')->onDelete('cascade');
             $table->timestamps();

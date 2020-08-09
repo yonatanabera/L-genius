@@ -19,6 +19,7 @@ class CreateItemReviewAndCommentsTable extends Migration
             $table->bigInteger('item_id')->unsigned();
             $table->text('comment')->nullable();
             $table->integer('review')->nullable();
+            $table->string('slug');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('item_id')->references('id')->on('shops')->onDelete('cascade');
             $table->timestamps();

@@ -64,10 +64,10 @@ class ServiceController extends Controller
      * @param  \App\Model\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($service)
     {
         $page='service';
-        $service=Service::findOrFail($service->id);
+        $service=Service::where('slug',$service)->first();
         $contact=ContactInformation::find(1);
         return view('client.services_readmore', compact('page', 'service', 'contact'));
     }

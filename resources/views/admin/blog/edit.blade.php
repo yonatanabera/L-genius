@@ -11,7 +11,7 @@
             {{-- <h4 class="mb-4">Current Testimonial Name</h4> --}}
 
             <div class="mb-3" style="min-width: 150px; max-width:80%">
-              <img src="{{$data->photo}}" alt="..." class="img-thumbnail">
+              <img src="/{{$data->photo}}" alt="..." class="img-thumbnail">
             </div>
           
             {!! Form::model($data, ['method'=>'PATCH','files'=>true ,'action'=>['BlogController@update', $data->id]]) !!}

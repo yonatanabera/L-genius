@@ -98,12 +98,34 @@ class CallbackRequestController extends Controller
         //
     }
 
-    public function dataAjax(){
-        $data=CallbackRequest::latest();
+    
+    public function dataArchiveAjax(){
+        $data=CallbackRequest::latest()->where('archived', 1)->get();
         return Datatables::of($data)->editColumn('created_at', function($data){
             return $data->created_at->diffForHumans();
         })->addColumn('archive', function($data){
             $button='<a type="button" class="edit btn btn-primary btn-sm disabled" role="button" disabled href="'. route('blogComment.show', $data->id).'" name="edit" id="'.$data->id.'"> Archive</a>';
+            return $button;
+        })->rawColumns(['archive'])->make(true);
+    }
+
+    public function archive(Request $request, $id){
+
+        CallbackRequest::find($id)->update(['archived'=>1]);
+        $request->session()->flash('success', 'Request Archived');
+        return redirect()->back();
+    }
+
+    public function archived(){
+        return view('admin.callback.archived');
+    }
+
+    public function dataAjax(){
+        $data=CallbackRequest::latest()->where('archived', 0);
+        return Datatables::of($data)->editColumn('created_at', function($data){
+            return $data->created_at->diffForHumans();
+        })->addColumn('archive', function($data){
+            $button='<form method="post" action="'.route('callback.archive', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="PATCH"><button type="submit" value="" class="edit btn btn-primary btn-sm my-1 mx-1" >Archive</button></form>';
             return $button;
         })->rawColumns(['archive'])->make(true);
     }

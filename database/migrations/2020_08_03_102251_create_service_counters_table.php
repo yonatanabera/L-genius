@@ -17,6 +17,7 @@ class CreateServiceCountersTable extends Migration
             $table->id();
             $table->string('title');
             $table->integer('count');
+            $table->string('slug');
             $table->timestamps();
         });
     }

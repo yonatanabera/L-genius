@@ -6,6 +6,7 @@
        
     <div class="container">
         <h2>Call back Requests</h2>
+        @include('includes.flash')
         {{-- <a class="btn btn-primary pull-right m-3" href="{{route('blog.create')}}">Create Blog</a> --}}
      <table class="table table-bordered" id="table">
         <thead>

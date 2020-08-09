@@ -21,6 +21,7 @@ class CreateAboutsTable extends Migration
             $table->string('profile_card_image')->default('profile.png');
             $table->text('profile_card_description');
             $table->string('position');
+            $table->string('slug');
             $table->timestamps();
         });
     }

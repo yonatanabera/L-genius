@@ -3,9 +3,21 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class BlogComment extends Model
 {
+    use Sluggable;
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => ['user.name', 'blog.title']
+            ]
+        ];
+    }
+
     protected $fillable=[
         'user_id', 'comment', 
     ];

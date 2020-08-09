@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Cviebrock\EloquentSluggable\Sluggable;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,6 +15,15 @@ class User extends Authenticatable
      *
      * @var array
      */
+    use Sluggable;
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'email'
+            ]
+        ];
+    }
     protected $fillable = [
         'name', 'email', 'password','phone', 'photo', 'role_id'
     ];

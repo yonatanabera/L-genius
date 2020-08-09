@@ -14,11 +14,13 @@ class ItemCategorySeeder extends Seeder
         //
         DB::table('item_categories')->insert([
             'name'=>'Book',
+            'slug'=>'ItemBook'
             
         ]);
 
         DB::table('item_categories')->insert([
             'name'=>'Audio',
+            'slug'=>'ItemAudio',
         ]);
     }
 }

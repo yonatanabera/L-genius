@@ -54,11 +54,11 @@ class ShopController extends Controller
      * @param  \App\Model\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function show(Shop $shop)
+    public function show( $shop)
     {
         //
         $page='shop';
-        $item=Shop::findOrFail($shop->id);
+        $item=Shop::where('slug',$shop)->first();
         $contact=ContactInformation::find(1);
         return view('client.shop_readmore', compact('page', 'contact', 'item'));
     }

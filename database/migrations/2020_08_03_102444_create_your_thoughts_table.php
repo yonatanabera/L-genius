@@ -19,6 +19,8 @@ class CreateYourThoughtsTable extends Migration
             $table->string('email');
             $table->string('subject');
             $table->text('message');
+            $table->integer('archived')->default(0);
+            $table->string('slug');
             $table->timestamps();
         });
     }

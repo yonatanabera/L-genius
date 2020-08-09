@@ -13,27 +13,33 @@ class BlogCategorySeeder extends Seeder
     {
         //
         DB::table('blog_categories')->insert([
-            'name'=>'Entrepreneurship'
+            'name'=>'Entrepreneurship',
+            'slug'=>'BlogEntrepreneurship'
         ]);
 
         DB::table('blog_categories')->insert([
-            'name'=>'Marketing'
+            'name'=>'Marketing',
+            'slug'=>'BlogMarketing'
         ]);
 
         DB::table('blog_categories')->insert([
-            'name'=>'Positivity'
+            'name'=>'Positivity',
+            'slug'=>'BlogPositivity'
         ]);
 
         DB::table('blog_categories')->insert([
-            'name'=>'Personal Growth'
+            'name'=>'Personal Growth',
+            'slug'=>'BlogPersonalGrowth'
         ]);
 
         DB::table('blog_categories')->insert([
-            'name'=>'Economics'
+            'name'=>'Economics',
+            'slug'=>'BlogEconomics'
         ]);
 
         DB::table('blog_categories')->insert([
-            'name'=>'Monetary Value'
+            'name'=>'Monetary Value',
+            'slug'=>'BlogMonetaryValue'
         ]);
     }
 }

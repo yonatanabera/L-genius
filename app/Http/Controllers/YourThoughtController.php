@@ -106,14 +106,35 @@ class YourThoughtController extends Controller
         return view('admin.comments.view');
     }
 
- 
-
-    public function dataAjax(){
-        $data=YourThought::latest();
+    public function dataArchiveAjax(){
+        $data=YourThought::latest()->where('archived', 1)->get();
         return Datatables::of($data)->editColumn('created_at', function($data){
             return $data->created_at->diffForHumans();
         })->addColumn('archive', function($data){
             $button='<a type="button" class="edit btn btn-primary btn-sm disabled" role="button" disabled href="'. route('blogComment.show', $data->id).'" name="edit" id="'.$data->id.'"> Archive</a>';
+            return $button;
+        })->rawColumns(['archive'])->make(true);
+    }
+
+    public function archive(Request $request, $id){
+        // return $id;
+        YourThought::find($id)->update(['archived'=>1]);
+        $request->session()->flash('success', 'Comment Archived');
+        return redirect()->back();
+    }
+
+    public function archived(){
+        return view('admin.comments.archived');
+    }
+
+ 
+
+    public function dataAjax(){
+        $data=YourThought::latest()->where('archived', 0)->get();
+        return Datatables::of($data)->editColumn('created_at', function($data){
+            return $data->created_at->diffForHumans();
+        })->addColumn('archive', function($data){
+            $button='<form method="post" action="'.route('yourThoughts.archive', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="PATCH"><button type="submit" value="" class="edit btn btn-primary btn-sm my-1 mx-1" >Archive</button></form>';
             return $button;
         })->rawColumns(['archive'])->make(true);
     }

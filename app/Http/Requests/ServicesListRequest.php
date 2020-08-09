@@ -28,6 +28,7 @@ class ServicesListRequest extends FormRequest
             'title'=>'required',
             'icon'=>'required',
             'content'=>'required',
+            'short_note'=>'required',
         ];
     }
 }
