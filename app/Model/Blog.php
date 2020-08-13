@@ -30,7 +30,7 @@ class Blog extends Model
     }
 
     public function comment(){
-        return $this->hasMany('App\Model\BlogComment');
+        return $this->hasMany('App\Model\BlogComment')->latest();
     }
 
     public function getPhotoAttribute($value){

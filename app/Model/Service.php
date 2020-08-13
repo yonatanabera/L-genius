@@ -17,6 +17,12 @@ class Service extends Model
         ];
     }
     protected $fillable=[
-        'title', 'content', 'icon', 'short_note',
+        'title', 'content', 'icon', 'short_note', 'photo',
     ];
+
+    public $directory="images/services/";
+    
+    public function getPhotoAttribute($value){
+        return $this->directory.$value;
+    }
 }

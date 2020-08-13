@@ -19,7 +19,7 @@ class BlogCommentReply extends Model
     }
 
     protected $fillable=[
-        'user_id', 'comment_id', 
+        'user_id', 'comment_id', 'comment'
     ];
 
     public function comment(){

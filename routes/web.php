@@ -71,10 +71,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('blogCommentReplyAjax/{id}', 'BlogCommentReplyController@dataAjax')->name('blogCommentReply.ajax');
 
-    Route::resource('blogCommentReply', 'BlogCommentReplyController');
-
-    Route::resource('blogComment', 'BlogCommentController');
-
     Route::resource('users', 'UserController');
 
     Route::resource('blogCategory', 'BlogCategoryController');
@@ -130,4 +126,12 @@ Route::get('shop-readmore', function(){
     $page='shop';
     return view('client.shop_readmore', compact('page'));
 })->name('shop.readmore');
+
+Route::resource('blogComment', 'BlogCommentController');
+
+Route::resource('blogCommentReply', 'BlogCommentReplyController');
+
+Route::get('blogSearch/{title}', 'BlogController@blogSearch')->name('blog.search');
+
+Route::get('blogSearchAccepter', 'BlogController@blogSearchAccepter')->name('blog.search.accepter');
 

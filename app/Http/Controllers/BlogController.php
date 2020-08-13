@@ -17,7 +17,7 @@ class BlogController extends Controller
      */
 
     public function __construct(){
-        $this->middleware(['auth','admin'])->except(['index', 'show']);
+        $this->middleware(['auth','admin'])->except(['index', 'show', 'category', 'blogSearch', 'blogSearchAccepter', 'blogSearch']);
     }
 
     public function index()
@@ -90,6 +90,7 @@ class BlogController extends Controller
         $blogCategories=BlogCategory::all();
         $contact=ContactInformation::find(1);
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+        
         return view('client.blog_readmore', compact('page', 'blog', 'contact', 'blogCategories', 'popular'));
     }
 
@@ -187,5 +188,28 @@ class BlogController extends Controller
             $button='<a type="button" class="edit btn btn-primary btn-sm" href="'. route('blogComment.show', $data->id).'" name="edit" id="'.$data->id.'"> ('.$count.') Comment</a>';
             return $button;
         })->rawColumns(['action', 'comment'])->make(true);
+    }
+
+    public function blogSearchAccepter(Request $request){
+      
+        return redirect(route('blog.search', $request->title));
+
+    }
+
+
+    public function blogSearch( $title){
+        // return $request; 
+        // return Blog::where('title', 'LIKE', "%{$request->title}%")->get();
+       
+        $page='blog';
+     
+        $blogs=Blog::where('title', 'LIKE', "%{$title}%")->paginate(5);
+        $blogCategories=BlogCategory::all();
+
+        $contact=ContactInformation::find(1);
+        $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+
+        return view('client.blog', compact('page', 'blogs', 'blogCategories', 'contact', 'popular'));
+        
     }
 }

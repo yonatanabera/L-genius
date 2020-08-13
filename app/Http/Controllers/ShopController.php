@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Model\Shop;
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
+use App\Model\BlogCategory;
+use App\Model\Blog;
 
 class ShopController extends Controller
 {
@@ -23,7 +25,9 @@ class ShopController extends Controller
         $contact=ContactInformation::find(1);
         $items=Shop::paginate(9);
         $total=Shop::all();
-        return view('client.shop', compact('page', 'contact', 'items', 'total'));
+        $blogCategories=BlogCategory::all();
+        $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+        return view('client.shop', compact('page', 'contact', 'items', 'total', 'blogCategories', 'popular'));
     }
 
     /**
@@ -60,7 +64,10 @@ class ShopController extends Controller
         $page='shop';
         $item=Shop::where('slug',$shop)->first();
         $contact=ContactInformation::find(1);
-        return view('client.shop_readmore', compact('page', 'contact', 'item'));
+        $blogCategories=BlogCategory::all();
+        $shop=Shop::all()->random(6);
+        $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+        return view('client.shop_readmore', compact('page', 'contact', 'item', 'blogCategories', 'popular', 'shop'));
     }
 
     /**

@@ -17,7 +17,7 @@
                                 <div class="col-1 pr-5 post-date border-right"> <h1>{{$blog->created_at->isoFormat('DD')}}</h1> <h6 class="ml-2 text-uppercase"> {{$blog->created_at->FormatLocalized('%b')}}</h6></div>
                                 <div class=" col-8 post-title">
                                     <h4 class="text-uppercase">{{$blog->title}}</h4>
-                                    <p>By <a href="#">Thang</a> <span> / in </span><a href="#"> {{$blog->category->name}}</a> <span> / </span> <a href="#">{{count($blog->comment)}} Comment</a></p>
+                                    <p>By <b>Dr. Werotaw Bezabih</b> <span> / in </span><b> {{$blog->category->name}}</b> <span> / </span> <b>{{count($blog->comment)}} Comment</b></p>
                                 </div>
                             </div>
                         </div>
@@ -26,15 +26,16 @@
                             <div class="card-body text-justify">
                                 {!!$blog->content!!}
                             <div class="main-blog-footer">
-                                <span class="pull-left blog-readmore-tags">Tags:</span> <a href="#" class=" blog-category"> {{$blog->category->name}}</a>
+                                <div>
+                                    <span class="pull-left blog-readmore-tags">Tags:</span> <a href="#" class=" blog-category"> {{$blog->category->name}}</a>
+
+                                </div>
                                 <div class="share">
-                                    <span class="text-capitalize border-info border-right">share </span>
-                                    <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></a></span>
-                                    <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-instagram"></a></span>
-                                    <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></a></span>
-                                    <span><a href="" class="fa fa-lg hvr-bounce-in text-secondary fa-telegram"></a></span>
-        
-        
+                                    <span class="text-capitalize border-info border-right" style="padding-left:0;">share </span>
+                                    <span><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://www.yonatanabera.com/yoni/laravel/genius/blog/{{$blog->slug}}', 'Facebook Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></i></a></span>
+                                    <span><a href="" onclick="window.open('https://www.twitter.com/share?url=https://www.yonatanabera.com/yoni/laravel/genius/blog/{{$blog->slug}}&text={{Str::words($blog->short_note, 20)}}', 'Twitter Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></i></a></span>
+                                    
+            
                                 </div>
                             </div>
                             </div>
@@ -47,9 +48,10 @@
                 
 
                     <div class="blog-comment">
-                        <h3 class="post-title">{{count($blog->comment)}} Comments</h3>
+                        <h6 class="post-title">{{count($blog->comment)}} Comments</h6>
                         <hr>
-                        <ul class="comment-list">
+                        <button id="hideShowComment" class="blog-comment-show-more-btn "><i class="fa fa-caret-down"></i> Show more </button>
+                        <ul class="comment-list" >
                             
                             
                             @foreach ($blog->comment as $comment)
@@ -62,33 +64,45 @@
                                     <div class="meta mb-3">{{$comment->created_at->diffForHumans()}}</div>
                                     <p>{{$comment->comment}}</p>
                                     @if (Auth::user())
-                                        <form action="" class="form-group reply-form">
-                                            <input name="" id="" placeholder="Reply" class="reply-textfield ">
+                                        
+                                    
+                                        {!! Form::open(['method'=>'post', 'id'=>'replyToComment' , 'action'=>'BlogCommentReplyController@store','class'=>'form-group reply-form']) !!}
+                                            {!! Form::hidden('user_id', Auth::user()->id, []) !!}
+                                            {!! Form::hidden('comment_id', $comment->id, []) !!}
+                                            {!! Form::text('comment', null, ['class'=>'reply-textfield', 'placeholder'=>'Reply']) !!}
+
                                             <div class="reply-btn-wrapper">
-                                                <button type="submit" class="reply btn">Reply</button>
+                                                {!! Form::submit('Reply', ['class'=>'reply btn', 'id'=>'send_reply']) !!}
+                                               
                                             </div>
-                                        </form>
+                                        {!! Form::close() !!}
                                     @endif
                                 
                                 </div>
                                 @if (count($comment->reply))
+                                <button class="hideShowReply btn pull-right"><i class="fa fa-caret-down reply-cart-down"> View</i>  {{count($comment->reply)}} replies</button>
+                                <div class="blog-comment-replies " style="display:none;">
                                     @foreach ($comment->reply as $reply)
-                                        <ul class="children">
-                                            <li class="comment">
-                                                <div class="vcard bio">
-                                                    <img src="{{$reply->user->photo}}" alt="Image placeholder">
-                                                </div>
-                                                <div class="comment-body">
-                                                    <h3>{{$reply->user->name}}</h3>
-                                                <div class="meta mb-3">{{$reply->created_at->diffForHumans()}}</div>
-                                                    <p>{{$reply->comment}}</p>
+                                    
+                                        
+                                            <ul class="children">
+                                                <li class="comment">
+                                                    <div class="vcard bio">
+                                                        <img src="{{$reply->user->photo}}" alt="Image placeholder">
+                                                    </div>
+                                                    <div class="comment-body">
+                                                        <h3>{{$reply->user->name}}</h3>
+                                                    <div class="meta mb-3">{{$reply->created_at->diffForHumans()}}</div>
+                                                        <p>{{$reply->comment}}</p>
+                                                        
                                                     
-                                                
-                                                </div>
-                                                
-                                            </li>
-                                        </ul>
+                                                    </div>
+                                                    
+                                                </li>
+                                            </ul>
+                                       
                                     @endforeach
+                                </div>
                                 @endif
                             </li>
                             @endforeach
@@ -97,12 +111,15 @@
 
 
                         @if (Auth::user())
-                            <form action="" class="form-group ">
-                                <textarea class="form-control" placeholder="Comment here ..." name="" id="" cols="30" rows="5"></textarea>
-                                <button class="btn btn-comment pull-right">Comment</button>
-                            </form>
+                           
+                            {!! Form::open(['method'=>'post', 'action'=>'BlogCommentController@store']) !!}
+                                {!! Form::textarea('comment', null, ['placeholder'=>'Comment here ...', 'class'=>'form-control', 'cols'=>30, 'rows'=>5]) !!}
+                                {!! Form::hidden('blog_id', $comment->blog->id, []) !!}
+                                {!! Form::hidden('user_id', Auth::user()->id, []) !!}
+                                {!! Form::submit('Comment', ['class'=>'btn-comment pull-right']) !!}
+                            {!! Form::close() !!}
                         @else
-                            <h3>Log in to Comment</h3>
+                            <h6>Log in to leave a Comment</h6>
                         @endif
                            
 
@@ -120,7 +137,7 @@
 
                 <div class="col-lg-4 mr-0 my-5 px-5">
                     <!-- about card -->
-                    <div class="card about-card my-5 py-5" style="width: 100%">
+                    <div class="card about-card my-5 " style="width: 100%">
                         <img class="card-img-top" src="{{asset('images/riccardo-annandale-7e2pe9wjL9M-unsplash.jpg')}}" alt="Card image cap">
                         <div class="card-body">
                         <h5 class="card-title">Dr. Werotaw </h5>
@@ -147,68 +164,25 @@
                             <h4>Popular Posts</h4>
                         </div>
                         <!-- item 1 -->
-                        <div class="card mb-4 post-item card-border-none">
-                            <div class="row ">
-                                <div class=" ml-4 col-4">
-                                    <div class="card" style="width: 100%;">
-                                        <img class="card-img-top" src="/{{$popular[0]->photo}}" alt="Card image cap">
-                                        
+                       @if (count($popular)>0)
+                           @foreach ($popular as $populars)
+                                <div class="card mb-4 post-item card-border-none">
+                                    <div class="row ">
+                                        <div class=" ml-4 col-4">
+                                            <div class="card" style="width: 100%;">
+                                                <img class="card-img-top" src="/{{$populars->photo}}" alt="Card image cap">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-7">
+                                                <p><b><a href="{{route('blog.show', $populars->slug)}}">{{$populars->title}}</a> </b></p>
+                                                <p class="text-secondary">{{$populars->created_at->diffForHumans()}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-7">
-                                        <p><b><a href="{{route('blog.show', $popular[0]->slug)}}">{{$popular[0]->title}}</a> </b></p>
-                                        <p class="text-secondary">{{$popular[0]->created_at->diffForHumans()}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item 2 -->
-                        <div class="card mb-4 post-item card-border-none">
-                            <div class="row ">
-                                <div class=" ml-4 col-4">
-                                    <div class="card" style="width: 100%;">
-                                        <img class="card-img-top" src="/{{$popular[1]->photo}}" alt="Card image cap">
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-7">
-                                    <p><b><a href="{{route('blog.show', $popular[1]->slug)}}">{{$popular[1]->title}}</a> </b></p>
-                                    <p class="text-secondary">{{$popular[1]->created_at->diffForHumans()}}</p>
-                                </div></p>
-                            </div>
-                        </div>
-
-                         <!-- item 3 -->
-                         <div class="card mb-4 post-item card-border-none">
-                            <div class="row ">
-                                <div class=" ml-4 col-4">
-                                    <div class="card" style="width: 100%;">
-                                        <img class="card-img-top" src="/{{$popular[2]->photo}}" alt="Card image cap">
-                                    
-                                    </div>
-                                </div>
-                                <div class="col-7">
-                                    <p><b><a href="{{route('blog.show', $popular[2]->slug)}}">{{$popular[2]->title}}</a> </b></p>
-                                    <p class="text-secondary">{{$popular[2]->created_at->diffForHumans()}}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- item 4 -->
-                        <div class="card mb-4 post-item card-border-none">
-                            <div class="row ">
-                                <div class=" ml-4 col-4">
-                                    <div class="card" style="width: 100%;">
-                                        <img class="card-img-top" src="/{{$popular[3]->photo}}" alt="is this even working">
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-7">
-                                        <p><b><a href="{{route('blog.show', $popular[3]->slug)}}">{{$popular[3]->title}}</a></b></p>
-                                        <p class="text-secondary">{{$popular[3]->created_at->diffForHumans()}}</p>
-                                </div>
-                        </div>
-                    </div>
-                       
+                           @endforeach
+                       @endif
+                   
                     
                     </div>
 
@@ -251,6 +225,12 @@
             $(this).css('width', '100%');
         });
 
+        $('.reply-btn-wrapper').focus(function(){
+            
+            $(this).css('display', 'block');
+         
+        });
+
         $('.reply-textfield').blur(function(){
             $(this).attr('placeholder', field_placeholder);
             $(this).css('border-color', '#e6e6e6');
@@ -258,8 +238,47 @@
             console.log($('.reply-textfield').attr('value'));
             if($(this).val()==''){
                 $(this).css('width', '60px');
+                
+            }else{
+                $(this).next().css('display', 'block');
             }
         });
         });
     </script>
+
+
+    <script>
+        $(document).ready(function() {
+            $(".hideShowReply").click(function() {
+                $(this).next().toggle(0, function(){
+                    console.log($('.reply-cart-down').html());
+                    if($('.reply-cart-down').html()==' View'){
+                        $('.reply-cart-down').html(' Hide');
+                        $('.reply-cart-down').addClass('fa-caret-up').removeClass('fa-caret-down');
+                    }else{
+                        $('.reply-cart-down').html(' View');
+                        $('.reply-cart-down').addClass('fa-caret-down').removeClass('fa-caret-up');
+                    }
+                });
+               
+            });
+
+            $('#hideShowComment').click(function(){
+                $(this).next().toggle(0, function(){
+                   
+                    if($('#hideShowComment').html()==='<i class="fa fa-caret-down"></i> Show more '){
+                        $('#hideShowComment').html('<i class="fa fa-caret-up"></i> Show less ');
+                    }else{
+                        $('#hideShowComment').html('<i class="fa fa-caret-down"></i> Show more ');
+                    }
+                });
+            });
+
+         
+        });
+    </script>
+
+   
+
+
 @endsection

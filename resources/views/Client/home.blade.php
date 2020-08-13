@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/libs/home.css')}}">
 
     
-    <title>Home</title>
+    <title>{{strtoupper('Genius Training and Consultancy Center Home')}}</title>
 </head>
 <body>
     <!-- Background image and navbar -->
@@ -43,7 +43,7 @@
                     <li class="nav-item mx-1 {{$page=='shop' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                         <a class="nav-link text-uppercase px-4" href="{{route('shop.index')}}">shop</a>
                     </li>
-                    <li class="nav-item  mx-3 {{$page=='blog' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
+                    <li class="nav-item  mx-1 {{$page=='blog' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                         <a class="nav-link text-uppercase px-4" href="{{route('blog.index')}}">blog</a>
                     </li>
                     <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">

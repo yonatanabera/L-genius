@@ -7,9 +7,28 @@
     <div class="container">
         <div class="editService shadow p-4 my-5 ">
             <h3 class="mb-4"> Services</h3>
-            {!! Form::model($data, ['method'=>'PATCH', 'action'=>['ServiceController@update', $data->id]]) !!}
+
+
+            <div class="mb-3" style="min-width: 150px; max-width:80%">
+              <img src="{{asset($data->photo)}}" alt="..." class="img-thumbnail">
+            </div>
+
+            {!! Form::model($data, ['method'=>'PATCH', 'files'=>true, 'action'=>['ServiceController@update', $data->id]]) !!}
+
+
+
+
+
                 <div class="form-group">
-                  
+                                    
+                                      
+                    {!! Form::label('photo', 'Photo', ['style'=>'display:block'] ) !!}
+                    {!! Form::file('photo', null, ['class'=>'form-control']) !!}
+
+                </div>
+
+
+                <div class="form-group">
 
                     {!! Form::label('icon', 'Font awesome icon', []) !!}
                     {!! Form::text('icon', null, ['class'=>'form-control']) !!}

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/libs/style.css')}}">
 
 
-    <title>{{strtoupper($page)}}</title>
+    <title>{{strtoupper('Genius Training and Consultancy Center '.$page)}}</title>
 </head>
 <body>
 
@@ -103,7 +103,7 @@
     <!-- SECTION FOOTER -->
     <section class="footer-section  text-white m-0 ">
         <div class="row container p-5">
-            <div class="col-lg-3 col-md-6 col-6">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-title mb-5">
                     <h6><span>Get</span> in touch</h6>
                 </div>
@@ -139,7 +139,7 @@
                     
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-6">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-title mb-5">
                     <h6><span>useful</span> links</h6>
                 </div>
@@ -159,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-6">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-title mb-5">
                     <h6><span>Social</span> Links</h6>
                 </div>
@@ -176,7 +176,7 @@
                    
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-6">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-title mb-5">
                     <h6><span>Our</span> Address </h6>
                 </div>

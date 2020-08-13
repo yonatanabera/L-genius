@@ -19,7 +19,7 @@ class BlogComment extends Model
     }
 
     protected $fillable=[
-        'user_id', 'comment', 
+        'user_id', 'comment', 'blog_id'
     ];
 
     public function blog(){
@@ -27,7 +27,7 @@ class BlogComment extends Model
     }
 
     public function reply(){
-        return $this->hasMany('App\Model\BlogCommentReply', 'comment_id');
+        return $this->hasMany('App\Model\BlogCommentReply', 'comment_id')->latest();
     }
 
     public function user(){

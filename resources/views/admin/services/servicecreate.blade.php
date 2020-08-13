@@ -7,7 +7,17 @@
     <div class="container">
         <div class="editService shadow p-4 my-5 ">
             <h3 class="mb-4">  Create Service</h3>
-            {!! Form::open(['method'=>'POST', 'action'=>'ServiceController@store']) !!}
+            {!! Form::open(['method'=>'POST', 'files'=>true, 'action'=>'ServiceController@store']) !!}
+
+
+                <div class="form-group">
+                                        
+                                            
+                    {!! Form::label('photo', 'Photo', ['style'=>'display:block'] ) !!}
+                    {!! Form::file('photo', null, ['class'=>'form-control']) !!}
+
+                </div>
+
                 <div class="form-group">
                   
 

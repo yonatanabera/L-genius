@@ -98,6 +98,11 @@
 .card-body .share{
     float: right;
 }
+
+.blog-readmore-main-card .card-body .share{
+    float: left;
+}
+
 .card-body .share span{
     padding-left: 15px;
 }
@@ -141,6 +146,16 @@
     margin-right: auto ; 
     display: block; 
     margin-top : 20px; 
+}
+
+@media(max-width: 400px) and (min-width: 50px){
+    .why_subtitle::after{
+        width: 80%; 
+    }
+
+    .why_title span{
+        word-break: break-all; 
+    }
 }
 
 #why .fa{
@@ -320,6 +335,7 @@
 
 #shop #id-shop-items .btn-quick-view{
     visibility: hidden;
+    text-decoration:none;
     opacity: 0; 
     
 }
@@ -367,9 +383,12 @@
     border: none; 
     background-color: #2e8ece; 
     color: white;
+    text-decoration:none;
 }
 
-
+#shop #id-shop-items .shop-item .add-to-cart:hover{
+    background-color: #2673a6;
+}
 #shop #id-shop-items .shop-item:hover .add-to-cart{
     visibility: visible; 
     opacity: 1; 
@@ -1009,16 +1028,17 @@
     border: 1px solid #eee; 
     border-top: 0;
     padding: 60px 30px;
+    overflow: hidden;
 }
-#readmore .readmore-summary .readmore-summary-content .readmore-tab-content .readmore-tab-overview{
+/* #readmore .readmore-summary .readmore-summary-content .readmore-tab-content .readmore-tab-overview{
     display: flex; 
     flex-wrap: wrap; 
-}
+} */
 #readmore .readmore-summary .readmore-summary-content .readmore-tab-content .readmore-tab-overview .readmore-tab-overview-text{
-    flex: 60%; 
-    float: left; 
-    padding-right: 45px;
-    border-right: 1px solid #eee; 
+    /* flex: 60%;  */
+    /* float: left;  */
+    
+    text-align: justify;
 }
 
 #readmore .readmore-summary .readmore-summary-content .readmore-tab-content .readmore-tab-overview .readmore-tab-overview-info{
@@ -1245,6 +1265,7 @@
     border: 1px solid #fff;
     font-weight: 700;
     position: absolute;
+    text-decoration:none;
 }
 
 #readmore .readmore-summary .readmore-summary-content .services-related .services-related-grid .card:hover .btn-quick-view {
@@ -1735,6 +1756,49 @@
     background-color: #007bff; 
     color: #fff;
 }
+
+
+
+.main-body-section .blog-comment .blog-comment-show-more-btn{
+    margin-bottom: 25px;
+    background:transparent !important;
+    outline: none;
+    border: none;
+    padding: 5px 20px;
+}
+
+.main-body-section .blog-comment .comment-list{
+    display:none;
+    
+    /* color: red; */
+}
+
+.main-body-section .blog-comment .btn-comment{
+    margin: 20px;
+    padding: 5px 20px;
+    background: transparent;
+    border: 1px #2e8ece solid; 
+    color: #2e8ece;
+    outline: none; 
+    border-radius: 5px;
+    /* color: red; */
+}
+
+.main-body-section .blog-comment .btn-comment:hover{
+    
+    background: #2e8ece; 
+    color: #fff;
+    
+    
+    /* color: red; */
+}
+
+.main-body-section .blog-comment .btn-comment:focus{
+    
+    background: #2e8ece; 
+    color: #fff;
+    scale: 0.95;
+}
 /* Blog-readmore ends */
 
 
@@ -1777,7 +1841,7 @@
      font-style: none; 
 }
 #readmore .readmore-summary .shop-readmore-flex-2 .price{
-    color: #ff5151;
+    color: #2e8ece;
     font-weight: 700;
     font-size: 1.25em; 
     line-height: 1.7em; 
@@ -1812,6 +1876,7 @@
 #readmore .readmore-summary .shop-readmore-flex-2 .cart .thim-quantity{
     clear: both; 
     margin-right: 30px;
+    overflow:hidden;
 }
 
 #readmore .readmore-summary .shop-readmore-flex-2 .cart .thim-quantity .minus{
@@ -1870,7 +1935,7 @@
 
 #readmore .readmore-summary .shop-readmore-flex-2 .cart .thim-quantity .plus:hover,
 #readmore .readmore-summary .shop-readmore-flex-2 .cart .thim-quantity .minus:hover{
-    background-color: #ff5151;
+    background-color: #2e8ece;
     color: #fff; 
     border: none; 
     
@@ -1878,11 +1943,11 @@
 
 
 #readmore .readmore-summary .shop-readmore-flex-2 .cart button.readmore-add-to-cart{
-    background-color: #ff5151; 
+    background-color: #2e8ece; 
     float: left; 
     color: #fff !important; 
     border-radius: 30px;
-    padding: 5px 25px !important; 
+    padding: 5px 30px !important; 
     height: 40px;
     text-transform: uppercase;
     font-size: 13px;
@@ -1906,7 +1971,13 @@
     display: table; 
 }
 #readmore .readmore-summary .shop-readmore-flex-2 .cart button.readmore-add-to-cart:hover{
-    background-color: #c03d3d;
+    background-color: #2673a6;
+    border: none; 
+}
+
+#readmore .readmore-summary .shop-readmore-flex-2 .cart button.readmore-add-to-cart:focus{
+    background-color: #2673a6;
+    scale: 0.95;
     border: none; 
 }
 
@@ -1914,7 +1985,7 @@
     float: none; 
     margin-top: 40px;
     overflow: visible; 
-    margin-right: 20px;
+    /* margin-right: 20px; */
     
 }
 

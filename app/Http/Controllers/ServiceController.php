@@ -8,6 +8,9 @@ use App\Model\MainService;
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
 use App\Http\Requests\ServicesListRequest;
+use App\Model\BlogCategory;
+use App\Model\Blog;
+use App\Model\Shop;
 use DataTables;
 class ServiceController extends Controller
 {
@@ -29,8 +32,10 @@ class ServiceController extends Controller
         $mainService=MainService::find(1);
         $contact=ContactInformation::find(1);
         $category=Service::pluck('title', 'id');
+        $blogCategories=BlogCategory::all();
+        $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
         
-        return view('client.services', compact('page', 'services', 'counter', 'mainService', 'contact', 'category'));
+        return view('client.services', compact('page', 'services', 'counter', 'mainService', 'contact', 'category', 'popular', 'blogCategories'));
     }
 
     /**
@@ -53,7 +58,14 @@ class ServiceController extends Controller
     public function store(ServicesListRequest $request)
     {
         //
-        Service::create($request->all());
+        $data=$request->all();
+        if($file=$request->file('photo')){
+            $name=time().$request->file('photo')->getClientOriginalName();
+            $file->move('images/services', $name);
+            $data['photo']=$name;
+            
+        }
+        Service::create($data);
         $request->session()->flash('success', 'New service created');
         return redirect(route('admin.services.service'));
     }
@@ -69,7 +81,10 @@ class ServiceController extends Controller
         $page='service';
         $service=Service::where('slug',$service)->first();
         $contact=ContactInformation::find(1);
-        return view('client.services_readmore', compact('page', 'service', 'contact'));
+        $blogCategories=BlogCategory::all();
+        $shop=Shop::all()->random(6);
+        $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+        return view('client.services_readmore', compact('page', 'service', 'contact', 'popular', 'blogCategories' ,'shop'));
     }
 
     /**
@@ -95,7 +110,17 @@ class ServiceController extends Controller
     public function update(ServicesListRequest $request,  $service)
     {
         //
-        Service::find($service)->update($request->all());
+        
+        $data=$request->all();
+       
+        if($file=$request->file('photo')){
+            $name=time().$request->file('photo')->getClientOriginalName();
+            $file->move('images/services', $name);
+            $data['photo']=$name;
+            
+        }
+        // Service::create($data);
+        Service::find($service)->update($data);
         $request->session()->flash('success', 'Service updated');
         return redirect(route('admin.services.service'));
     }

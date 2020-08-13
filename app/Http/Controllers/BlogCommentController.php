@@ -14,6 +14,12 @@ class BlogCommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware(['auth','admin'])->except(['store']);
+     }
+
+     
     public function index()
     {
         //
@@ -35,9 +41,13 @@ class BlogCommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($request)
+    public function store(Request $request)
     {
         //
+        
+        BlogComment::create($request->all());
+        $request->session()->flash('success', 'Comment submitted');
+        return redirect()->back();
     }
 
     /**
