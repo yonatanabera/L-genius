@@ -3,6 +3,7 @@
     position: relative;
     text-align: center;
     font-family: regular;
+    color: #333; 
     
    
     
@@ -10,7 +11,6 @@
 .main-service p{
     width: 50%;
     margin: auto;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 @media all and (max-width: 850px){
@@ -40,6 +40,7 @@
     position: relative;
     padding: 10px 0;
     font-family: regular;
+    color: #333; 
 }
 
 .service-card-title h6::after{
@@ -54,6 +55,12 @@
     left: 0;
     
 }
+
+.service-card-body p{
+    height: 150px;
+    overflow: hidden;
+}
+
 .service-card-icon span{
     font-size: 50px;
     color: #2e8ece;
@@ -78,7 +85,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-    font-family: regular;
+    font-family: bigone;
+}
+
+.counter-element-body{
+    font-family: regular; 
 }
 
 .service-counter-inner{
@@ -92,11 +103,36 @@
 
 .call-back-header h4{
     font-family: regular;
+    color: #333; 
 }
 
-.call-back-image{
+.call-back{
     height: 100%;
     background-image: url("../../images/man-image-1.png");
     background-size: contain;
+    background-size: 600px;
     background-repeat: no-repeat;
+    background-position: right bottom;
+    margin-right: 50px;
+    
 }
+
+.callback-btn{
+    padding: 10px 20px;
+    background-color: #2e8ece; 
+    color: #fff; 
+    border-radius: 5px; 
+    outline: none; 
+    border: none; 
+}
+
+.callback-btn:hover{
+    background-color: #2673a6; 
+    
+}
+
+.callback-btn:focus{
+    background-color: #2673a6; 
+    transform: scale(0.95);
+}
+

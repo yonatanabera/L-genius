@@ -30,10 +30,12 @@
     
             <!-- the header section begins-->
             <section class="header-section">
-                <div class="jumbotron text-center  p-0 " style="font-family: digital; ">
+                <div class="jumbotron   p-0 " style="font-family: digital; ">
                     <div class="jumbotext p-5">
                         <nav class=" navbar px-5 navbar-expand-lg navbar-dark fixed-top s-navbar ">
-                            <h1 class=" display-4 pt-0 logo">GENIUS</h1>
+                            <div class="logo">
+                                <img src="{{asset('images/logos.jpg')}}" width=100px; alt="">
+                            </div>
                             <button class="navbar-toggler " data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -53,7 +55,7 @@
                                     <li class="nav-item mx-1  hvr-wobble-bottom hvr-sweep-to-right">
                                         <a class="nav-link text-uppercase px-4" href="{{route('shop.index')}}">shop</a>
                                     </li>
-                                    <li class="nav-item  mx-3  hvr-wobble-bottom hvr-sweep-to-right">
+                                    <li class="nav-item  mx-1  hvr-wobble-bottom hvr-sweep-to-right">
                                         <a class="nav-link text-uppercase px-4" href="{{route('blog.index')}}">blog</a>
                                     </li>
                                     <li class="nav-item mx-1  hvr-wobble-bottom hvr-sweep-to-right">

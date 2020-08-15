@@ -1,110 +1,10 @@
 
-@font-face{
-    font-family: 'digital';
-    src: url('../../fonts/libs/ProcrastinatingPixie-WyVOO.ttf');
-}
-
-@font-face{
-    font-family: 'harry';
-    src: url('../../fonts/libs/SpiderWebBlockNormal-RpgW.ttf');
-}
-@font-face{
-    font-family: 'regular';
-    src: url('../../fonts/libs/PrequeldemoRegular-BWWdw.ttf');
-}
-.body{
-    overflow: hidden;
-    font-size: 16px; 
-    font-weight: 300; 
-    color: #666; 
-    line-height: 1.7em;
-}
-
-
-.s-navbar{
-    min-height: 80px;
-    opacity: .8;
-    background-color: #1b1b1b;
-    overflow: hidden;
+body{
     
-   
-}
-
-
-
-.s-jumbotron{
- 
-  background-image: url('../../images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg');
-  background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;  
-   text-transform: uppercase;
-   font-family: digital;
-}
-.jumbotext{
-    background: rgba(0, 0, 0, .5);
-    overflow: hidden;
-}
-
-.breadcrumb-item{
-    font-size: large;
-    color: #2098D1;
-
-}
-.navbar-dark .nav-item .nav-link{
-    padding-left: 50px;
-    color: rgb(255, 255, 255);   
-}
-.nav-active{
-    background-color: #2098D1; 
-}
-.hvr-sweep-to-right:hover{
-    background: #ffffff;
-
-}
-.navbar-dark .nav-item .nav-link:hover{
-    color: white;
-}
-.navbar-dark .logo{
-    font-family: harry;
-    color: white;
-
-}
-
-
-
-
-
-/* body part */
-@font-face{
-    font-family: 'bebas';
-    src: url('../../fonts/libs/BebasNeue-Regular.ttf');
-}
-
-
-.post-description{
-    font-family:bebas;
-}
-.post-description .post-date{
-    color: #2098D1;
-}
-.post-description .post-title:hover h4:hover{
-    color: #2098D1;
-}
-
-.card-body .learn-more{
-    float: left;
-}
-.card-body .share{
-    float: right;
-}
-
-.blog-readmore-main-card .card-body .share{
-    float: left;
-}
-
-.card-body .share span{
-    padding-left: 15px;
+    overflow-x:hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #4d4d4d;
+  
 }
 
 
@@ -121,7 +21,8 @@
 .why_title{
      
     font-size: 40px; 
-    font-weight: 500; 
+     
+    color: #333;
     font-style: inherit; 
     line-height: 55px;
 }
@@ -132,8 +33,6 @@
 
 .why_subtitle{
     font-size: 16px; 
-    font-weight: 300; 
-    color: #7c7c7c; 
     margin-bottom: 35px; 
 }
 
@@ -165,22 +64,19 @@
 
 .why_col_title{
     font-size: 18px;
-    line-height: 18px; 
-    font-weight: 500; 
+    line-height: 18px;
+    color: #333;  
     margin-bottom: 10px;
     margin-top: 35px; 
 }
 
 .why_col_p{
     font-size: 16px; 
-    color: #7c7c7c; 
     margin: 0 0 23px; 
     line-height: 26px; 
 }
 
-.why-hover{
-    font-family: Arial, Helvetica, sans-serif;
-}
+
 .why-hover i, .why-hover h1{
     transition: all .3s ease-in-out; 
     
@@ -217,14 +113,11 @@
 
 #shop .shop-header-flex .shop-label-sort-by{
     font-size: 16px; 
-    font-weight: 300;
     color: #666; 
     margin-right: 10px;
 }
 
-#shop .shop-header-flex .shop-flex-1 span{
-    font-weight: 700;
-}
+
 
 #shop .shop-header-flex .shop-flex-1 p{
     color: #666; 
@@ -268,17 +161,17 @@
     transition: all, 0.5s;
 }
 #shop #id-shop-items  .card-title{
-    font-size: 15px;
-    font-weight: 700;
+    
     display: block; 
     color: #333; 
+    font-family: bigone;
+    text-transform: capitalize; 
 }
 
 
 #shop #id-shop-items  .card-text{
-    font-size: 12px; 
-    font-weight: 300; 
-    color: #666; 
+    /* font-size: 12px;   */
+    text-transform: capitalize;
 }
 
 #shop #id-shop-items .shop-star{
@@ -287,7 +180,6 @@
     line-height: 26px;
     overflow: hidden; 
     position: relative; 
-    color: #666; 
     float: left; 
 
 }
@@ -299,8 +191,6 @@
 
 #shop #id-shop-items .price{
     font-size: 16px;
-    font-weight: 700; 
-    color: #666; 
     line-height: 1.7em; 
     float:right;
     
@@ -348,7 +238,6 @@
     line-height: 30px;
     color: #fff; 
     border: 1px solid #fff;
-    font-weight: 700;
     position: absolute;
     background: transparent;
     top: 40%;
@@ -435,7 +324,6 @@
 #shop .side-shop-best-seller h4, 
 #shop .side-shop-popular-tags h4{
     margin-bottom: 25px;
-    font-weight: 500;
     padding:0;
     margin-top: 0;
     line-height: 36px; 
@@ -456,13 +344,11 @@
     padding: 5px 0;
     list-style: disc; 
     line-height: 20px;
-    font-weight: 400; 
     font-size: 12px; 
 }
 
 #shop .side-shop-categories ul li a{
     color: #333; 
-    font-weight: 700; 
     font-size: 12px;
     text-transform: uppercase; 
     line-height: 20px;
@@ -478,7 +364,6 @@
     font-size: 12px;
     text-transform: uppercase; 
     margin: 0;
-    font-weight: 700; 
     color: #333; 
     display: block; 
     line-height: 12px;
@@ -499,7 +384,6 @@
 
 #shop .side-shop-best-seller-flex p{
     line-height: 12px; 
-    font-weight: 700; 
     font-size: 12px;
     color: #333; 
     margin: 0;
@@ -516,7 +400,6 @@
     border: 1px solid #999; 
     margin-right: 5px;
     background-color: transparent;
-    font-weight: 300; 
      
 }
 #shop .side-shop-best-seller .side-shop-flex-2{
@@ -544,7 +427,6 @@
 
 #services .i-am-gosu{
     font-size: 22px;
-    font-weight: 700;
     line-height: 36px;
     position: relative; 
     padding-bottom: 10px;
@@ -557,7 +439,6 @@
 
 #services .i-am-gosu-p{
     font-size: 16px; 
-    font-weight: 300; 
     line-height: 1.7em; 
     color: #666; 
 }
@@ -601,7 +482,6 @@
     text-transform: uppercase; 
     border-radius: 30px;
     color: #fff; 
-    font-weight: 700;
     overflow: visible; 
     cursor: pointer; 
     
@@ -622,7 +502,6 @@
     line-height: 34px; 
     font-size: 13px;
     color: #999; 
-    font-weight: 300;
 }
 
 #shop .course-header{
@@ -636,7 +515,7 @@
 
 #shop .course-header-grid{
     font-size: 18px; 
-    font-weight: 300;
+    
     line-height: 34px; 
     color: #ccc; 
     /* display: inline-block;  */
@@ -652,7 +531,7 @@
 /* Services-body */
 
 .services-body .course-title{
-    font-weight: 500;
+    
     font-size: 15px;
     line-height: 25px; 
     text-transform: none; 
@@ -700,7 +579,7 @@
 
 .services-body .course-middle .course-author .author-contain{
     font-size: 12px;
-    font-weight: 700; 
+     
     text-transform: capitalize; 
     margin-top: 0; 
 
@@ -718,7 +597,7 @@
     line-height: 30px;
     text-align: right; 
     padding-top: 0; 
-    font-weight: 700;
+    
     font-size: 12px;
     color: #666; 
 }
@@ -756,7 +635,7 @@
     color: #ccc; 
     padding: 0; 
     border: 0; 
-    font-weight: 700;
+    
     font-style: normal; 
     font-size: inherit; 
     font-size: 14px;
@@ -779,7 +658,7 @@
 }
 .services-body #id-services-item  .card-title{
     font-size: 15px;
-    font-weight: 700;
+    
     display: block; 
     color: #333; 
 }
@@ -787,7 +666,7 @@
 
 .services-body #id-services-item  .card-text{
     font-size: 12px; 
-    font-weight: 300; 
+     
     color: #666; 
 }
 
@@ -809,7 +688,7 @@
 
 .services-body #id-services-item .price{
     font-size: 16px;
-    font-weight: 700; 
+     
     color: #666; 
     line-height: 1.7em; 
     float:right;
@@ -851,7 +730,7 @@
     line-height: 30px;
     color: #fff; 
     border: 1px solid #fff;
-    font-weight: 700;
+    
     position: absolute;
 }
 
@@ -955,12 +834,12 @@
 } */
 #readmore .readmore-title{
     font-size: 30px;
-    font-weight: 700;
+    
     margin: -5px 0 32px; 
     line-height: 40px;
     text-transform: none; 
     color: #333; 
-    font-style: normal; 
+    font-family: regular;
 }
 
 #readmore .readmore-meta{
@@ -995,7 +874,7 @@
 
 #readmore .readmore-meta .readmore-author .readmore-author-title{
     font-size: 12px; 
-    font-weight: 700; 
+     
     color: #ccc; 
     margin-bottom: 0; 
     display: inline-block; 
@@ -1008,7 +887,7 @@
     font-size: 12px; 
     text-transform: uppercase; 
     min-width: 100%;
-    font-weight: 700;
+    
    
 }
 
@@ -1053,7 +932,7 @@
     margin-bottom: 10px;
     color: #333; 
     font-size: 18px; 
-    font-weight: 600; 
+     
     font-style: normal; 
     line-height: 1.6em;
 }
@@ -1062,7 +941,7 @@
     margin: 0 0 10px;
     margin-bottom: 25px;
     font-size: 16px; 
-    font-weight: 300; 
+     
     line-height: 1.7em; 
     color: #666; 
 }
@@ -1076,7 +955,7 @@
     position: relative; 
     padding-left: 25x;
     font-size: 16px;
-    font-weight: 300; 
+     
     line-height: 1.7em; 
     color: #666; 
 }
@@ -1101,7 +980,7 @@
     line-height: 30px;
     text-transform: uppercase; 
     color: #333; 
-    font-weight: 600; 
+     
     font-style: normal; 
 
 }
@@ -1117,7 +996,7 @@
     border-bottom: 1px solid #eee; 
     line-height: 25px;
     padding: 15px 0;
-    font-weight: 300;
+    
     color: #666; 
 }
 #readmore .readmore-summary .readmore-summary-content .readmore-tab-content .readmore-tab-overview .readmore-tab-overview-info .service-features-list-ul-li .fa{
@@ -1134,7 +1013,7 @@
     display: inline-block; 
 }
 #readmore .readmore-summary .readmore-summary-content .readmore-tab-content .readmore-tab-overview .readmore-tab-overview-info .service-features-list-ul-li .service-features-list-description{
-    font-weight: 700;
+    
     min-width: 60px;
     float: right; 
     text-align: left; 
@@ -1155,8 +1034,7 @@
     padding-bottom: 27px;
     margin: 78px 0 60px; 
     color: #333; 
-    font-weight: 600;
-    font-style: normal; 
+    font-family: regular; 
 }
 
 #readmore .readmore-summary .readmore-summary-content .services-related .services-related-title::after{
@@ -1191,7 +1069,7 @@
 }
 #readmore .readmore-summary .readmore-summary-content .services-related .services-related-grid  .card-title{
     font-size: 15px;
-    font-weight: 700;
+    
     display: block; 
     color: #333; 
 }
@@ -1199,7 +1077,7 @@
 
 #readmore .readmore-summary .readmore-summary-content .services-related .services-related-grid .card-text{
     font-size: 12px; 
-    font-weight: 300; 
+     
     color: #666; 
 }
 
@@ -1221,7 +1099,7 @@
 
 #readmore .readmore-summary .readmore-summary-content .services-related .services-related-grid .price{
     font-size: 16px;
-    font-weight: 700; 
+     
     color: #666; 
     line-height: 1.7em; 
     float:right;
@@ -1263,7 +1141,7 @@
     line-height: 30px;
     color: #fff; 
     border: 1px solid #fff;
-    font-weight: 700;
+    
     position: absolute;
     text-decoration:none;
 }
@@ -1296,7 +1174,7 @@
 
   
   #readmore .readmore-summary .readmore-summary-content .services-related .services-related-grid  .course-title{
-    font-weight: 500;
+    
     font-size: 15px;
     line-height: 25px; 
     text-transform: none; 
@@ -1344,7 +1222,7 @@
 
 #readmore .readmore-summary .readmore-summary-content .services-related .services-related-grid  .course-middle .course-author .author-contain{
     font-size: 12px;
-    font-weight: 700; 
+     
     text-transform: capitalize; 
     margin-top: 0; 
 
@@ -1362,7 +1240,7 @@
     line-height: 30px;
     text-align: right; 
     padding-top: 0; 
-    font-weight: 700;
+    
     font-size: 12px;
     color: #666; 
 }
@@ -1400,7 +1278,7 @@
     color: #ccc; 
     padding: 0; 
     border: 0; 
-    font-weight: 700;
+    
     font-style: normal; 
     font-size: inherit; 
     font-size: 14px;
@@ -1433,7 +1311,7 @@
 #readmore .service-sidebar .side-shop-best-seller h4, 
 #readmore .service-sidebar .side-shop-popular-tags h4{
     margin-bottom: 25px;
-    font-weight: 500;
+    
     padding:0;
     margin-top: 0;
     line-height: 36px; 
@@ -1454,13 +1332,13 @@
     padding: 5px 0;
     list-style: disc; 
     line-height: 20px;
-    font-weight: 400; 
+     
     font-size: 12px; 
 }
 
 #readmore .service-sidebar .side-shop-categories ul li a{
     color: #333; 
-    font-weight: 700; 
+     
     font-size: 12px;
     text-transform: uppercase; 
     line-height: 20px;
@@ -1476,7 +1354,7 @@
     font-size: 12px;
     text-transform: uppercase; 
     margin: 0;
-    font-weight: 700; 
+     
     color: #333; 
     display: block; 
     line-height: 12px;
@@ -1497,7 +1375,7 @@
 
 #readmore .service-sidebar .side-shop-best-seller-flex p{
     line-height: 12px; 
-    font-weight: 700; 
+     
     font-size: 12px;
     color: #333; 
     margin: 0;
@@ -1514,7 +1392,7 @@
     border: 1px solid #999; 
     margin-right: 5px;
     background-color: transparent;
-    font-weight: 300; 
+     
 }
 #readmore .service-sidebar .side-shop-best-seller .side-shop-flex-2{
     margin-left: 30px;
@@ -1575,7 +1453,17 @@
 
 /* BLog-readmore */
 
-
+.blog-post-title h4{
+    font-family: regular; 
+    color: #333; 
+}
+.blog-post-title p{
+    font-family: bigone; 
+}
+.blog-post-title p span{
+    font-family: unset; 
+    color: #808080; 
+}
 
 .blog-readmore-main-card .card-body{
     padding-left: 0;
@@ -1583,10 +1471,12 @@
 }
 
 .blog-readmore-main-card{
-    color: #666; 
-    font-size: 16px;
-    font-weight: 400;
+    
     line-height: 1.7em;
+}
+
+.blog-tags{
+    color: #2e8ece;
 }
 
 .blog-readmore-tags{
@@ -1594,14 +1484,13 @@
     margin-right: 30px;
     text-transform: uppercase; 
     font-size: 12px;
-    font-weight: 700;
+    
     line-height: 23px;
     padding-top: 4px;
 }
 
 .blog-readmore-main-card .blog-category{
     line-height: 23px;
-    color: #666; 
     font-size: 12px;
     padding: 0 8px;
     display: inline-block;      
@@ -1620,7 +1509,7 @@
 
 .how-many-comments{
     font-size: 16px;
-    font-weight: 500; 
+     
     color: #333;
 }
 
@@ -1659,12 +1548,30 @@
 }
 
 .comment-list li .comment-body h3{
-    font-size: 20px;
+    font-family: bigone; 
+    text-transform: capitalize;
     line-height: 1.3;
     color: #333;
-    font-weight: 400;
+    font-size: 100%;
     margin-bottom: 0.5rem; 
     margin-top: 0;
+}
+
+@media(max-width: 900px){
+    .comment-list li .comment-body{
+        float: right; 
+        width: 70%;
+    }
+    
+}
+
+
+@media(max-width: 400px){
+    .comment-list li .comment-body{
+        float: right; 
+        width: 60%;
+    }
+   
 }
 
 .comment-list li .comment-body .meta{
@@ -1677,7 +1584,7 @@
 .comment-list li .comment-body p{
     font-size: 16px;
     line-height: 1.8;
-    font-weight: 400; 
+     
     color: #666;
 }
 
@@ -1687,7 +1594,7 @@
     text-transform: uppercase; 
     font-size: 11px; 
     letter-spacing: .1em;
-    font-weight: 400;
+    
     border-radius: 4px;
     background: #e6e6e6; 
     text-decoration: none;
@@ -1698,7 +1605,7 @@
 .comment-list li .comment-body .reply-textfield{
     font-size: 14px; 
     letter-spacing: .1em;  
-    font-weight: 400;
+    
     border: none; 
     border-bottom: 2px solid #e6e6e6; 
     background-color: transparent; 
@@ -1718,7 +1625,7 @@
     text-transform: uppercase; 
     font-size: 11px; 
     letter-spacing: .1em;
-    font-weight: 400;
+    
     border-radius: 4px;
     background: #e6e6e6; 
     text-decoration: none;
@@ -1738,7 +1645,7 @@
 }
 
 .comment-list li .comment-body .reply:hover{
-    background-color: #007bff; 
+    background-color: #2673a6; 
     color: #fff;
 }
 
@@ -1748,7 +1655,7 @@
     text-transform: uppercase; 
     font-size: 11px; 
     border-radius: 4px;
-    font-weight: 400;
+    
 
 }
 
@@ -1799,6 +1706,7 @@
     color: #fff;
     scale: 0.95;
 }
+
 /* Blog-readmore ends */
 
 
@@ -1810,7 +1718,7 @@
     margin-left: -15px;
     margin-right: -15px;
     font-size: 16px;
-    font-weight: 300;
+    
     line-height: 1.7em; 
     color: #666; 
    
@@ -1830,8 +1738,9 @@
     padding: 10px;
 }
 #readmore .readmore-summary .shop-readmore-flex-2 .book-title{
-    font-weight: 700;
-    font-size: 23px;
+    
+    font-family: bigone; 
+    text-transform: capitalize; 
     line-height: 40px; 
     margin-top: -8px; 
     margin-bottom: 5px; 
@@ -1842,7 +1751,7 @@
 }
 #readmore .readmore-summary .shop-readmore-flex-2 .price{
     color: #2e8ece;
-    font-weight: 700;
+    
     font-size: 1.25em; 
     line-height: 1.7em; 
     margin-bottom: 20px;
@@ -1855,19 +1764,17 @@
     line-height: 27px;
     clear: both; 
     font-size: 16px;
-    font-weight: 300; 
-    color: #666; 
 }
 
 #readmore .readmore-summary .shop-readmore-flex-2 .description .authorProduct span{
-    font-weight: 700; 
-
+     
+    color: #333; 
 }
 
 #readmore form.cart{
     margin-bottom: 2em;
     font-size: 16px;
-    font-weight: 300;
+    
     line-height: 1.7em; 
     color: #666; 
     
@@ -1951,7 +1858,7 @@
     height: 40px;
     text-transform: uppercase;
     font-size: 13px;
-    font-weight: 700; 
+     
     box-shadow: none; 
     text-align: center; 
     text-shadow: 0 0 0;
@@ -1991,7 +1898,7 @@
 
 #readmore .readmore-summary .shop-readmore-flex-2 .productShare .heading{
     text-transform: uppercase; 
-    font-weight: 700;
+    
     font-size: 12px;
     margin-right: 30px;
     padding: 0;
@@ -2034,111 +1941,3 @@
     color: #333; 
 }
 /* Shop-readmore-flex */
-
-/* footer section */
-
-/* Section Footer */
-
-#footer{
-    background: #010102ee; 
-    padding: 57px 50px 0; 
-    color: #a1a1a1;
-}
-
-#footer .row{
-    padding-bottom: 50px; 
-}
-#footer .navbar-brand{
-    padding-left: 0; 
-    margin-bottom: 20px; 
-    padding-top: 0;
-    margin-top: 0;
-}
-
-.footer-brand p{
-    font-size: 16px;
-    font-weight: 300; 
-    line-height: 1.7em; 
-}
-
-.footer-social-icons i{
-    font-size: 36px; 
-    padding-right: 20px; 
-}
-
-
-.footer-useful-links h6, .footer-contact h6, .footer-map h6{
-    font-size: 18px ;
-    color: white; 
-    font-weight: 400; 
-    position: relative;  
-    padding-bottom: 20px;
-    margin: 13px; 
-}
-
-.useful-links-div{
-    display: flex; 
-    flex-wrap: wrap; 
-}
-
-.useful-links-div a{
-    flex-basis: 35%; 
-    text-decoration: none; 
-    padding: 7px 7px; 
-}
-
-.useful-links-div a:hover{
-    color: #2e8ece; 
-    cursor: pointer; 
-}
-
-.footer-contact a{
-    color: #afafaf; 
-    text-decoration: none; 
-     
-    
-}
-
-.footer-contact a:hover, .footer-contact-location:hover {
-    color: #2e8ece; 
-    cursor: pointer; 
-}
-
-.footer-contact p i{
-    padding-right: 20px; 
-    font-size: 18px; 
-}
-.footer-contact p a{
-   margin-left: 5px; 
-}
-
-.footer-contact-location i{
-    margin-right: 12px;
-}
-
-.kingdom{
-    color: #2e8ece; 
-}
-
-.copyright{
-    
-    padding-bottom: 10px; 
-}
-
-.fa-facebook:hover {
-    color: #3b5998;
-    cursor: pointer;
-    transition: .5s;
-}
-.fa-twitter:hover {
-    color: #00a0d1;
-    cursor: pointer;
-}
-.fa-gmail:hover {
-    color: #db4a39;
-    cursor: pointer;
-}
-   
-.card-border-none{
-    border: none;
-}

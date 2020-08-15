@@ -25,7 +25,7 @@
                                 <div class="authorProduct">
                                     By: <span>Dr. Werotaw Bezabih</span>
                                 </div>
-                                    <p>{{$item->readmore}}</p>
+                                    <p class="abt-text-secondary">{{$item->readmore}}</p>
                             </div>
                         {{-- <form action=""  class="cart"> --}}
                             {!! Form::open(['class'=>'cart', 'method'=>'post', 'action'=>'OrderController@store']) !!}
@@ -65,7 +65,7 @@
                                 <div class="readmore-tab-overview "  >
                                     <div class="readmore-tab-overview-text">
                                         
-                                        {{$item->content}}
+                                        {!!$item->content!!}
                                     </div>
 
                                    
@@ -82,7 +82,7 @@
                                             @foreach ($item->review as $review)
                                                 <li class="comment">
                                                     <div class="vcard bio">
-                                                        <img src="{{$review->user->photo}}" alt="Image placeholder">
+                                                        <img src="{{asset($review->user->photo)}}" alt="Image placeholder">
                                                     </div>
                                                     <div class="comment-body">
                                                         <h3>{{$review->user->name}}</h3>
@@ -135,7 +135,7 @@
                                             <div class="shop-item-display-flex shop-item item">
                                                 <div class="card text-left" >
                                                     <div class="cardimg text-center">
-                                                        <img class="card-img-top " src="/{{$item->photo}}" alt="Card image cap">
+                                                        <img class="card-img-top " src="{{asset($item->photo)}}" alt="Card image cap">
                                                         <div class="overlay"></div>
                                                         <a href="{{route('shop.show', $item->slug)}}" class=" btn-quick-view ">Read more</a>
                                                     </div>
@@ -202,24 +202,41 @@
 
            <div class="col-lg-4 mr-0  px-5">
                 <!-- about card -->
-                <div class="card about-card my-5 " style="width: 100%">
-                    <img class="card-img-top" src="{{asset('images/riccardo-annandale-7e2pe9wjL9M-unsplash.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Dr. Werotaw </h5>
-                        <h6>Author and Blogger</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="flip-card">
+                    <div class="flip-card-inner ">
+                      <div class="flip-card-front">
+                        <img class="card-img-top" src="{{asset($about->profile_card_image)}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title font-weight-bold">Dr. Werotaw</h5>
+                            <h5 class="abt-text-secondary mb-4">Manager and Trainer</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <!-- <a href="#" class="btn btn-outline-primary hvr-sweep-to-top">Contact</a> -->
+                            <button class="contact-btn" onclick='flip();'>Contact</button>
+                        </div>
+                        
                     </div>
-                </div>
+                      <div class="flip-card-back pt-5" style="font-family: bigone;" >
+                        <h1>John Doe</h1>
+                        <p>Architect & Engineer</p>
+                        <p>We love that guy</p>
+                        <h3>Contact Info</h3>
+                        <p>Phone: <span>+2519-1524-222</span></p>
+                        <p>Email: <span>Genius@genius.com</span></p>
+                      </div>
+                    </div>
+                  </div>  
                 <!-- search card -->
                 <div class="card search-card " style="width: 100%;">
                     <div class="card-body">
                         <div class="input-group mb-2 mr-sm-2 ">
+                            {!! Form::open(['method'=>'get', 'action'=>'BlogController@blogSearchAccepter']) !!}
+                                {!! Form::text('title', null, ['class'=>'form-control', 'style'=>'width: 80%; float:left; line-height: 1.5;' , 'id'=>'inlineFormInputGroupUsername2', 'required'=>true , 'placeholder'=>'Search']) !!}
+                                <div class="input-group-prepend rounded" style="line-height: 1.5; ">
+                                    <button type='submit' class="input-group-text rounded-circle bg-info text-white ml-2 mt-1"><span class="fa fa-search"></span></button>
+                                </div>  
+                            {!! Form::close() !!}
+                            {{-- <input type="text" id="search_blog" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Search" > --}}
                             
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Search" >
-                            <div class="input-group-prepend rounded">
-                                <div class="input-group-text rounded-circle bg-info text-white ml-2"><span class="fa fa-search"></span></div>
-                            </div>  
                         </div>
                     </div>
                 </div>
@@ -235,7 +252,7 @@
                                     <div class="row ">
                                         <div class=" ml-4 col-4">
                                             <div class="card" style="width: 100%;">
-                                                <img class="card-img-top" src="/{{$populars->photo}}" alt="Card image cap">
+                                                <img class="card-img-top" src="{{asset($populars->photo)}}" alt="Card image cap">
                                                 
                                             </div>
                                         </div>

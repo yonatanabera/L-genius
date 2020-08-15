@@ -11,6 +11,7 @@ use App\Http\Requests\ServicesListRequest;
 use App\Model\BlogCategory;
 use App\Model\Blog;
 use App\Model\Shop;
+use App\Model\About;
 use DataTables;
 class ServiceController extends Controller
 {
@@ -83,8 +84,9 @@ class ServiceController extends Controller
         $contact=ContactInformation::find(1);
         $blogCategories=BlogCategory::all();
         $shop=Shop::all()->random(6);
+        $about=About::find(1);
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
-        return view('client.services_readmore', compact('page', 'service', 'contact', 'popular', 'blogCategories' ,'shop'));
+        return view('client.services_readmore', compact('page', 'service', 'contact', 'popular', 'blogCategories' ,'shop', 'about'));
     }
 
     /**

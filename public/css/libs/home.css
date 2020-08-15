@@ -2,19 +2,11 @@
     box-sizing: border-box;
 }
 
-@font-face{
-    font-family: bigone;
-    src: url("../../fonts/libs/TexgyreadventorBold-90Wn.otf");
-}
 
-@font-face{
-    font-family: fancy;
-    src: url("../../fonts/libs/shakies-font/Shakies-L3EPW.ttf");
-}
 body{
     margin: 0;
-    font-family: sans-serif;
-    /* background-image: linear-gradient(to top ,rgba(10, 88, 151, 0.466),rgba(195, 205, 214, 0.144)); */
+    font-family: 'Poppins', sans-serif;
+    color: #4d4d4d;
 
    
 }
@@ -90,15 +82,12 @@ body{
 .hero .hero-button a{
    display: flex;
     background-color: #2e8ece;
-   /* background-color: #44576be3; */
-
    color: white;
    width: 200px;
    justify-content: center;
-   height: 50px;
+   height: 64px;
    align-items: center;
    border-radius: 10px;
-   /* font-family: bigone; */
    font-size: 1.5em;
    letter-spacing: 2px;
    transition: ease-in-out .2s;
@@ -108,7 +97,7 @@ body{
 
 .hero .hero-button a:hover{
 
-    background-color: #124364;
+    background-color: #2673a6;
     text-decoration: none;
 }
 
@@ -123,10 +112,7 @@ body{
        font-size: 8vw;
    }
 
-   .hero .hero-description p{
-       font-family: sans-serif;
-       
-   }
+   
    .hero .hero-description{
     width: 90%;
    }
@@ -146,8 +132,7 @@ body{
     align-items: center;
     
     padding: 0 5em;
-    /* background-image: linear-gradient(to top ,rgba(10, 88, 151, 0.466),rgba(195, 205, 214, 0.144)); */
-    color: rgb(2, 2, 2);
+    
     margin-bottom: 8em;
 
 }
@@ -171,6 +156,7 @@ body{
 
 .about-on-home-title h4{
     font-family: fancy;
+    color: #333; 
 }
 
 .about-on-home-title p{
@@ -179,11 +165,11 @@ body{
 
 .about-on-home-footer h3{
     font-family: fancy;
+    color: #333; 
 }
 
 
 .about-on-home-body p{
-    font-family: Arial, Helvetica, sans-serif;
     margin: 20px 0;
 
 }
@@ -218,9 +204,7 @@ body{
     .about-on-home{
        display: flex;
        flex-direction: column-reverse;
-       /* width: 100%; */
-       padding: 3em;
-       /* text-align: justify; */
+       padding: 2em;
        
     }
 
@@ -271,6 +255,7 @@ body{
     
 
 }
+
 
 
 
@@ -327,9 +312,7 @@ body{
 
 }
 
-.service-on-home-side p{
-    font-family: Arial, Helvetica, sans-serif;
-}
+
 
 .service-home-card-icon{
     color: #247fe1e3;
@@ -384,11 +367,10 @@ body{
 
     .service-on-home .service-on-home-main{
         width: 100%;
-
+        padding: 2em;
         display: grid;
         justify-self: center;
         align-items: center;
-        /* padding: 6em; */
         grid-template-columns: 1;
     }
     .service-on-home-main h1{
@@ -397,6 +379,37 @@ body{
     }
     
 }
+
+
+@media (max-width:800){
+    .service-on-home .service-on-home-main{
+        width: 100%;
+       
+        padding: 2em;
+        /* padding: 6em; */
+        
+    }
+}
+
+@media (max-width:800px){
+    .service-on-home-side{
+        background-color: rgba(255, 255, 255, 0.877);
+        transform: none;
+        margin: 0;
+        align-self: center;
+      
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        padding: 4em 2em;
+        grid-column-gap: 0;
+        grid-row-gap: 2em;
+      
+        
+        
+    }}
+
 
 
 /* testimonial section*/
@@ -453,12 +466,11 @@ body{
 
 
 .carousel-caption h3{
-    font-family: regular;
+    font-family: bigone;
+    color: #333; 
 }
 .carousel-caption h4{
-    /* font-family: digital; */
-    font-family: arial;
-    /* font-weight: bold; */
+  
     font-size: 20px;
     color: #2288ee;
 
@@ -472,8 +484,7 @@ body{
 }
 
 .carousel-caption p{
-    font-weight: lighter;
-    font-family: Arial, Helvetica, sans-serif;
+    
     font-size: 18px;
     margin: auto;
     width: 70%;
@@ -518,6 +529,12 @@ body{
     }
 }
 
+@media (max-width:400px){
+    .latest-blog-on-home{
+        margin: 20px;
+    }
+}
+
 .latest-blog-card{
    
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.26);
@@ -550,7 +567,7 @@ body{
 
 
 .latest-blog-card-header h5{
-    color: black;
+    color: #333;
     font-family: regular;
     text-transform: lowercase;
 }
@@ -561,7 +578,6 @@ body{
    font-family: bigone;
    color: #2288ee;
    text-decoration: none;
-   /* font-weight: bold; */
 }
 
 .latest-blog{
@@ -572,6 +588,7 @@ body{
     position: relative;
     text-align: center;
     font-family: regular;
+    color: #333;
     
    
     
@@ -590,15 +607,15 @@ body{
     
 }
 
-
-
-@media (max-width:800){
-    .latest-blog-on-home{
-        border: solid green;
-       background-color: red;
-    }
-    
+.latest-blog-card .latest-blog-card-body{
+    height: 150px;
+    overflow: hidden;
 }
+
+.latest-blog-card-header {
+    color: #808080;
+}
+
 
 
 
@@ -620,7 +637,7 @@ body{
 .contact-us-inner{
     margin: auto;
     /* margin-top: 50px; */
-    width: 80%;
+    width: 92%;
 
     
 }

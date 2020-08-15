@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Order;
+use DataTables; 
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -88,4 +89,27 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function dataAjax(){
+        $data=Order::latest();
+        return Datatables::of($data)->editColumn('user_id', function($data){
+            return $data->user->name;
+        })->addColumn('title', function($data){
+            
+            return $data->item->title;
+        })->addColumn('price', function($data){
+            
+            return $data->item->price;
+        })->addColumn('total_price', function($data){
+            
+            return $data->item->price*$data->quantity;
+        })->addColumn('phone', function($data){
+            
+            return $data->user->phone;
+        })->addColumn('action', function($data){
+            $button='<button class="btn btn-primary" disabled>Disabled<button>';
+            return $button;
+        })->rawColumns(['action', 'title', 'price', 'total_price'])->make(true);
+    }
+
 }

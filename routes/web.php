@@ -43,6 +43,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('adminShopReviews', 'ShopController@reviews')->name('admin.shop.reviews');
 
+    Route::get('shopItemsAjax', 'ShopController@dataAjax')->name('shop.items.ajax');
+
+    Route::get('OrderAjax', 'OrderController@dataAjax')->name('orders.ajax');
+
     Route::get('adminBlogView', 'BlogController@admin_blog_view')->name('admin.blog.view');
 
     Route::get('whyCoachingAjax', 'WhyCoachingController@dataAjax')->name('why.coaching.ajax');
@@ -99,7 +103,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::patch('yourThoughtsArchive/{id}', 'YourThoughtController@Archive')->name('yourThoughts.archive');
 
-    Route::get('yourThoughtsArchive.ajax', 'YourThoughtController@dataArchiveAjax')->name('yourThoughts.archive.ajax');
+    Route::get('yourThoughtsArchiveAjax', 'YourThoughtController@dataArchiveAjax')->name('yourThoughts.archive.ajax');
+
+    Route::get('itemReviewsAjax/{id}', 'ItemReviewAndCommentController@dataAjax')->name('item.reviews.ajax');
+
+    Route::resource('itemReview', 'ItemReviewAndCommentController');
 });
 
 
@@ -135,3 +143,16 @@ Route::get('blogSearch/{title}', 'BlogController@blogSearch')->name('blog.search
 
 Route::get('blogSearchAccepter', 'BlogController@blogSearchAccepter')->name('blog.search.accepter');
 
+
+
+// Facebook socialite
+
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider')->name('login.facebook');
+
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+// Google Socialite
+
+Route::get('login/google', 'Auth\LoginController@redirectToProviderGoogle')->name('login.google');
+
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallbackGoogle');

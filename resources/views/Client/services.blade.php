@@ -17,7 +17,7 @@
 
                 <div class="main-service text-center ">
                     <h3 class="main-service-title p-4">Main Services</h3>
-                    <p class="text-secondary ">{{$mainService->content}}</p>
+                    <p class="abt-text-secondary ">{{$mainService->content}}</p>
                 </div>
 
                 <div class="main-service-cards my-5 py-5">
@@ -121,10 +121,10 @@
             <section class="call-back">
                 <div class="container mt-5 pt-5">
                     <div class="row">
-                        <div class="col-lg-6 py-5 my-5 ">
+                        <div class="col-lg-6 pt-5 mt-5 ">
                             <div class="call-back-header">
                                 <h4>Request a call Back</h2>
-                                <p class="text-secondary">If you are intested in any of our services, leave us your information down below ,and we'll get to you. </p>
+                                <p class="abt-text-secondary">If you are intested in any of our services, leave us your information down below ,and we'll get to you. </p>
               
                             </div>
                             
@@ -190,7 +190,7 @@
                                     </div>
                                     <div class="form-group py-3">
                                         {{-- <input type="submit" value="SEND REQUEST" class="btn btn-primary"> --}}
-                                        {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}
+                                        {!! Form::submit('Submit', ['class'=>'callback-btn']) !!}
                                     </div>
 
                                 {!! Form::close() !!}
@@ -206,6 +206,9 @@
             </section>
 
 
+           
+
+
 
 
 
@@ -216,4 +219,37 @@
 
 
 
+@endsection
+
+
+@section('scripts')
+    <script>
+        
+         
+        window.onload=function(){
+            readMore();
+            }
+
+            function readMore(){
+                window.para = document.querySelectorAll(".service-card-body p");
+                var article = document.querySelectorAll(".service-card-body");
+                var cutValue=150;
+                var len=window.para.length;
+
+                for(var i=0; i<len; i++){
+                    var value = window.para[i].textContent.substr(0,cutValue);
+                    window.short = document.createElement("p");
+                    window.para[i].style.display="none";
+                    window.short.textContent=value+"...";
+                    window.short.classList.add('abt-text-secondary');
+                    article[i].insertAdjacentElement('afterbegin',window.short);
+
+                    
+                }
+                
+                
+            
+            }
+
+    </script>
 @endsection

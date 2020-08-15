@@ -27,7 +27,7 @@
                      
                     
                     {!! Form::label('description', 'Description', []) !!}
-                    {!! Form::textarea('description', null, ['class'=>'form-control']) !!}
+                    {!! Form::textarea('description', null, ['class'=>'form-control', 'maxlength'=>54]) !!}
 
                     @error('description')
                         <span class="text-warning" role="alert">

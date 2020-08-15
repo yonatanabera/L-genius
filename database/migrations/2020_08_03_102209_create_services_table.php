@@ -18,7 +18,7 @@ class CreateServicesTable extends Migration
             $table->string('icon');
             $table->string('title');
             $table->string('photo')->default('default.jpg');
-            $table->string('short_note');
+            $table->text('short_note');
             $table->text('content');
             $table->string('slug');
             $table->timestamps();

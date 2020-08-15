@@ -7,6 +7,7 @@ use App\Model\BlogCategory;
 use App\Model\ContactInformation;
 use Illuminate\Http\Request;
 use App\Http\Requests\BlogRequest;
+use App\Model\About; 
 use DataTables;
 class BlogController extends Controller
 {
@@ -24,13 +25,13 @@ class BlogController extends Controller
     {
         //
         $page='blog';
-        $blogs=Blog::paginate(3);
+        $blogs=Blog::paginate(3)->onEachSide(-1);
         $blogCategories=BlogCategory::all();
 
         $contact=ContactInformation::find(1);
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
-
-        return view('client.blog', compact('page', 'blogs', 'blogCategories', 'contact', 'popular'));
+        $about=About::find(1);
+        return view('client.blog', compact('page', 'blogs', 'blogCategories', 'contact', 'popular', 'about'));
     }
 
     /**
@@ -82,16 +83,20 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show($blog)
+    public function show($blogs)
     {
         //
         $page='blog';
-        $blog=Blog::where('slug',$blog)->first();
+        $blog=Blog::where('slug',$blogs)->first();
+        $count=$blog->count; 
+        $count=$count+1; 
+        Blog::where('slug', $blogs)->update(['count'=>$count]);
         $blogCategories=BlogCategory::all();
         $contact=ContactInformation::find(1);
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
+        $about=About::find(1);
         
-        return view('client.blog_readmore', compact('page', 'blog', 'contact', 'blogCategories', 'popular'));
+        return view('client.blog_readmore', compact('page', 'blog', 'contact', 'blogCategories', 'popular', 'about'));
     }
 
     /**
@@ -168,7 +173,8 @@ class BlogController extends Controller
         $contact=ContactInformation::find(1);
        
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
-        return view('client.blog', compact('blogs', 'blogCategories', 'contact', 'blog', 'page', 'popular'));
+        $about=About::find(1);
+        return view('client.blog', compact('blogs', 'blogCategories', 'contact', 'blog', 'page', 'popular', 'about'));
     }
 
 
@@ -208,8 +214,8 @@ class BlogController extends Controller
 
         $contact=ContactInformation::find(1);
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
-
-        return view('client.blog', compact('page', 'blogs', 'blogCategories', 'contact', 'popular'));
+        $about=About::find(1);
+        return view('client.blog', compact('page', 'blogs', 'blogCategories', 'contact', 'popular', 'about'));
         
     }
 }

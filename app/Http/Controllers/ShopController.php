@@ -7,7 +7,9 @@ use App\Model\ContactInformation;
 use Illuminate\Http\Request;
 use App\Model\BlogCategory;
 use App\Model\Blog;
-
+use App\Model\About; 
+use App\Http\Requests\ShopRequest;
+use DataTables;
 class ShopController extends Controller
 {
     /**
@@ -27,7 +29,8 @@ class ShopController extends Controller
         $total=Shop::all();
         $blogCategories=BlogCategory::all();
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
-        return view('client.shop', compact('page', 'contact', 'items', 'total', 'blogCategories', 'popular'));
+        $about=About::find(1);
+        return view('client.shop', compact('page', 'contact', 'items', 'total', 'blogCategories', 'popular', 'about'));
     }
 
     /**
@@ -38,6 +41,7 @@ class ShopController extends Controller
     public function create()
     {
         //
+        return view('admin.shop.additem');
     }
 
     /**
@@ -46,11 +50,21 @@ class ShopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ShopRequest $request)
     {
-        //
+        $data=$request->all();
+        if($file=$request->file('photo')){
+            $name=time().$request->file('photo')->getClientOriginalName();
+            $file->move('images/shops', $name);
+            $data['photo']=$name;
+            
+        }
        
+        Shop::create($data);
+        $request->session()->flash('success', 'Item Created');
+        return redirect(route('admin.blog.view'));
     }
+    
 
     /**
      * Display the specified resource.
@@ -67,7 +81,8 @@ class ShopController extends Controller
         $blogCategories=BlogCategory::all();
         $shop=Shop::all()->random(6);
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
-        return view('client.shop_readmore', compact('page', 'contact', 'item', 'blogCategories', 'popular', 'shop'));
+        $about=About::find(1);
+        return view('client.shop_readmore', compact('page', 'contact', 'item', 'blogCategories', 'popular', 'shop', 'about'));
     }
 
     /**
@@ -76,9 +91,11 @@ class ShopController extends Controller
      * @param  \App\Model\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function edit(Shop $shop)
+    public function edit( $shop)
     {
-        //
+        $data=Shop::find($shop);
+        return view('admin.shop.edit', compact('data'));
+       
     }
 
     /**
@@ -88,9 +105,19 @@ class ShopController extends Controller
      * @param  \App\Model\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shop $shop)
+    public function update(ShopRequest $request,  $shop)
     {
         //
+        $data=$request->all();
+        if($file=$request->file('photo')){
+            $name=time().$request->file('photo')->getClientOriginalName();
+            $file->move('images/shops', $name);
+            $data['photo']=$name;
+            
+        }
+        Shop::find($shop)->update($data);
+        $request->session()->flash('success', 'Item Updated');
+        return redirect(route('admin.shop.items'));
     }
 
     /**
@@ -99,9 +126,26 @@ class ShopController extends Controller
      * @param  \App\Model\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shop $shop)
+    public function destroy(Request $request, $shop)
     {
         //
+        Shop::find($shop)->delete();
+        $request->session()->flash('success', 'Blog Deleted');
+        return redirect()->back();
+    }
+
+    public function dataAjax(){
+        $data=Shop::all();
+        return Datatables::of($data)->addColumn('action', function($data){
+            $button='<a type="button" class="edit btn btn-warning btn-sm mx-1 my-1" href="'. route('shop.edit', $data->id).'" name="edit" id="'.$data->id.'"><i class="fa fa-edit"></i></a>';
+            $button.='<form method="post" action="'.route('shop.destroy', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="DELETE"><button type="submit" value="" class="edit btn btn-danger btn-sm my-1 mx-1" ><i class="fa fa-trash"></i></button></form>';
+
+            return $button;
+        })->addColumn('comment', function($data){
+            $count=count(Shop::find($data->id)->review);
+            $button='<a type="button" class="edit btn btn-primary btn-sm" href="'. route('itemReview.show', $data->id).'" name="edit" id="'.$data->id.'"> ('.$count.') Comment</a>';
+            return $button;
+        })->rawColumns(['action', 'comment'])->make(true);
     }
 
     public function items(){

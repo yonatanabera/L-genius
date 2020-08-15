@@ -11,7 +11,7 @@
      @include('includes.flash')
 
         <div class="mb-3" style="width: 150px;">
-            <img src="{{$data->profile_card_image}}" alt="..." class="img-thumbnail">
+            <img src="{{asset($data->profile_card_image)}}" alt="..." class="img-thumbnail">
         </div>
 
     

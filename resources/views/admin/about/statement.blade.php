@@ -17,7 +17,7 @@
                         
                         <div class="md-form my-4">
                             <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Identity</label>
-                            {!! Form::textarea('identity', null, ['class'=>'md-textarea form-control', 'rows'=>3]) !!}
+                            {!! Form::textarea('identity', null, ['class'=>'md-textarea form-control', 'rows'=>3, 'maxlength'=>152]) !!}
                             @error('identity')
                                 <span class="text-warning" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -27,7 +27,7 @@
 
                         <div class="md-form my-4">
                             <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Mission</label>
-                            {!! Form::textarea('mission', null, ['class'=>'md-textarea form-control', 'rows'=>3]) !!}
+                            {!! Form::textarea('mission', null, ['class'=>'md-textarea form-control', 'rows'=>3, 'maxlength'=>152]) !!}
 
                             @error('mission')
                                 <span class="text-warning" role="alert">
@@ -39,7 +39,7 @@
 
                         <div class="md-form my-4">
                             <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Vision</label>
-                            {!! Form::textarea('vision', null, ['class'=>'md-textarea form-control', 'rows'=>3]) !!}
+                            {!! Form::textarea('vision', null, ['class'=>'md-textarea form-control', 'rows'=>3, 'maxlength'=>152]) !!}
 
                             @error('vision')
                                 <span class="text-warning" role="alert">
@@ -51,7 +51,7 @@
 
                         <div class="md-form my-4">
                             <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Value</label>
-                            {!! Form::textarea('value', null, ['class'=>'md-textarea form-control', 'rows'=>3]) !!}
+                            {!! Form::textarea('value', null, ['class'=>'md-textarea form-control', 'rows'=>3, 'maxlength'=>152]) !!}
 
                             @error('value')
                                 <span class="text-warning" role="alert">

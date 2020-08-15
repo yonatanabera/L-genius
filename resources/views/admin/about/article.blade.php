@@ -9,7 +9,7 @@
             @include('includes.flash')
 
             <div class="mb-3" style="width: 150px;">
-                <img src="{{$data->article_photo}}" alt="..." class="img-thumbnail">
+                <img src="{{asset($data->article_photo)}}" alt="..." class="img-thumbnail">
             </div>
 
             {!! Form::model($data, ['method'=>'PATCH', 'files'=>true,'action'=>['AboutController@update',$data->id]]) !!}

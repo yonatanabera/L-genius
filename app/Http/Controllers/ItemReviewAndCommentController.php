@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\ItemReviewAndComment;
 use Illuminate\Http\Request;
-
+use DataTables;
+use App\Model\Shop;
 class ItemReviewAndCommentController extends Controller
 {
     /**
@@ -44,9 +45,10 @@ class ItemReviewAndCommentController extends Controller
      * @param  \App\Model\ItemReviewAndComment  $itemReviewAndComment
      * @return \Illuminate\Http\Response
      */
-    public function show(ItemReviewAndComment $itemReviewAndComment)
+    public function show( $item)
     {
         //
+        return view('admin.shop.reviews', compact('item') );
     }
 
     /**
@@ -78,8 +80,29 @@ class ItemReviewAndCommentController extends Controller
      * @param  \App\Model\ItemReviewAndComment  $itemReviewAndComment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ItemReviewAndComment $itemReviewAndComment)
+    public function destroy(Request $request, $itemReviewAndComment)
     {
         //
+        ItemReviewAndComment::find($itemReviewAndComment)->delete();
+        $request->session()->flash('success', 'Review Deleted');
+        return redirect()->back();
+    }
+
+    public function dataAjax($item){
+        
+        $data=ItemReviewAndComment::where('item_id', $item)->latest();
+        return Datatables::of($data)->editColumn('user_id', function($data){
+            return $data->user->name;
+        })->editColumn('item_id', function($data){
+            return $data->item->title;
+        })->addColumn('stars', function($data){
+            return $data->review;
+        })->addColumn('comment', function($data){
+            return $data->comment;
+        })->addColumn('action', function($data){
+            $button='<form method="post" action="'.route('itemReview.destroy', $data->id).'">'.csrf_field().'<input type="hidden" name="_method" value="DELETE"><button type="submit" value="" class="edit btn btn-danger btn-sm my-1 mx-1" ><i class="fa fa-trash"></i></button></form>';
+
+            return $button;
+        })->rawColumns(['action', 'comment'])->make(true);
     }
 }

@@ -22,7 +22,7 @@ class Blog extends Model
     public $directory='images/blogs/';
     
     protected $fillable=[
-        'title', 'photo', 'content', 'count', 'category_id', 'short_note',
+        'title', 'photo', 'content', 'count', 'category_id', 'short_note', 
     ];
 
     public function category(){

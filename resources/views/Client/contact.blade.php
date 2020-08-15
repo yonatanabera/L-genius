@@ -105,7 +105,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class=" btn btn-primary" value="SEND A MESSAGE">
+                                <input type="submit" class="contact-send-button" value="SEND A MESSAGE">
                             </div>
                         {!! Form::close() !!}
                     </div>

@@ -22,8 +22,10 @@
    <section class="header-section">
 
     <div class="hero" style="overflow-x: hidden;">
-        <nav class="home-navbar navbar px-5 navbar-expand-lg navbar-dark fixed-top s-navbar " style="font-family: digital;">
-            <h1 class=" display-4 pt-0 logo">GENIUS</h1>
+        <nav id="navbar" class="home-navbar navbar px-5 navbar-expand-lg navbar-dark fixed-top s-navbar " style="font-family: digital; transition:all ease-out 0.5s">
+            <div class="logo">
+                <img src="{{asset('images/kingo.png')}}" width=100px; alt="">
+            </div>
             <button class="navbar-toggler " data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -49,27 +51,38 @@
                     <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                         <a class="nav-link text-uppercase px-4" href="{{route('contact.index')}}" >contact</a>
                     </li>
-                    <li class="nav-item mx-1   hvr-wobble-bottom hvr-sweep-to-right">
-                        @if (Auth::user())
-                            @if (Auth::user()->role->name=='administrator')
-
-                                    <a class="nav-link text-uppercase px-4" href="{{route('admin.home')}}" >Manage </a>
-
-                            @endif
-                        @endif
-                    </li>
-                    <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
-                        @if (Auth::user())
-                            <form action="{{route('logout')}}" method="post">
-                                @csrf
-                                <button type="submit" value="logout" class="nav-link text-uppercase px-4"  style="background-color: transparent; border:none;">logout</button>
-                            </form>
-                        @else
-                            <a class="nav-link text-uppercase px-4" href="{{route('login')}}" >login</a>
-                        @endif
-
+                    @if(Auth::user())
+                    <li class="nav-item mx-1 dropdown " id="nav-dropdown-user">
+                    
+                            <button class=" dropdown-toggle" type="button" id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class='user-img' src="{{asset(Auth::user()->photo)}}"  alt=""> {{Auth::user()->name}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                
+                                    @if (Auth::user()->role->name=='administrator')
+        
+                                            <a class="dropdown-item hvr-wobble-bottom hvr-sweep-to-right" href="{{route('admin.home')}}" >Manage </a>
+                                        
+                                    @endif
+                                
+                            
+                            
+                                <form action="{{route('logout')}}" method="post">
+                                        @csrf
+                                        <button  type="submit" value="logout" class="dropdown-item hvr-wobble-bottom hvr-sweep-to-right btn-logout"  >logout</button>
+                                    
+                                    </form>
+                                
+                            </div>
                         
                     </li>
+
+                @else
+                    <li class="nav-item mx-1   hvr-wobble-bottom hvr-sweep-to-right">
+                        <a class="nav-link text-uppercase px-4" href="{{route('login')}}" >login</a>
+                    </li>
+                    
+                @endif
                     
 
                 </ul>
@@ -243,7 +256,7 @@
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <div class="img-area">
-                            <img src="{{$testimonials[0]->user_photo}}" alt="">
+                            <img src="{{asset($testimonials[0]->user_photo)}}" alt="">
                         </div>
                         <div class="carousel-caption " style="color: black;">
                           <h3>{{$testimonials[0]->username}}</h3>
@@ -253,7 +266,7 @@
                       </div>
                       <div class="carousel-item">
                         <div class="img-area">
-                            <img src="{{$testimonials[1]->user_photo}}" alt="">
+                            <img src="{{asset($testimonials[1]->user_photo)}}" alt="">
                         </div>
                         <div class="carousel-caption " style="color: black;">
 
@@ -264,7 +277,7 @@
                       </div>
                       <div class="carousel-item">
                         <div class="img-area">
-                            <img src="{{$testimonials[2]->user_photo}}" alt="">
+                            <img src="{{asset($testimonials[2]->user_photo)}}" alt="">
                         </div>
                         <div class="carousel-caption " style="color: black;">
 
@@ -361,9 +374,9 @@
         <div class="latest-blog-on-home">
 			<div class="latest-blog-one">
 					
-					<div class="latest-blog-card text-secondary">
+					<div class="latest-blog-card ">
 						<div class="latest-blog-card-img">
-							<img src="{{$blog[0]->photo}}" alt="" style="width: 100%;">
+							<img src="{{asset($blog[0]->photo)}}" alt="" style="width: 100%;">
 						</div>
 						<div class="latest-blog-card-header">
 							<h5>{{$blog[0]->title}}</h5>
@@ -379,10 +392,10 @@
 
 					</div>
 			</div>
-			<div class="latest-blog-two text-secondary">
+			<div class="latest-blog-two ">
 				<div class="latest-blog-card">
 					<div class="latest-blog-card-img">
-						<img src="{{$blog[1]->photo}}" alt="" style="width: 100%;">
+						<img src="{{asset($blog[1]->photo)}}" alt="" style="width: 100%;">
 					</div>
 					<div class="latest-blog-card-header">
 						<h5>{{$blog[1]->title}}</h5>
@@ -399,9 +412,9 @@
 				</div>
 			</div>
 			<div class="latest-blog-three">
-				<div class="latest-blog-card text-secondary">
+				<div class="latest-blog-card ">
 					<div class="latest-blog-card-img">
-						<img src="{{$blog[2]->photo}}" alt="" style="width: 100%;">
+						<img src="{{asset($blog[2]->photo)}}" alt="" style="width: 100%;">
 					</div>
 					<div class="latest-blog-card-header">
 						<h5>{{$blog[2]->title}}</h5>
@@ -422,7 +435,7 @@
 
     <section class="contact-us-on-home">
         <div class="latest-blog text-center p-5">
-            <h1 class="latest-blog-title p-4 pb-0">Contact us</h1>
+            <h1 class="latest-blog-title text-white p-4 pb-0">Contact us</h1>
         </div>
         <div class="contact-us-inner pb-5">
             <form action="">
@@ -503,18 +516,27 @@
                 <div class="footer-title mb-5">
                     <h6><span>Social</span> Links</h6>
                 </div>
-                <div class="footer-body ">
-                    <div class="footer-contact-icon mb-4 text-justify">
-                        <a class=""  href="#"><span class="mr-3 fa fa-facebook"></span> Facebook </a>
-                    </div>
-                    <div class="footer-contact-icon mb-4">
-                        <a class="" href="#"><span class="mr-3 fa fa-twitter"></span> Twitter </a>
-                    </div>
-                    <div class="footer-contact-icon mb-4">
-                        <a class="" href="#"><span class="mr-3 fa fa-google-plus"></span>Google plus </a>
-                    </div>
-                   
+               
+
+
+                
+            <div class="footer-body ">
+                <div class="footer-contact-icon mb-4 text-justify">
+                
+                    <a href="#" >  <span class="fa-holder-circle facebook"> <span class="fa fa-facebook"></span></span> FaceBook</a>
                 </div>
+                <div class="footer-contact-icon mb-4">
+                
+                    <a href="#" >  <span class="fa-holder-circle twitter"> <span class="fa fa-twitter"></span></span> Twitter</a>
+                
+                </div>
+                <div class="footer-contact-icon mb-4">
+                    <a href="#" >  <span class="fa-holder-circle gmail"> <span class="fa fa-google-plus"></span></span> Google plus</a>
+                
+                </div>
+                
+            </div> 
+    
             </div>
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-title mb-5">
@@ -537,6 +559,22 @@
     <script src="{{asset('js/libs/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/libs/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/libs/script.js')}}"></script>
+    <script type="text/javascript">
+        var lastScrollTop = 0;
+        var navbar = document.getElementById('navbar');
+        var navHeight = navbar.style.height;
+        window.addEventListener("scroll",function(){
+            var scrollTop = window.pageYOffset||document.documentElement.scrollTop;
+            if(scrollTop>lastScrollTop){
+                navbar.style.top="-120px";
+                navbar.style.background="#000";
+
+            }else{
+                navbar.style.top="0";
+            }
+            lastScrollTop= scrollTop;
+        })
+    </script>
 </body>
 </html>
 

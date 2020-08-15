@@ -20,7 +20,7 @@ class CreateShopsTable extends Migration
             $table->integer('price');
             $table->text('readmore');
             $table->text('content');
-            $table->integer('category_id');
+            $table->integer('category_id')->nullable();
             $table->string('slug');
             $table->timestamps();
         });

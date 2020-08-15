@@ -17,7 +17,7 @@ class Shop extends Model
         ];
     }
     protected $fillable=[
-        'title', 'price', 'readmore', 'category_id',
+        'title', 'price', 'readmore', 'category_id', 'photo', 'content',
     ];
 
 

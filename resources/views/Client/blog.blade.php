@@ -21,21 +21,21 @@
                             <div class="post-description">
                                 <div class="row mb-5">
                                     <div class="col-1 pr-5 post-date border-right"> <h1 class="">{{$blog->created_at->isoFormat('DD')}}</h1> <h6 class="ml-2 text-uppercase"> {{$blog->created_at->FormatLocalized('%b')}}</h6></div>
-                                    <div class=" col-8 post-title">
+                                    <div class=" col-8 post-title blog-post-title">
                                         <h4 class="text-uppercase">{{$blog->title}}</h4>
-                                        <p>By <b >Dr. Werotaw Bezabeh</b> <span> / in </span><b> {{$blog->category->name}}</b> <span> / </span> <b>{{count($blog->comment)}} Comment</b></p>
+                                        <p><span>By</span> Dr. Werotaw Bezabeh <span> / in </span> {{$blog->category->name}} <span> / </span> {{$blog->count}} Views <span> / </span> {{count($blog->comment)}} Comment</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card " style="width: 100%; border: none;">
                                 <img class="card-img-top" src="{{asset($blog->photo)}}" alt="Card image cap">
                                 <div class="card-body text-justify" style="padding: 20px 0 0 0;">
-                                <p class="card-text">{{$blog->short_note}}</p>
-                                <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Learn more</a>
+                                <p class="card-text abt-text-secondary">{{$blog->short_note}}</p>
+                                <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Read more</a>
                                 <div class="share">
-                                    <span class="text-capitalize border-info border-right">share </span>
-                                    <span><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://www.yonatanabera.com/yoni/laravel/genius/blog/{{$blog->slug}}', 'Facebook Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></i></a></span>
-                                    <span><a href="" onclick="window.open('https://www.twitter.com/share?url=https://www.yonatanabera.com/yoni/laravel/genius/blog/{{$blog->slug}}&text={{Str::words($blog->short_note, 20)}}', 'Twitter Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></i></a></span>
+                                    <span class="text-capitalize border-info border-right px-2">share </span>
+                                    <span class="px-2"><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://www.yonatanabera.com/yoni/laravel/genius/blog/{{$blog->slug}}', 'Facebook Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></i></a></span>
+                                    <span class=""><a href="" onclick="window.open('https://www.twitter.com/share?url=https://www.yonatanabera.com/yoni/laravel/genius/blog/{{$blog->slug}}&text={{Str::words($blog->short_note, 20)}}', 'Twitter Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></i></a></span>
                                     
             
             
@@ -52,7 +52,7 @@
 
 
 
-                    <div class="text-center">
+                    <div class="text-center" style="display: flex; flex:wrap; flex-direction: column; ">
                         {{$blogs->render()}}
                     </div>
                 </div>
@@ -61,23 +61,37 @@
 
                 <div class="col-lg-4 mr-0 my-5 px-5">
                     <!-- about card -->
-                    <div class="card about-card my-5 " style="width: 100%">
-                        <img class="card-img-top" src="{{asset('images/riccardo-annandale-7e2pe9wjL9M-unsplash.jpg')}}" alt="Card image cap">
-                        <div class="card-body">
-                        <h5 class="card-title">Dr. Werotaw </h5>
-                        <h6>Author and Blogger</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="flip-card">
+                        <div class="flip-card-inner ">
+                          <div class="flip-card-front">
+                            <img class="card-img-top" src="{{asset($about->profile_card_image)}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">Dr. Werotaw</h5>
+                                <h5 class="abt-text-secondary mb-4">Manager and Trainer</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <!-- <a href="#" class="btn btn-outline-primary hvr-sweep-to-top">Contact</a> -->
+                                <button class="contact-btn" onclick='flip();'>Contact</button>
+                            </div>
+                            
                         </div>
-                    </div>
+                          <div class="flip-card-back pt-5" style="font-family: bigone;" >
+                            <h1>John Doe</h1>
+                            <p>Architect & Engineer</p>
+                            <p>We love that guy</p>
+                            <h3>Contact Info</h3>
+                            <p>Phone: <span>+2519-1524-222</span></p>
+                            <p>Email: <span>Genius@genius.com</span></p>
+                          </div>
+                        </div>
+                      </div>  
                     <!-- search card -->
                     <div class="card search-card " style="width: 100%;">
                         <div class="card-body">
                             <div class="input-group mb-2 mr-sm-2 ">
                                 {!! Form::open(['method'=>'get', 'action'=>'BlogController@blogSearchAccepter']) !!}
-                                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'inlineFormInputGroupUsername2',  'placeholder'=>'Search']) !!}
-                                    <div class="input-group-prepend rounded">
-                                        <button type='submit' class="input-group-text rounded-circle bg-info text-white ml-2"><span class="fa fa-search"></span></button>
+                                    {!! Form::text('title', null, ['class'=>'form-control', 'style'=>'width: 80%; float:left; line-height: 1.5;' , 'id'=>'inlineFormInputGroupUsername2', 'required'=>true , 'placeholder'=>'Search']) !!}
+                                    <div class="input-group-prepend rounded" style="line-height: 1.5; ">
+                                        <button type='submit' class="input-group-text rounded-circle bg-info text-white ml-2 mt-1"><span class="fa fa-search"></span></button>
                                     </div>  
                                 {!! Form::close() !!}
                                 {{-- <input type="text" id="search_blog" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Search" > --}}

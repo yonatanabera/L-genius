@@ -11,7 +11,7 @@
                 
                 <div class="md-form my-4">
                 <label for="testimonyArticle" style="display: block;"> <i class="fas fa-pencil-alt prefix"></i> Service Detail</label>
-                {!! Form::textarea('content', null, ['class'=>'md-textarea form-control', 'row'=>'10']) !!}
+                {!! Form::textarea('content', null, ['class'=>'md-textarea form-control', 'row'=>'10', 'maxlength'=>154]) !!}
 
                 @error('content')
                     <span class="text-warning" role="alert">

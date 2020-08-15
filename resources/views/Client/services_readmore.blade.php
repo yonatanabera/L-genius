@@ -109,15 +109,29 @@
 
                    <div class="col-lg-4 mr-0 my-5 px-5">
                     <!-- about card -->
-                    <div class="card about-card my-5 " style="width: 100%">
-                        <img class="card-img-top" src="{{asset('images/riccardo-annandale-7e2pe9wjL9M-unsplash.jpg')}}" alt="Card image cap">
-                        <div class="card-body">
-                        <h5 class="card-title">Dr. Werotaw </h5>
-                        <h6>Author and Blogger</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="flip-card">
+                        <div class="flip-card-inner ">
+                          <div class="flip-card-front">
+                            <img class="card-img-top" src="{{asset($about->profile_card_image)}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">Dr. Werotaw</h5>
+                                <h5 class="abt-text-secondary mb-4">Manager and Trainer</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <!-- <a href="#" class="btn btn-outline-primary hvr-sweep-to-top">Contact</a> -->
+                                <button class="contact-btn" onclick='flip();'>Contact</button>
+                            </div>
+                            
                         </div>
-                    </div>
+                          <div class="flip-card-back pt-5" style="font-family: bigone;" >
+                            <h1>John Doe</h1>
+                            <p>Architect & Engineer</p>
+                            <p>We love that guy</p>
+                            <h3>Contact Info</h3>
+                            <p>Phone: <span>+2519-1524-222</span></p>
+                            <p>Email: <span>Genius@genius.com</span></p>
+                          </div>
+                        </div>
+                      </div>  
                     <!-- search card -->
                     <div class="card search-card " style="width: 100%;">
                         <div class="card-body">
@@ -142,7 +156,7 @@
                                     <div class="row ">
                                         <div class=" ml-4 col-4">
                                             <div class="card" style="width: 100%;">
-                                                <img class="card-img-top" src="/{{$populars->photo}}" alt="Card image cap">
+                                                <img class="card-img-top" src="{{asset($populars->photo)}}" alt="Card image cap">
                                                 
                                             </div>
                                         </div>

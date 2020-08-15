@@ -22,13 +22,15 @@
 </head>
 <body>
 
-    
+    @yield('js')
             <!-- the header section begins-->
             <section class="header-section">
-                <div class="jumbotron text-center s-jumbotron p-0 ">
+                <div class="jumbotron  s-jumbotron p-0 ">
                     <div class="jumbotext p-5">
-                        <nav class=" navbar px-5 navbar-expand-lg navbar-dark fixed-top s-navbar ">
-                            <h1 class=" display-4 pt-0 logo">GENIUS</h1>
+                        <nav id="navbar" class=" navbar px-5 navbar-expand-lg navbar-dark fixed-top s-navbar " style="transition:all ease-out 0.5s">
+                            <div class="logo">
+                                <img src="{{asset('images/logos.jpg')}}" width=100px; alt="">
+                            </div>
                             <button class="navbar-toggler " data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -48,33 +50,46 @@
                                     <li class="nav-item mx-1 {{$page=='shop' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                                         <a class="nav-link text-uppercase px-4" href="{{route('shop.index')}}">shop</a>
                                     </li>
-                                    <li class="nav-item  mx-3 {{$page=='blog' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
+                                    <li class="nav-item  mx-1 {{$page=='blog' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                                         <a class="nav-link text-uppercase px-4" href="{{route('blog.index')}}">blog</a>
                                     </li>
                                     <li class="nav-item mx-1 {{$page=='contact' ? "nav-active":""}}  hvr-wobble-bottom hvr-sweep-to-right">
                                         <a class="nav-link text-uppercase px-4" href="{{route('contact.index')}}" >contact</a>
                                     </li>
-                                    <li class="nav-item mx-1   hvr-wobble-bottom hvr-sweep-to-right">
-                                        @if (Auth::user())
-                                            @if (Auth::user()->role->name=='administrator')
-                
-                                                    <a class="nav-link text-uppercase px-4" href="{{route('admin.home')}}" >Manage </a>
-                
-                                            @endif
-                                        @endif
-                                    </li>
-                                    <li class="nav-item mx-1  hvr-wobble-bottom hvr-sweep-to-right">
-                                        @if (Auth::user())
-                                            <form action="{{route('logout')}}" method="post">
-                                                @csrf
-                                                <button type="submit" value="logout" class="nav-link text-uppercase px-4" style="background-color: transparent; border:none;" >logout</button>
-                                            </form>
-                                        @else
-                                            <a class="nav-link text-uppercase px-4" href="{{route('login')}}" >login</a>
-                                        @endif
-                
+                                    @if(Auth::user())
+                                        <li class="nav-item mx-1 dropdown " id="nav-dropdown-user">
                                         
-                                    </li>
+                                                <button class=" dropdown-toggle" type="button" id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <img class='user-img' src="{{asset(Auth::user()->photo)}}"  alt=""> {{Auth::user()->name}}
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    
+                                                        @if (Auth::user()->role->name=='administrator')
+                            
+                                                                <a class="dropdown-item hvr-wobble-bottom hvr-sweep-to-right" href="{{route('admin.home')}}" >Manage </a>
+                                                            
+                                                        @endif
+                                                    
+                                                
+                                                
+                                                    <form action="{{route('logout')}}" method="post">
+                                                            @csrf
+                                                            <button  type="submit" value="logout" class="dropdown-item hvr-wobble-bottom hvr-sweep-to-right btn-logout"  >logout</button>
+                                                        
+                                                        </form>
+                                                    
+                                                </div>
+                                            
+                                        </li>
+
+                                    @else
+                                        <li class="nav-item mx-1   hvr-wobble-bottom hvr-sweep-to-right">
+                                            <a class="nav-link text-uppercase px-4" href="{{route('login')}}" >login</a>
+                                        </li>
+                                        
+                                    @endif
+                                    
+                                   
                                     
                 
                                 </ul>
@@ -165,16 +180,20 @@
                 </div>
                 <div class="footer-body ">
                     <div class="footer-contact-icon mb-4 text-justify">
-                        <a class=""  href="#"><span class="mr-3 fa fa-facebook"></span> Facebook </a>
+                    
+                        <a href="#" >  <span class="fa-holder-circle facebook"> <span class="fa fa-facebook"></span></span> FaceBook</a>
                     </div>
                     <div class="footer-contact-icon mb-4">
-                        <a class="" href="#"><span class="mr-3 fa fa-twitter"></span> Twitter </a>
+                    
+                        <a href="#" >  <span class="fa-holder-circle twitter"> <span class="fa fa-twitter"></span></span> Twitter</a>
+                    
                     </div>
                     <div class="footer-contact-icon mb-4">
-                        <a class="" href="#"><span class="mr-3 fa fa-google-plus"></span>Google plus </a>
+                        <a href="#" >  <span class="fa-holder-circle gmail"> <span class="fa fa-google-plus"></span></span> Google plus</a>
+                    
                     </div>
-                   
-                </div>
+                    
+                </div> 
             </div>
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-title mb-5">
@@ -200,8 +219,23 @@
 
     <script src="{{asset('js/libs/script.js')}}"></script>
 
+    <script type="text/javascript">
+        var lastScrollTop = 0;
+        var navbar = document.getElementById('navbar');
+        var navHeight = navbar.style.height;
+        window.addEventListener("scroll",function(){
+            var scrollTop = window.pageYOffset||document.documentElement.scrollTop;
+            if(scrollTop>lastScrollTop){
+                navbar.style.top="-120px";
+                navbar.style.background="#000";
 
-    @yield('scripts');
+            }else{
+                navbar.style.top="0";
+            }
+            lastScrollTop= scrollTop;
+        })
+    </script>
+    @yield('scripts')
 
 </body>
 </html>
