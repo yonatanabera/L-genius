@@ -34,8 +34,8 @@
                                 <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-outline-info learn-more hvr-icon-bounce">Read more</a>
                                 <div class="share">
                                     <span class="text-capitalize border-info border-right px-2">share </span>
-                                    <span class="px-2"><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://www.yonatanabera.com/yoni/laravel/genius/blog/{{$blog->slug}}', 'Facebook Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></i></a></span>
-                                    <span class=""><a href="" onclick="window.open('https://www.twitter.com/share?url=https://www.yonatanabera.com/yoni/laravel/genius/blog/{{$blog->slug}}&text={{Str::words($blog->short_note, 20)}}', 'Twitter Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></i></a></span>
+                                    <span class="px-2"><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://genius.yonatanabera.com/blog/{{$blog->slug}}', 'Facebook Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-facebook-official"></i></a></span>
+                                    <span class=""><a href="" onclick="window.open('https://www.twitter.com/share?url=https://genius.yonatanabera.com/blog/{{$blog->slug}}&text={{Str::words($blog->short_note, 20)}}', 'Twitter Share', 'width=620, height=420'); return false;"><i class="fa fa-lg hvr-bounce-in text-secondary fa-twitter"></i></a></span>
                                     
             
             

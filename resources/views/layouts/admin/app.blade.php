@@ -93,9 +93,7 @@
                         <li>
                             <a href="{{route('admin.shop.orders')}}">Orders</a>
                         </li>
-                        <li>
-                            <a href="{{route('admin.shop.reviews')}}">Reviews and Comments</a>
-                        </li>
+                        
                       
                     </ul>
                 </li>

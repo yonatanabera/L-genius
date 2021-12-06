@@ -33,13 +33,13 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => 'https://www.yonatanabera.com/yoni/laravel/genius/login/facebook/callback',
+        'redirect' => 'https://genius.yonatanabera.com/login/facebook/callback',
     ],
 
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'https://www.yonatanabera.com/yoni/laravel/genius/login/google/callback',
+        'redirect' => 'https://genius.yonatanabera.com/login/google/callback',
     ],
 
 ];

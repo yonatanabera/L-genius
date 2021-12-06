@@ -75,7 +75,7 @@ class TestimonialController extends Controller
     {
         //
         $data=Testimonial::find($testimonial);
-        return view('admin\home\testimonialedit', compact('data'));
+        return view('admin.home.testimonialedit', compact('data'));
     }
 
     /**

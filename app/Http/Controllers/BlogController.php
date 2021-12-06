@@ -174,7 +174,7 @@ class BlogController extends Controller
        
         $popular=Blog::orderBy('count', 'desc')->limit(4)->get();
         $about=About::find(1);
-        return view('client.blog', compact('blogs', 'blogCategories', 'contact', 'blog', 'page', 'popular', 'about'));
+        return view('client.blog', compact('blogs', 'blogCategories', 'contact', 'page', 'popular', 'about'));
     }
 
 

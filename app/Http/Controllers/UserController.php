@@ -96,6 +96,24 @@ class UserController extends Controller
         $data=User::all();
         return Datatables::of($data)->editColumn('role_id', function($data){
             return strtoupper($data->role->name);
+        })->editColumn('photo', function($data){
+             if ($data->photo==="/images/users/profile.png"){
+                if ($data->fb_photo){
+                    
+                    $profilePhotoReply= $data->fb_photo;
+                    
+                }else{
+                   
+                        $profilePhotoReply= asset($data->photo);
+                  
+                }
+            }else{
+                
+                    $profilePhotoReply= asset($data->photo);
+                
+            }
+            
+            return $profilePhotoReply;
         })->editColumn('created_at', function($data){
             return $data->created_at->diffForHumans();
         })->addColumn('action', function($data){
@@ -104,3 +122,5 @@ class UserController extends Controller
         })->rawColumns(['action'])->make(true);
     }
 }
+
+

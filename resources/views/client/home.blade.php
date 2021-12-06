@@ -52,10 +52,25 @@
                         <a class="nav-link text-uppercase px-4" href="{{route('contact.index')}}" >contact</a>
                     </li>
                     @if(Auth::user())
+                     @if (Auth::user()->photo==="/images/users/profile.png")
+                        @if (Auth::user()->fb_photo)
+                            @php
+                            $profilePhotoReply= Auth::user()->fb_photo;
+                            @endphp
+                        @else
+                            @php
+                                $profilePhotoReply= asset(Auth::user()->photo);
+                            @endphp
+                        @endif
+                    @else
+                        @php
+                            $profilePhotoReply= asset(Auth::user()->photo);
+                        @endphp
+                    @endif
                     <li class="nav-item mx-1 dropdown " id="nav-dropdown-user">
                     
                             <button class=" dropdown-toggle" type="button" id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class='user-img' src="{{asset(Auth::user()->photo)}}"  alt=""> {{Auth::user()->name}}
+                            <img class='user-img' src="{{asset($profilePhotoReply)}}"  alt=""> {{Auth::user()->name}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 

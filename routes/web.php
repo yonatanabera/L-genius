@@ -143,7 +143,11 @@ Route::get('blogSearch/{title}', 'BlogController@blogSearch')->name('blog.search
 
 Route::get('blogSearchAccepter', 'BlogController@blogSearchAccepter')->name('blog.search.accepter');
 
+//Account deactivate url
 
+Route::get('deactivate', function(){
+	return "Account is deactivated";
+});
 
 // Facebook socialite
 
@@ -156,3 +160,4 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 Route::get('login/google', 'Auth\LoginController@redirectToProviderGoogle')->name('login.google');
 
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallbackGoogle');
+

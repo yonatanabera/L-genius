@@ -57,7 +57,7 @@
 
                         
                   {!! Form::label('short_note', 'Short Note' ) !!}
-                  {!! Form::textarea('short_note', null, ['class'=>'form-control ', 'rows'=>10]) !!}
+                  {!! Form::textarea('short_note', null, ['class'=>'form-control ', 'rows'=>10, 'maxlength'=>250]) !!}
 
                   @error('short_note')
                       <span class="text-warning" role="alert">
